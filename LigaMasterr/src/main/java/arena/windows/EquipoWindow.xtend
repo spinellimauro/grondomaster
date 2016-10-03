@@ -144,7 +144,13 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 			bindValueToProperty("dtElegido")
 			height = 80
 		]
-
+		
+		
+		new Button(panel) => [
+			caption = "Ofertar"
+			fontSize = 10
+			onClick[ new OfertaWindow(this, modelObject).open ]
+		]
 		new Table(panel, Jugador) => [
 			bindItemsToProperty("dtElegido.listaJugadores")
 			bindValueToProperty("jugadorON")
@@ -167,11 +173,7 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 			]
 		]
 		
-		new Button(panel) => [
-			caption = "Ofertar"
-			fontSize = 10
-			onClick[ new OfertaWindow(this, modelObject).open ]
-		]
+		
 		
 		
 	}

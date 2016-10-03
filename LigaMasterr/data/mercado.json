@@ -1,3 +1,11 @@
 [
-  
+  {
+    "ofertante": "Mauro",
+    "receptor": "Alejandro",
+    "monto": 20000,
+    "jugador": 231240,
+    "jugadoresOfertados": [
+      208330
+    ]
+  }
 ]

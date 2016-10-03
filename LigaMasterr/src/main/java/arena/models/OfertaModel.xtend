@@ -45,8 +45,12 @@ class OfertaModel {
 				jugadoresOfrecidos = listaJugadores
 			]
 		)
+		guardar
+		
+		
+	}
 	
-		
-		
+	def void guardar(){
+		LigaMaster.instance.guardarBase
 	}
 }

@@ -8,6 +8,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.model.UserException
+import master.LigaMaster
 
 @Observable
 @Accessors
@@ -38,12 +39,18 @@ class OfertasModel {
 		}else{
 			throw new UserException("El DT ofertante no posee ese dinero")
 		}
-				
+			
+		guardar	
 	}
 	
 	def void rechazarOferta(){
 		ofertaON.rechazar
 		ObservableUtils.firePropertyChanged(this ,"ofertasRecibidas")
 		ObservableUtils.firePropertyChanged(this ,"ofertasEnviadas")
+		guardar
+	}
+	
+	def void guardar(){
+		LigaMaster.instance.guardarBase	
 	}
 }

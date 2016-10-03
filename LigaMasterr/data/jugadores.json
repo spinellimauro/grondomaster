@@ -18,15 +18,6 @@
     "habilitado": true
   },
   {
-    "id": 199422,
-    "nombre": "J. Clasie",
-    "nivel": 78,
-    "potencial": 81,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
     "id": 197853,
     "nombre": "S. Aurier",
     "nivel": 83,
@@ -292,6 +283,15 @@
     "nombre": "T. Kroos",
     "nivel": 88,
     "potencial": 90,
+    "precio": 0,
+    "noPagadas": 0,
+    "habilitado": true
+  },
+  {
+    "id": 199422,
+    "nombre": "J. Clasie",
+    "nivel": 78,
+    "potencial": 81,
     "precio": 0,
     "noPagadas": 0,
     "habilitado": true
