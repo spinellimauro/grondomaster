@@ -113,6 +113,18 @@ class Torneo {
 		partidosTerminados.fold(0)[acum,partido|acum + partido.getGolesContra(dt)]
 	}
 	
+	def int partGanados(DT dt){
+		partidosTerminados.filter[partido | partido.getDtGanador == dt].size
+	}
+	
+	def int partPerdidos(DT dt){
+		partidosTerminados.filter[partido | partido.getDtPerdedor == dt].size
+	}
+
+	def int partEmpatados(DT dt){
+		partidosTerminados.filter[partido | partido.partidoEmpatado].filter[p|p.dtLocal == dt || p.dtVisitante == dt].size
+	}
+	
 	def int getDiferenciaGol(DT dt){
 		getGolesFavor(dt) - getGolesContra(dt)
 	}
@@ -164,10 +176,13 @@ class Torneo {
 	def terminarTorneo() {
 		var i = 0
 		if (listaPartidos.forall[terminado]) {
-			for (i = 0; i < premios.cantPremios; i++) { // pondriamos i<cantPremios Y que en premios haya un put(posicion,premio) etc
-				listaPosiciones.get(i).plata = listaPosiciones.get(i).plata + premios.getPremio(i)
+			for (i = 0; i < premios.cantPremios; i++) { 
+				getListaPosiciones.get(i).plata = getListaPosiciones.get(i).plata + premios.getPremio(i)
 			}
 			listaParticipantes.forEach[restarTorneoDisponible]
+		}
+		else{
+			throw new UserException("No estan terminados todos los partidos")
 		}
 
 //		grondomaster.guardarBase()

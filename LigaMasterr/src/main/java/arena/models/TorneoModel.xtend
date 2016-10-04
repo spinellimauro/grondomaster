@@ -26,7 +26,7 @@ class TorneoModel {
 	new(LoginModel loginModel) {
 		dtON = loginModel.dtON
 		torneoON = listaTorneos.get(0)
-		partido = fecha.get(0)
+//		partido = fecha.get(0)
 	}
 	
 	def List<Torneo> getListaTorneos(){
@@ -80,6 +80,7 @@ class TorneoModel {
 	def void terminarPartido() {
 		partido.terminarPartido
 		ObservableUtils.firePropertyChanged(this,"partidoActivo")
+		guardar
 	}
 	
 	@Dependencies("partido")
@@ -90,4 +91,9 @@ class TorneoModel {
 	def guardar(){
 		LigaMaster.instance.guardarBase
 	}
+	
+	def terminarTorneo() {
+		torneoON.terminarTorneo
+	}
+	
 }

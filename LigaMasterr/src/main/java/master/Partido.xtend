@@ -111,4 +111,19 @@ class Partido {
 			torneo.premios.getPremioEvento("Empate")
 		else 0
 	}
+	
+	def DT getDtGanador() {
+		if (golesLocal.size > golesVisitante.size) return dtLocal
+		if (golesLocal.size < golesVisitante.size) return dtVisitante
+	}
+	
+	def DT getDtPerdedor() {
+		if (golesLocal.size < golesVisitante.size) return dtLocal
+		if (golesLocal.size > golesVisitante.size) return dtVisitante
+	}
+	
+	def partidoEmpatado(){
+		if (golesLocal.size == golesVisitante.size) return true
+	}
+	
 }

@@ -28,14 +28,41 @@ class TablaWindow extends Dialog<TablaModel> {
 		new Label(panelPosiciones) => [
 			text = "Posiciones"
 			fontSize = 12
+			
+			
 		]
 		new Table(panelPosiciones, EstadisticaDT) => [
 			bindItemsToProperty("listaPosiciones")
-			numberVisibleRows = 8
+			numberVisibleRows = 20
+			
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombreDT")
 				fixedSize = 85
+			]
+			
+			new Column(it) => [
+				title = "PJ"
+				bindContentsToProperty("partJugados")
+				fixedSize = 55
+			]
+			
+			new Column(it) => [
+				title = "PG"
+				bindContentsToProperty("partGanados")
+				fixedSize = 55
+			]
+			
+			new Column(it) => [
+				title = "PE"
+				bindContentsToProperty("partEmpatados")
+				fixedSize = 55
+			]
+			
+			new Column(it) => [
+				title = "PP"
+				bindContentsToProperty("partPerdidos")
+				fixedSize = 55
 			]
 			
 			new Column(it) => [
@@ -70,7 +97,7 @@ class TablaWindow extends Dialog<TablaModel> {
 		]
 		new Table(panelGoleadores, EstadisticaJugador) => [
 			bindItemsToProperty("listaGoleadores")
-			numberVisibleRows = 8
+			numberVisibleRows = 20
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombre")
@@ -91,7 +118,7 @@ class TablaWindow extends Dialog<TablaModel> {
 		]
 		new Table(panelFairPlay, EstadisticaDT) => [
 			bindItemsToProperty("listaFairPlay")
-			numberVisibleRows = 8
+			numberVisibleRows = 20
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombreDT")
@@ -146,6 +173,10 @@ class EstadisticaDT {
 	int golesFavor
 	int golesContra
 	int difGol
+	int partGanados
+	int partPerdidos
+	int partEmpatados
+	int partJugados
 	
 	new(DT dt, Torneo torneo) {
 		nombreDT = dt.nombreDT
@@ -156,6 +187,10 @@ class EstadisticaDT {
 		golesFavor = torneo.getGolesFavor(dt)
 		golesContra = torneo.getGolesContra(dt)
 		difGol = torneo.getDiferenciaGol(dt)
+		partGanados = torneo.partGanados(dt)
+		partPerdidos = torneo.partPerdidos(dt)
+		partEmpatados = torneo.partEmpatados(dt)
+		partJugados = partGanados + partPerdidos + partEmpatados
 	}
 }
 

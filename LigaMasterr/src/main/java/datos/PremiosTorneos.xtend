@@ -24,8 +24,8 @@ class PremiosTorneos {
 		listaEventos.findFirst[evento.equals(string)].premio
 	}
 	
-	def double getPremio(Integer posicion) {
-		listaEventos.findFirst[evento.equals(posicion)].premio
+	def double getPremio(Integer _posicion) {
+		listaPosiciones.findFirst[posicion.equals(_posicion)].premio
 	}
 	
 	def crearPremio(double premio){
