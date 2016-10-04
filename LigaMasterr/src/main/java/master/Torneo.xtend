@@ -15,6 +15,7 @@ class Torneo {
 	List<DT> listaParticipantes = newArrayList
 	List<Partido> listaPartidos = newArrayList
 	int limiteAmarillas = 3
+	boolean terminadoTorneo = false
 	
 
 	def void sortearFechas() {
@@ -177,14 +178,14 @@ class Torneo {
 		var i = 0
 		if (listaPartidos.forall[terminado]) {
 			for (i = 0; i < premios.cantPremios; i++) { 
-				getListaPosiciones.get(i).plata = getListaPosiciones.get(i).plata + premios.getPremio(i)
+				getListaPosiciones.get(i).plata = getListaPosiciones.get(i).plata + premios.getPremio(i+1)
 			}
-			listaParticipantes.forEach[restarTorneoDisponible]
+			terminadoTorneo = true
 		}
 		else{
 			throw new UserException("No estan terminados todos los partidos")
 		}
-
+		
 //		grondomaster.guardarBase()
 	}
 }

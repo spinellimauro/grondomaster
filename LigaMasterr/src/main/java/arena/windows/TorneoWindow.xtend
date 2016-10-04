@@ -115,6 +115,7 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		
 		new Button(buttonPanel) => [
 			caption = "Terminar Torneo"
+			bindEnabledToProperty("torneoActivo")
 			onClick[|modelObject.terminarTorneo]
 		]
 		

@@ -242,5 +242,33 @@
       }
     ],
     "limiteAmarillas": 3
+  },
+  {
+    "torneo": "C",
+    "dts": [
+      "Mauro",
+      "Alejandro"
+    ],
+    "partidos": [
+      {
+        "fecha": 1,
+        "local": "Mauro",
+        "visitante": "Alejandro",
+        "golesLocal": [
+          
+        ],
+        "golesVisitante": [
+          
+        ],
+        "amarillas": [
+          
+        ],
+        "rojas": [
+          
+        ],
+        "terminado": true
+      }
+    ],
+    "limiteAmarillas": 3
   }
 ]

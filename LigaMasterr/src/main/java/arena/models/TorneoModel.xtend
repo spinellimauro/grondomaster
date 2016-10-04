@@ -88,12 +88,19 @@ class TorneoModel {
 		!partido.terminado
 	}
 	
+	@Dependencies("torneoON")
+	def boolean getTorneoActivo()  {
+		!torneoON.terminadoTorneo
+	}
+	
 	def guardar(){
 		LigaMaster.instance.guardarBase
 	}
 	
 	def terminarTorneo() {
 		torneoON.terminarTorneo
+		ObservableUtils.firePropertyChanged(this,"torneoActivo")
+		guardar
 	}
 	
 }
