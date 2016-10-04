@@ -21,7 +21,10 @@ class LoginModel {
 	}
 	
 	def List<DT> getListaDT(){
-		LigaMaster.instance.listaDT.sortBy[nombreDT]
+		val lista = newArrayList
+		lista.addAll(LigaMaster.instance.listaDT)
+		lista.add(LigaMaster.instance.master)
+		lista.sortBy[nombreDT]
 	}
 	
 	def void crearDT() {
@@ -32,10 +35,8 @@ class LoginModel {
 		if (listaDT.exists[nombreEquipo == dtEquipo]){
 			throw new UserException("El Equipo ya Existe")
 		}
+		
 		LigaMaster.instance.crearDT(dtNuevo,dtEquipo)
 		ObservableUtils.firePropertyChanged(this, "listaDT")
-	
-		
 	}
-	
 }

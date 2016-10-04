@@ -1,7 +1,7 @@
 [
   {
     "id": 208330,
-    "nombre": "A. Januzaj L",
+    "nombre": "A. Januzaj",
     "nivel": 76,
     "potencial": 85,
     "precio": 0,
@@ -28,7 +28,7 @@
   },
   {
     "id": 215316,
-    "nombre": "G. Rulli L",
+    "nombre": "G. Rulli",
     "nivel": 82,
     "potencial": 89,
     "precio": 0,
@@ -109,7 +109,7 @@
   },
   {
     "id": 207441,
-    "nombre": "L. Vietto L",
+    "nombre": "L. Vietto",
     "nivel": 79,
     "potencial": 86,
     "precio": 0,
@@ -145,7 +145,7 @@
   },
   {
     "id": 215316,
-    "nombre": "G. Rulli L",
+    "nombre": "G. Rulli",
     "nivel": 82,
     "potencial": 89,
     "precio": 0,
@@ -199,7 +199,7 @@
   },
   {
     "id": 213345,
-    "nombre": "K. Coman L",
+    "nombre": "K. Coman",
     "nivel": 81,
     "potencial": 88,
     "precio": 0,

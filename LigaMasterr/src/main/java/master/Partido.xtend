@@ -13,6 +13,7 @@ class Partido {
 	DT dtLocal
 	DT dtVisitante
 	boolean terminado = false
+	Torneo torneo
 	List<Jugador> golesLocal = newArrayList
 	List<Jugador> golesVisitante = newArrayList
 	List<Jugador> listaAmarillas = newArrayList
@@ -83,16 +84,31 @@ class Partido {
 	def boolean fueExpulsado(Jugador jugador) {
 		getAmarillas(jugador) == 2 || getRojas(jugador) == 1
 	}
-	
-	def getGolesFavor(DT dt){
-		if(dt.equals(dtLocal)) golesLocal.size
+
+	def getGolesFavor(DT dt) {
+		if (dt.equals(dtLocal)) golesLocal.size
 		else if(dt.equals(dtVisitante)) golesVisitante.size
 		else 0
 	}
-	
-	def getGolesContra(DT dt){
-		if(dt.equals(dtLocal)) golesVisitante.size
+
+	def getGolesContra(DT dt) {
+		if (dt.equals(dtLocal))	golesVisitante.size
 		else if(dt.equals(dtVisitante)) golesLocal.size
+		else 0
+	}
+
+	def void terminarPartido() {
+		terminado = true 
+		dtLocal.incPlata(getPremio(dtLocal))
+		dtVisitante.incPlata(getPremio(dtVisitante))
+	}
+
+	def double getPremio(DT dt) {
+		if (dt.puntos == 3) 
+			torneo.premios.getPremioEvento("Victoria") + 
+			torneo.premios.getPremioEvento("Gol") * ( getGolesFavor(dt) - getGolesContra(dt) )
+		else if (dt.puntos == 1)
+			torneo.premios.getPremioEvento("Empate")
 		else 0
 	}
 }

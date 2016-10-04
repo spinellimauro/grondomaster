@@ -18,6 +18,8 @@ class PremiosTorneosModel {
 	new(TorneoModel model) {
 		torneoON = model.torneoON
 		dtON = model.dtON
+		posicionON = listaPosiciones.get(0)
+		eventoON = listaEventos.get(0)
 	}
 	
 	def getListaPosiciones(){

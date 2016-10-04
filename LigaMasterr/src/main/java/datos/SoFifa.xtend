@@ -26,7 +26,7 @@ final class SoFifa {
 			var jugador = new Jugador
 
 			jugador.id = Integer.parseInt(docNombres.select("a[href]").get(n).attr("abs:href").replace("http://sofifa.com/player/", ""))
-			jugador.nombre = docNombres.get(n).text
+			jugador.nombre = docNombres.get(n).select("a").text
 			jugador.nivel = Integer.parseInt(docAtributes.get(atributeIndex++).text)
 			jugador.potencial = Integer.parseInt(docAtributes.get(atributeIndex++).text)
 

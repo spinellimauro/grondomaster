@@ -10,11 +10,12 @@ import org.uqbar.commons.model.UserException
 @Observable
 @Accessors
 class Torneo {
+	PremiosTorneos premios = new PremiosTorneos
 	String nombreTorneo = ""
 	List<DT> listaParticipantes = newArrayList
 	List<Partido> listaPartidos = newArrayList
 	int limiteAmarillas = 3
-	PremiosTorneos premios = new PremiosTorneos
+	
 
 	def void sortearFechas() {
 		listaPartidos.clear
@@ -44,6 +45,11 @@ class Torneo {
 
 		listaParticipantes.remove(libre)
 	}
+	
+	def void addPartido(Partido partido) {
+		partido.torneo = this
+		listaPartidos.add(partido)
+	}
 
 	def int getFechaActual() {
 		val partidosNoTerminados = listaPartidos.filter[!terminado]
@@ -60,25 +66,29 @@ class Torneo {
 	}
 
 	def List<Jugador> getListaJugadores() {
-		listaParticipantes.map[getListaJugadores].flatten.toList
+		listaParticipantes.map[listaJugadores].flatten.toList
 	}
 
 	def List<Jugador> getListaTransferibles() {
 		listaJugadores.filter[precioVenta != 0].toList
 	}
+	
+	// Tablas
 
 	def List<DT> getListaPosiciones() {
-		listaParticipantes.sortBy[puntos].reverse
+		listaParticipantes.sortBy[getPuntos(it)].reverse
 	}
 
 	def List<Jugador> getListaGoleadores() {
-		listaJugadores.filter[goles != 0].sortBy[goles].reverse
+		listaJugadores.filter[getGoles(it) != 0].sortBy[getGoles(it)].reverse
 	}
 
 	def List<DT> getListaFairPlay() {
-		listaParticipantes.sortBy[puntosFairPlay]
+		listaParticipantes.sortBy[getPuntosFairPlay(it)]
 	}
-
+	
+	// Estadisticas - DT
+	
 	def int getAmarillas(DT dt) {
 		dt.listaJugadores.fold(0)[acum, jugador|acum + getAmarillas(jugador)]
 	}
@@ -90,6 +100,24 @@ class Torneo {
 	def int getPuntosFairPlay(DT dt) {
 		getAmarillas(dt) * 4 + getRojas(dt) * 12
 	}
+	
+	def getPartidosTerminados(){
+		listaPartidos.filter[terminado]
+	}
+	
+	def int getGolesFavor(DT dt){
+		partidosTerminados.fold(0)[acum,partido|acum + partido.getGolesFavor(dt)]
+	}
+	
+	def int getGolesContra(DT dt){
+		partidosTerminados.fold(0)[acum,partido|acum + partido.getGolesContra(dt)]
+	}
+	
+	def int getDiferenciaGol(DT dt){
+		getGolesFavor(dt) - getGolesContra(dt)
+	}
+	
+	// Estadisticas - Jugador
 
 	def int getGoles(Jugador jugador) {
 		val listaGoles = listaPartidos.map[golesLocal + golesVisitante].flatten.toList
@@ -132,6 +160,7 @@ class Torneo {
 		listaParticipantes.remove(dt)
 	}
 
+
 	def terminarTorneo() {
 		var i = 0
 		if (listaPartidos.forall[terminado]) {
@@ -142,17 +171,5 @@ class Torneo {
 		}
 
 //		grondomaster.guardarBase()
-	}
-	
-	def obtenerGolesFavor(DT dt){
-		listaPartidos.fold(0)[acum,partido|acum + partido.getGolesFavor(dt)]
-	}
-	
-	def obtenerGolesContra(DT dt){
-		listaPartidos.fold(0)[acum,partido|acum + partido.getGolesContra(dt)]
-	}
-	
-	def diferenciaGol(DT dt){
-		obtenerGolesFavor(dt) - obtenerGolesContra(dt)
 	}
 }

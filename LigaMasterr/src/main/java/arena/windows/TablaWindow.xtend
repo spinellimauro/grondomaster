@@ -129,14 +129,8 @@ class TablaModel {
 	List<EstadisticaJugador> listaGoleadores = newArrayList
 
 	new(Torneo torneo) {
-		torneo.listaPosiciones.forEach [
-			listaPosiciones.add(new EstadisticaDT(it, torneo))
-		]
-
-		torneo.listaGoleadores.forEach [
-			listaGoleadores.add(new EstadisticaJugador(it, torneo))
-		]
-		
+		torneo.listaPosiciones.forEach [ listaPosiciones.add(new EstadisticaDT(it, torneo)) ]
+		torneo.listaGoleadores.forEach [ listaGoleadores.add(new EstadisticaJugador(it, torneo)) ]
 		listaFairPlay = listaPosiciones.sortBy[puntosFairPlay]
 	}
 }
@@ -159,9 +153,9 @@ class EstadisticaDT {
 		amarillas = torneo.getAmarillas(dt)
 		rojas = torneo.getRojas(dt)
 		puntosFairPlay = torneo.getPuntosFairPlay(dt)
-		golesFavor = torneo.obtenerGolesFavor(dt)
-		golesContra = torneo.obtenerGolesContra(dt)
-		difGol = torneo.diferenciaGol(dt)
+		golesFavor = torneo.getGolesFavor(dt)
+		golesContra = torneo.getGolesContra(dt)
+		difGol = torneo.getDiferenciaGol(dt)
 	}
 }
 

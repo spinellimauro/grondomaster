@@ -1,6 +1,7 @@
 package arena.windows
 
 import arena.components.LabeledSelector
+import arena.models.LoginModel
 import arena.models.TorneoModel
 import master.Partido
 import master.Torneo
@@ -10,21 +11,18 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.CheckBox
-import arena.models.LoginModel
-import org.uqbar.arena.widgets.TextBox
-import master.LigaMaster
 
 class TorneoWindow extends SimpleWindow<TorneoModel> {
 
 	new(WindowOwner parent, LoginModel model) {
 		super(parent, new TorneoModel(model))
 		title = "Liga Master"
-		
+
 	}
 
 	override createMainTemplate(Panel mainPanel) {
@@ -33,7 +31,7 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		createFechaPanel(new Panel(mainPanel))
 		createMenuPanel(new Panel(mainPanel))
 	}
-	
+
 	def createMenuPanel(Panel panel) {
 		val panelHorizontal = new Panel(panel).layout = new HorizontalLayout
 		new Label(panelHorizontal).text = "        "
@@ -51,19 +49,19 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 			width = 50
 			height = 30
 		]
-		
+
 		new Button(panel) => [
 			caption = "Editar Torneo"
 			onClick[new TorneoConfigWindow(this, modelObject).open]
 			fontSize = 10
 		]
-		
+
 		new Button(panel) => [
 			caption = "Premios Torneo Actual"
 			onClick[new PremiosTorneoWindow(this, modelObject).open]
 			fontSize = 10
 		]
-		
+
 		new Button(panel) => [
 			caption = "Estadisticas"
 			onClick[new TablaWindow(this, modelObject.torneoON).open]
@@ -72,17 +70,14 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 	}
 
 	def createFechaPanel(Panel panel) {
-		
-		
+
 		new Selector(panel) => [
 			bindItemsToProperty("listaTorneos").adapter = new PropertyAdapter(Torneo, "nombreTorneo")
 			bindValueToProperty("torneoON")
 			height = 50
 			width = 100
 		]
-		
-		
-		
+
 		new LabeledSelector(panel) => [
 			text = "\tFecha"
 			label.fontSize = 12
@@ -94,7 +89,7 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 			bindItemsToProperty("fecha")
 			bindValueToProperty("partido")
 			numberVisibleRows = 8
-			
+
 			new Column(it) => [
 				title = "Local"
 				bindContentsToProperty("dtLocal.nombreDT")
@@ -112,23 +107,18 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		]
 
 		val buttonPanel = new Panel(panel).layout = new HorizontalLayout
-		new Label(buttonPanel) => [
-			text = "Terminado"
-			fontSize = 12
-		]
-		new CheckBox(buttonPanel) => [
-			bindValueToProperty("partido.terminado")
-			height = 25
-			width = 15
+		new Button(buttonPanel) => [
+			caption = "Terminar Partido"
+			bindEnabledToProperty("partidoActivo")
+			onClick[|modelObject.terminarPartido]
 		]
 
 		new Button(buttonPanel) => [
-			caption = "Editar Partido"
+			caption = "Ver Partido"
 			onClick[new PartidoWindow(this, modelObject).open]
 			fontSize = 10
 		]
-		
-		
+
 	}
 
 	def void createTorneoPanel(Panel panel) {
@@ -139,31 +129,31 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 			fontSize = 10
 			width = 250
 		]
-		
+
 		new Button(panel) => [
 			caption = "Reglas"
 			onClick[new ReglasWindow(this).open]
 			fontSize = 10
 		]
-		
+
 		new Button(panel) => [
 			caption = "Mercado"
 			onClick[new MercadoWindow(this, modelObject).open]
 			fontSize = 10
 		]
-		
+
 		new Button(panel) => [
 			caption = "Mercado SOFIFA"
 			onClick[new MercadoSofifa(this, modelObject).open]
 			fontSize = 10
 		]
-		
+
 		new Button(panel) => [
 			caption = "Ofertas"
 			onClick[new OfertasWindow(this, modelObject.dtON).open]
 			fontSize = 10
 		]
-		
+
 		new Button(panel) => [
 			caption = "Historial"
 			onClick[new HistorialWindow(this, modelObject.dtON).open]
@@ -174,6 +164,14 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 			caption = "Update"
 			onClick[
 				modelObject.update
+			]
+			fontSize = 10
+		]
+		
+		new Button(panel) => [
+			caption = "Guardar"
+			onClick[
+				modelObject.guardar
 			]
 			fontSize = 10
 		]

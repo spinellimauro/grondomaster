@@ -11,11 +11,22 @@ import java.util.List
 @Accessors
 class LigaMaster {
 	static LigaMaster instance
-	List<Torneo> listaTorneos = newArrayList
-	List<DT> listaDT = newArrayList =>[new DT =>[nombreDT = "Master"]]
-	List<Jugador> listaJugador = newArrayList
+	List<Torneo> listaTorneos
+	List<DT> listaDT
+	List<Jugador> listaJugador
 
 	private new() {
+		initialize
+	}
+
+	def void initialize() {
+		listaTorneos = newArrayList
+		listaDT = newArrayList
+		listaJugador = newArrayList
+	}
+
+	def DT getMaster() {
+		new DT => [nombreDT = "Master"]
 	}
 
 	def Set<DT> getDTsQuePagan() {
@@ -27,9 +38,7 @@ class LigaMaster {
 	}
 
 	def void leerBase() {
-		listaDT.clear
-		listaTorneos.clear
-		listaJugador.clear
+		initialize
 		JSONAdapter.leerBase
 	}
 
@@ -51,9 +60,7 @@ class LigaMaster {
 	}
 
 	def getPropietario(Jugador jugador) {
-		val libre = new DT
-		libre.nombreDT = "Libre"
-		
+		val libre = new DT => [nombreDT = "Libre"]
 		listaDT.findFirst[listaJugadores.contains(jugador)] ?: libre
 	}
 
@@ -64,34 +71,25 @@ class LigaMaster {
 		])
 		guardarBase
 	}
-	
-	def void update(){
+
+	def void update() {
 		listaDT.forEach[listaJugadores.forEach[update]]
 	}
-	
+
 	// Cálculo del Historial
 	def List<Partido> getPartidosJugados(DT dt, DT otroDT) {
 		listaTorneos.map[listaPartidos].flatten.filter[getJugoPartido(dt) && getJugoPartido(otroDT) && terminado].toList
 	}
 
 	def int getPartidosGanados(DT dt, DT otroDT) {
-		var nPartidos = 0
-		for (partido : getPartidosJugados(dt, otroDT))
-			if(partido.getPuntos(dt) == 3) nPartidos++
-		nPartidos
+		getPartidosJugados(dt, otroDT).filter[getPuntos(dt) == 3].size
 	}
 
 	def int getPartidosEmpatados(DT dt, DT otroDT) {
-		var nPartidos = 0
-		for (partido : getPartidosJugados(dt, otroDT))
-			if(partido.getPuntos(dt) == 1) nPartidos++
-		nPartidos
+		getPartidosJugados(dt, otroDT).filter[getPuntos(dt) == 1].size
 	}
 
 	def int getPartidosPerdidos(DT dt, DT otroDT) {
-		var nPartidos = 0
-		for (partido : getPartidosJugados(dt, otroDT))
-			if(partido.getPuntos(dt) == 0) nPartidos++
-		nPartidos
+		getPartidosJugados(dt, otroDT).filter[getPuntos(dt) == 0].size
 	}
 }

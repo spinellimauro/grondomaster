@@ -26,6 +26,7 @@ class TorneoModel {
 	new(LoginModel loginModel) {
 		dtON = loginModel.dtON
 		torneoON = listaTorneos.get(0)
+		partido = fecha.get(0)
 	}
 	
 	def List<Torneo> getListaTorneos(){
@@ -74,6 +75,16 @@ class TorneoModel {
 	def update() {
 		LigaMaster.instance.update
 		guardar
+	}
+	
+	def void terminarPartido() {
+		partido.terminarPartido
+		ObservableUtils.firePropertyChanged(this,"partidoActivo")
+	}
+	
+	@Dependencies("partido")
+	def boolean getPartidoActivo()  {
+		!partido.terminado
 	}
 	
 	def guardar(){

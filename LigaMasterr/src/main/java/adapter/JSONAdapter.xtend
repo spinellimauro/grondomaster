@@ -76,7 +76,7 @@ final class JSONAdapter {
 			limiteAmarillas = jsonTorneo.get("limiteAmarillas").asInt
 
 			listaParticipantes.addAll( jsonTorneo.get("dts").asArray.map[getDT(asString)])
-			listaPartidos.addAll( jsonTorneo.get("partidos").asArray.map[toPartido])
+			jsonTorneo.get("partidos").asArray.map[toPartido].forEach[ partido | addPartido(partido) ]
 		]
 	}
 
@@ -93,6 +93,7 @@ final class JSONAdapter {
 			golesVisitante.addAll( jsonPartido.get("golesVisitante").asArray.map[getJugador(asInt)])
 			listaAmarillas.addAll(jsonPartido.get("amarillas").asArray.map[getJugador(asInt)])
 			listaRojas.addAll(jsonPartido.get("rojas").asArray.map[getJugador(asInt)])
+			
 		]
 	}
 

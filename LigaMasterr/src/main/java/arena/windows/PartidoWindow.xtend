@@ -66,18 +66,16 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 
 		val buttonPanel = new Panel(panel).layout = new HorizontalLayout
-		new Label(buttonPanel).text = "\t       "
+		new Label(buttonPanel).text = "\t          "
 		new Button(buttonPanel) => [
 			caption = "+"
 			onClick[modelObject.addGol]
-			height = 30
-			width = 30
+			bindVisibleToProperty("partidoActivo")
 		]
 		new Button(buttonPanel) => [
 			caption = "-"
 			onClick[|modelObject.removeGol]
-			height = 30
-			width = 30
+			bindVisibleToProperty("partidoActivo")
 		]
 	}
 
@@ -94,20 +92,18 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 
 		val amarillaPanel = new Panel(panel).layout = new HorizontalLayout
-		new Label(amarillaPanel).text = "      "
+		new Label(amarillaPanel).text = "         "
 		new Button(amarillaPanel) => [
 			caption = "+"
 			onClick[|modelObject.addAmarilla]
-			height = 30
-			width = 30
 			background = Color.YELLOW
+			bindVisibleToProperty("partidoActivo")
 		]
 		new Button(amarillaPanel) => [
 			caption = "-"
 			onClick[|modelObject.removeAmarilla]
-			height = 30
-			width = 30
 			background = Color.YELLOW
+			bindVisibleToProperty("partidoActivo")
 		]
 
 		new Label(panel) => [
@@ -122,21 +118,19 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 
 		val rojaPanel = new Panel(panel).layout = new HorizontalLayout
-		new Label(rojaPanel).text = "      "
+		new Label(rojaPanel).text = "         "
 		new Button(rojaPanel) => [
 			caption = "+"
 			onClick[|modelObject.addRoja]
-			height = 30
-			width = 30
 			background = Color.RED
+			bindVisibleToProperty("partidoActivo")
 		]
 
 		new Button(rojaPanel) => [
 			caption = "-"
 			onClick[|modelObject.removeRoja]
-			height = 30
-			width = 30
 			background = Color.RED
+			bindVisibleToProperty("partidoActivo")
 		]
 	}
 

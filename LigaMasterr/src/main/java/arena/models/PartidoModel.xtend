@@ -56,6 +56,10 @@ class PartidoModel {
 		guardar
 	}
 	
+	def boolean getPartidoActivo(){
+		!partido.terminado
+	}
+	
 	def void guardar(){
 		LigaMaster.instance.guardarBase
 	}
