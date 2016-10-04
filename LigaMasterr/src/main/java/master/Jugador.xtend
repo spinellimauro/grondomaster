@@ -15,7 +15,7 @@ class Jugador {
 	boolean habilitado = true
 	double precioVenta = 0
 	int vecesNoPagadas = 0
-
+	
 	def double getImpuesto() {
 		Precios.instance.getPrecio(this) * (Precios.instance.getPrecio("Impuesto") / 100)
 	}

@@ -98,9 +98,13 @@ class TorneoModel {
 	}
 	
 	def terminarTorneo() {
-		torneoON.terminarTorneo
-		ObservableUtils.firePropertyChanged(this,"torneoActivo")
-		guardar
+		if (torneoON.listaParticipantes.size < 4){throw new UserException("Torneo con pocos jugadores(<4)")}	
+		else
+		{
+			torneoON.terminarTorneo
+			ObservableUtils.firePropertyChanged(this,"torneoActivo")
+			guardar
+		}
 	}
 	
 }

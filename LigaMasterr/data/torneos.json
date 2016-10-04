@@ -7,6 +7,7 @@
       "Lean",
       "Falopa"
     ],
+    "terminadoTorneo": true,
     "partidos": [
       {
         "fecha": 1,
@@ -130,6 +131,7 @@
       "Lean",
       "Falopa"
     ],
+    "terminadoTorneo": true,
     "partidos": [
       {
         "fecha": 1,
@@ -249,6 +251,7 @@
       "Mauro",
       "Alejandro"
     ],
+    "terminadoTorneo": false,
     "partidos": [
       {
         "fecha": 1,

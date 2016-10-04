@@ -78,6 +78,7 @@ final class JSONTransformer {
 		new JsonObject => [
 			add("torneo", torneo.nombreTorneo)
 			add("dts", new JsonArray => [torneo.listaParticipantes.forEach[dt|add(dt.nombreDT)]])
+			add("terminadoTorneo", torneo.terminadoTorneo)
 			add("partidos", new JsonArray => [torneo.listaPartidos.forEach[partido|add(partido.toJSON)]])
 			add("limiteAmarillas", torneo.limiteAmarillas)
 		]

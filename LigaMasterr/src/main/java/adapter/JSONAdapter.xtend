@@ -74,7 +74,7 @@ final class JSONAdapter {
 		new Torneo => [
 			nombreTorneo = jsonTorneo.get("torneo").asString
 			limiteAmarillas = jsonTorneo.get("limiteAmarillas").asInt
-
+			terminadoTorneo = jsonTorneo.get("terminadoTorneo").asBoolean
 			listaParticipantes.addAll( jsonTorneo.get("dts").asArray.map[getDT(asString)])
 			jsonTorneo.get("partidos").asArray.map[toPartido].forEach[ partido | addPartido(partido) ]
 		]
