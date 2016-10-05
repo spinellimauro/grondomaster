@@ -37,6 +37,7 @@ class MercadoModel {
 		LigaMaster.instance.listaDT.sortBy[nombreDT]
 	}
 
+	
 	def void comprarJugador() {
 		if (dtON.plata < jugadorON.precioVenta)
 			throw new UserException("Dinero Insuficiente")

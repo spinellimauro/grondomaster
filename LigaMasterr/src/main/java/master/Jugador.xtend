@@ -62,4 +62,6 @@ class Jugador {
 	override hashCode() {
 		id
 	}
+	
+	
 }

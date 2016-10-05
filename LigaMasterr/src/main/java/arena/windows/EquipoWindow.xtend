@@ -112,13 +112,19 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 
 		new LabeledNumericField(panel) => [
 			text = "Precio: "
-			bindValueToProperty("jugadorON.precioVenta")
+			bindValueToProperty("precioVenta")
 			width = 100
 		]
-		
-		new Button(panel) =>[
+		val panelHorizontal = new Panel(panel) 
+		panelHorizontal.layout = new HorizontalLayout
+		new Button(panelHorizontal) =>[
 			caption = "Vender A La Maquina"
 			onClick[modelObject.venderJugadorALaMaquina]
+		]
+		
+		new Button(panelHorizontal) =>[
+			caption = "Poner En El Mercado"
+			onClick[modelObject.ponerEnMercado]
 		]
 
 	}

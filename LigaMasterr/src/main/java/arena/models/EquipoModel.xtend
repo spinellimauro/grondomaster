@@ -14,7 +14,7 @@ import org.uqbar.commons.utils.Observable
 class EquipoModel {
 	Torneo torneoON
 	DT dtON
-
+	double precioVenta
 	DT dtElegido
 	Jugador jugadorON
 	String valorIngresado
@@ -43,4 +43,11 @@ class EquipoModel {
 		lista.remove(dtON)
 		lista.sortBy[nombreDT].toSet
 	}
+	
+	def ponerEnMercado() {
+		jugadorON.precioVenta = precioVenta
+		LigaMaster.instance.guardarBase
+	}
+	
+	
 }
