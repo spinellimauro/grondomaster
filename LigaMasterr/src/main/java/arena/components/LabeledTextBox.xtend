@@ -28,6 +28,11 @@ class LabeledTextBox extends AbstractLabeledWidget {
 		this
 	}
 	
+	def setEnabled (String property){
+		textBox.bindEnabledToProperty(property)
+		this
+	}
+	
 	def void bindTextToProperty(String property) {
 		label.bindValueToProperty(property)
 	}

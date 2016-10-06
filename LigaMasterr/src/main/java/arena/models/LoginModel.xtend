@@ -21,10 +21,10 @@ class LoginModel {
 	}
 
 	def List<DT> getListaDT() {
-		val lista = newArrayList
-		lista.addAll(LigaMaster.instance.listaDT)
-		lista.add(LigaMaster.instance.master)
-		lista.sortBy[nombreDT]
+		newArrayList => [
+			add(LigaMaster.instance.master)
+			addAll(LigaMaster.instance.listaDT.sortBy[nombreDT])
+		]
 	}
 
 	def void crearDT() {
@@ -37,7 +37,7 @@ class LoginModel {
 			LigaMaster.instance.addDT(dt)
 		catch (Exception e)
 			throw new UserException(e.message)
-			
+
 		ObservableUtils.firePropertyChanged(this, "listaDT")
 	}
 }

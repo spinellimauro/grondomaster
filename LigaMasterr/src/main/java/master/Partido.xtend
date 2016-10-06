@@ -97,12 +97,22 @@ class Partido {
 		if(dt.equals(dtLocal)) golesVisitante.size else golesLocal.size
 	}
 
+	// Listas
+	def List<Jugador> getSuspendidos() {
+		(dtLocal.listaJugadores + dtVisitante.listaJugadores).filter[torneo.estaSuspendido(it, numeroFecha)].toList
+	}
+
+	def List<Jugador> getLesionados() {
+		(dtLocal.listaJugadores + dtVisitante.listaJugadores).filter[estaLesionado].toList
+	}
+
 	// Terminar Partido
 	def void terminarPartido() {
 		if (terminado)
 			throw new Exception("El partido ya terminó")
 
 		terminado = true
+		lesionados.forEach[decLesion]
 		dtLocal.incPlata(getPremio(dtLocal))
 		dtVisitante.incPlata(getPremio(dtVisitante))
 	}

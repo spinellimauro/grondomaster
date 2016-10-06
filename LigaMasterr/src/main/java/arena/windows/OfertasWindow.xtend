@@ -1,20 +1,20 @@
 package arena.windows
 
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
 import arena.models.OfertasModel
-import org.uqbar.arena.widgets.Panel
-import master.DT
-import org.uqbar.arena.widgets.tables.Table
-import master.Oferta
-import org.uqbar.arena.widgets.tables.Column
-import master.Jugador
 import java.util.List
+import master.DT
+import master.Jugador
+import master.Oferta
+import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
 
-class OfertasWindow extends SimpleWindow<OfertasModel> {
+class OfertasWindow extends Dialog<OfertasModel> {
 
 	new(WindowOwner parent, DT model) {
 		super(parent, new OfertasModel(model))
@@ -25,7 +25,6 @@ class OfertasWindow extends SimpleWindow<OfertasModel> {
 		
 		createRecibidosPanel(new Panel(panel))
 		createEnviadosPanel(new Panel(panel))
-		createActionsPanel(panel)
 	}
 	
 	def void createRecibidosPanel(Panel panel) {
@@ -41,7 +40,7 @@ class OfertasWindow extends SimpleWindow<OfertasModel> {
 
 			new Column(it) => [
 				title = "Ofertante"
-				bindContentsToProperty("dtOfertante").transformer = [DT dt|dt.nombreDT]
+				bindContentsToProperty("dtOfertante.nombreDT")
 				fixedSize = 80
 			]
 
@@ -53,16 +52,13 @@ class OfertasWindow extends SimpleWindow<OfertasModel> {
 
 			new Column(it) => [
 				title = "Jugador"
-				bindContentsToProperty("jugadorOfertado").transformer = [Jugador jugador|jugador.nombre]
+				bindContentsToProperty("jugadorOfertado.nombre")
 				fixedSize = 150
 			]
 
 			new Column(it) => [
 				title = "Jugadores Ofrecidos"
-				bindContentsToProperty("jugadoresOfrecidos").transformer = [ List<Jugador> jugadores |
-					jugadores.map[nombre].toString
-				]
-
+				bindContentsToProperty("jugadoresOfrecidos").transformer = [ List<Jugador> jugadores |jugadores.map[nombre].toString ]
 				fixedSize = 150
 			]
 		]
@@ -94,7 +90,7 @@ class OfertasWindow extends SimpleWindow<OfertasModel> {
 
 			new Column(it) => [
 				title = "Receptor"
-				bindContentsToProperty("dtReceptor").transformer = [DT dt|dt.nombreDT]
+				bindContentsToProperty("dtReceptor.nombreDT")
 				fixedSize = 80
 			]
 
@@ -106,29 +102,27 @@ class OfertasWindow extends SimpleWindow<OfertasModel> {
 
 			new Column(it) => [
 				title = "Jugador"
-				bindContentsToProperty("jugadorOfertado").transformer = [Jugador jugador|jugador.nombre]
+				bindContentsToProperty("jugadorOfertado.nombre")
 				fixedSize = 150
 			]
 
 			new Column(it) => [
 				title = "Jugadores Ofrecidos"
-				bindContentsToProperty("jugadoresOfrecidos").transformer = [ List<Jugador> jugadores |
-					jugadores.map[nombre].toString
-				]
+				bindContentsToProperty("jugadoresOfrecidos")
+					.transformer = [ List<Jugador> jugadores | jugadores.map[nombre].toString ]
 
 				fixedSize = 150
 			]
 		]
 		
-		new Button(panel) => [
+		val buttonPanel = new Panel(panel).layout = new HorizontalLayout
+		
+		new Button(buttonPanel) => [
 			caption = "Cancelar"
 			onClick[modelObject.rechazarOferta]
 			fontSize = 10
 		]
 	}
 
-	override protected addActions(Panel panel) {}
-
 	override protected createFormPanel(Panel mainPanel) {}
-
 }

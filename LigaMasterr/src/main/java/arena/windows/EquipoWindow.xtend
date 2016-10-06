@@ -40,6 +40,7 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 				modelObject.validar
 				modelObject.transferIn
 			]
+			bindEnabledToProperty("esMaster")
 		]
 
 		new Button(panel) => [
@@ -48,49 +49,63 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 				modelObject.validar
 				modelObject.transferOut
 			]
+			bindEnabledToProperty("esMaster")
 		]
 	}
 
 	def void createDTPanel(Panel panel) {
 		new LabeledTextBox(panel) => [
 			text = "Nombre: "
-			bindValueToProperty("dtActivo.nombreDT")
+			bindValueToProperty("dtON.nombreDT")
+			width = 85
 		]
 
 		new LabeledTextBox(panel) => [
 			text = "Equipo: "
-			bindValueToProperty("dtActivo.nombreEquipo")
+			bindValueToProperty("dtON.nombreEquipo")
+			width = 95
 		]
 
 		new LabeledTextBox(panel) => [
 			text = "Plata: "
-			bindValueToProperty("dtActivo.plata")
-
-		]
-
-		new LabeledTextBox(panel) => [
-			text = "Torneos Restantes: "
-			bindValueToProperty("dtActivo.torneosDisponibles")
+			bindValueToProperty("dtON.plata")
+			width = 110
+			enabled = "esMaster"
 		]
 
 		new LabeledTextBox(panel) => [
 			text = "Cantidad Jugadores: "
-			bindValueToProperty("dtActivo.cantJugadores")
+			bindValueToProperty("dtON.cantJugadores")
 		]
+
+		new LabeledTextBox(panel) => [
+			text = "Torneos Restantes: "
+			bindValueToProperty("dtON.torneosDisponibles")
+			enabled = "esMaster"
+		]
+
 
 		new LabeledTextBox(panel) => [
 			text = "Slots: "
 			bindValueToProperty("dtActivo.slots")
+			enabled = "esMaster"
 		]
 
 		new Button(panel) => [
 			caption = "Comprar Slot"
 			onClick[modelObject.comprarSlot]
+			fontSize = 10
 		]
 
 		new Button(panel) => [
-			caption = "Ver Ofertas"
+			caption = "Ofertas"
 			onClick[new OfertasWindow(this, modelObject.dtActivo).open]
+			fontSize = 10
+		]
+		
+		new Button(panel) => [
+			caption = "Mercado"
+			onClick[new TransferiblesWindow(this, modelObject.dtActivo).open]
 			fontSize = 10
 		]
 
@@ -111,7 +126,7 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombre")
-				fixedSize = 200
+				fixedSize = 150
 			]
 			new Column(it) => [
 				title = "Nivel"
@@ -136,7 +151,7 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 			text = "Precio: "
 			bindValueToProperty("jugadorON.precioVenta")
 			bindEnabledToProperty("jugadorPropio")
-			width = 100
+			width = 80
 		]
 
 		new Button(buttonPanel) => [
@@ -169,7 +184,7 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombre")
-				fixedSize = 200
+				fixedSize = 150
 			]
 			new Column(it) => [
 				title = "Nivel"

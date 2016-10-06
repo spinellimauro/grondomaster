@@ -6,7 +6,8 @@
     "potencial": 87,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 192227,
@@ -15,7 +16,8 @@
     "potencial": 88,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 213345,
@@ -24,7 +26,8 @@
     "potencial": 88,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 188545,
@@ -33,7 +36,8 @@
     "potencial": 90,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 205175,
@@ -42,7 +46,8 @@
     "potencial": 86,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 1
   },
   {
     "id": 1238,
@@ -51,16 +56,8 @@
     "potencial": 80,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 208330,
-    "nombre": "A. Januzaj",
-    "nivel": 76,
-    "potencial": 85,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 231240,
@@ -69,7 +66,8 @@
     "potencial": 84,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 182521,
@@ -78,7 +76,18 @@
     "potencial": 90,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
+  },
+  {
+    "id": 183855,
+    "nombre": "A. Ogbonna",
+    "nivel": 80,
+    "potencial": 81,
+    "precio": 0,
+    "noPagadas": 0,
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 197853,
@@ -87,7 +96,8 @@
     "potencial": 88,
     "precio": 0,
     "noPagadas": 1,
-    "habilitado": false
+    "habilitado": false,
+    "lesion": 0
   },
   {
     "id": 198077,
@@ -96,7 +106,8 @@
     "potencial": 84,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   },
   {
     "id": 216460,
@@ -105,6 +116,7 @@
     "potencial": 88,
     "precio": 0,
     "noPagadas": 0,
-    "habilitado": true
+    "habilitado": true,
+    "lesion": 0
   }
 ]

@@ -37,10 +37,10 @@ class EquipoModel {
 
 	def void validarOfertar() {
 		validar
-		
+
 		if (dtActivo.listaJugadores.contains(jugadorON))
 			throw new UserException("Ese jugador es tuyo")
-		
+
 		if (listaMaquina.contains(jugadorON))
 			throw new UserException("Ese jugador es de la Máquina")
 	}
@@ -86,6 +86,10 @@ class EquipoModel {
 		ObservableUtils.firePropertyChanged(this, "dtON")
 	}
 
+	def boolean esMaster() {
+		dtON.equals(LigaMaster.instance.master)
+	}
+
 	// Maquina
 	def void buscar() {
 		listaMaquina.clear
@@ -94,11 +98,11 @@ class EquipoModel {
 
 	def void comprarAMaquina() {
 		if (!listaMaquina.contains(jugadorON))
-				throw new Exception("Ese jugador no es de la Máquina")
+			throw new Exception("Ese jugador no es de la Máquina")
 
 		if (!jugadorON.propietario.nombreDT.equals("Libre"))
-				throw new Exception("Ese jugador no está Libre")
-		
+			throw new Exception("Ese jugador no está Libre")
+
 		try {
 			val jugadorMaquina = jugadorON
 

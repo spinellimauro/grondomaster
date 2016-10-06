@@ -32,40 +32,33 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		createMenuPanel(new Panel(mainPanel))
 	}
 
-	def createMenuPanel(Panel panel) {
+	def void createMenuPanel(Panel panel) {
 		val panelHorizontal = new Panel(panel).layout = new HorizontalLayout
 		new Label(panelHorizontal).text = "        "
 		new TextBox(panelHorizontal) => [
 			bindValueToProperty("textoTorneo")
 		]
+
 		new Button(panelHorizontal) => [
 			caption = "Crear"
 			fontSize = 10
 			onClick[modelObject.addTorneo()]
+			bindEnabledToProperty("esMaster")
 		]
 		new Button(panelHorizontal) => [
 			caption = "Eliminar"
 			onClick[modelObject.removeTorneo()]
 			fontSize = 10
+			bindEnabledToProperty("esMaster")
 		]
 
 		new Button(panel) => [
 			caption = "Editar Torneo"
 			onClick[new TorneoConfigWindow(this, modelObject).open]
 			fontSize = 10
+			bindEnabledToProperty("esMaster")
 		]
 
-		new Button(panel) => [
-			caption = "Premios Torneo Actual"
-			onClick[new PremiosTorneoWindow(this, modelObject).open]
-			fontSize = 10
-		]
-
-		new Button(panel) => [
-			caption = "Estadisticas"
-			onClick[new EstadisticasWindow(this, modelObject.torneoON).open]
-			fontSize = 10
-		]
 	}
 
 	def void createFechaPanel(Panel panel) {
@@ -114,11 +107,13 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		new Button(buttonPanel) => [
 			caption = "Terminar Partido"
 			onClick[|modelObject.terminarPartido]
+			bindEnabledToProperty("esMaster")
 		]
 
 		new Button(buttonPanel) => [
 			caption = "Terminar Torneo"
 			onClick[|modelObject.terminarTorneo]
+			bindEnabledToProperty("esMaster")
 		]
 
 		new Button(buttonPanel) => [
@@ -135,12 +130,24 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 			caption = "Equipos"
 			onClick[new EquipoWindow(this, modelObject).open]
 			fontSize = 10
-			width = 250
+			width = 150
 		]
 
 		new Button(panel) => [
 			caption = "Reglas"
 			onClick[new ReglasWindow(this).open]
+			fontSize = 10
+		]
+
+		new Button(panel) => [
+			caption = "Premios"
+			onClick[new PremiosTorneoWindow(this, modelObject).open]
+			fontSize = 10
+		]
+
+		new Button(panel) => [
+			caption = "Estadísticas"
+			onClick[new EstadisticasWindow(this, modelObject.torneoON).open]
 			fontSize = 10
 		]
 

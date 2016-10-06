@@ -12,6 +12,8 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.widgets.tables.Column
 
 class PartidoWindow extends SimpleWindow<PartidoModel> {
 	new(WindowOwner parent, TorneoModel model) {
@@ -20,22 +22,58 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 
 	override createMainTemplate(Panel panel) {
 		panel.layout = new HorizontalLayout
+		createNoDisponiblePanel(new Panel(panel))
 		createEquipoPanel(new Panel(panel), "Local")
 		createPartidoPanel(new Panel(panel))
 		createEquipoPanel(new Panel(panel), "Visitante")
 		createAmonestadosPanel(new Panel(panel))
-		createSuspendidosPanel(new Panel(panel))
 	}
 
-	def createSuspendidosPanel(Panel panel) {
+	def void createNoDisponiblePanel(Panel panel) {
 		new Label(panel) => [
 			text = "Suspendidos"
-			fontSize = 12
+			fontSize = 10
 		]
+
 		new List(panel) => [
 			bindItemsToProperty("suspendidos").adapter = new PropertyAdapter(Jugador, "nombre")
-			height = 215
+			height = 65
 			width = 85
+		]
+
+		new Label(panel) => [
+			text = "Lesionados"
+			fontSize = 10
+		]
+
+		new Table(panel, Jugador) => [
+			bindItemsToProperty("lesionados")
+			bindValueToProperty("jugadorON")
+			numberVisibleRows = 4
+
+			new Column(it) => [
+				bindContentsToProperty("nombre")
+				fixedSize = 85
+			]
+
+			new Column(it) => [
+				title = "Fechas"
+				bindContentsToProperty("lesion")
+				fixedSize = 50
+			]
+		]
+
+		val buttonPanel = new Panel(panel).layout = new HorizontalLayout
+		new Label(buttonPanel).text = "                  "
+		new Button(buttonPanel) => [
+			caption = "+"
+			onClick[modelObject.incLesion]
+			bindEnabledToProperty("esMaster")
+		]
+		new Button(buttonPanel) => [
+			caption = "-"
+			onClick[|modelObject.decLesion]
+			bindEnabledToProperty("esMaster")
 		]
 	}
 
@@ -46,7 +84,7 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 		new List(panel) => [
 			bindItemsToProperty("equipo" + dt).adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorSeleccionado")
+			bindValueToProperty("jugadorON")
 			height = 215
 			width = 85
 
@@ -67,13 +105,13 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		val golesPanel = new Panel(panel).layout = new HorizontalLayout
 		new List(golesPanel) => [
 			bindItemsToProperty("partidoON.golesLocal").adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorSeleccionado")
+			bindValueToProperty("jugadorON")
 			height = 100
 			width = 85
 		]
 		new List(golesPanel) => [
 			bindItemsToProperty("partidoON.golesVisitante").adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorSeleccionado")
+			bindValueToProperty("jugadorON")
 			height = 100
 			width = 85
 		]
@@ -83,12 +121,12 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		new Button(buttonPanel) => [
 			caption = "+"
 			onClick[modelObject.addGol]
-			bindVisibleToProperty("partidoActivo")
+			bindEnabledToProperty("esMaster")
 		]
 		new Button(buttonPanel) => [
 			caption = "-"
 			onClick[|modelObject.removeGol]
-			bindVisibleToProperty("partidoActivo")
+			bindEnabledToProperty("esMaster")
 		]
 	}
 
@@ -99,7 +137,7 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 		new List(panel) => [
 			bindItemsToProperty("partidoON.listaAmarillas").adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorSeleccionado")
+			bindValueToProperty("jugadorON")
 			height = 50
 			width = 85
 		]
@@ -110,13 +148,13 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 			caption = "+"
 			onClick[|modelObject.addAmarilla]
 			background = Color.YELLOW
-			bindVisibleToProperty("partidoActivo")
+			bindEnabledToProperty("esMaster")
 		]
 		new Button(amarillaPanel) => [
 			caption = "-"
 			onClick[|modelObject.removeAmarilla]
 			background = Color.YELLOW
-			bindVisibleToProperty("partidoActivo")
+			bindEnabledToProperty("esMaster")
 		]
 
 		new Label(panel) => [
@@ -125,7 +163,7 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 		new List(panel) => [
 			bindItemsToProperty("partidoON.listaRojas").adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorSeleccionado")
+			bindValueToProperty("jugadorON")
 			height = 50
 			width = 85
 		]
@@ -136,14 +174,14 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 			caption = "+"
 			onClick[|modelObject.addRoja]
 			background = Color.RED
-			bindVisibleToProperty("partidoActivo")
+			bindEnabledToProperty("esMaster")
 		]
 
 		new Button(rojaPanel) => [
 			caption = "-"
 			onClick[|modelObject.removeRoja]
 			background = Color.RED
-			bindVisibleToProperty("partidoActivo")
+			bindEnabledToProperty("esMaster")
 		]
 	}
 

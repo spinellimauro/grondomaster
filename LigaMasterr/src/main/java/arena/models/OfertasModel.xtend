@@ -15,42 +15,51 @@ import master.LigaMaster
 class OfertasModel {
 	DT dtON
 	Oferta ofertaON
-	
+
 	new(DT dt) {
 		dtON = dt
 	}
-	
-	def List<Oferta> getOfertasRecibidas(){
+
+	def List<Oferta> getOfertasRecibidas() {
 		Mercado.instance.getOfertasRecibidas(dtON)
 	}
-	
-	def List<Oferta> getOfertasEnviadas(){
+
+	def List<Oferta> getOfertasEnviadas() {
 		Mercado.instance.getOfertasEnviadas(dtON)
 	}
-	
-	def void aceptarOferta(){
-		if (ofertaON.dtOfertante.slots < dtON.listaJugadores.size + 1){
-			throw new UserException("No posee suficiente Slots")
-		}
-		
-		if(ofertaON.monto <= ofertaON.dtOfertante.plata){
-			ofertaON.aceptar
-			ObservableUtils.firePropertyChanged(this ,"ofertasRecibidas")
-		}else{
-			throw new UserException("El DT ofertante no posee ese dinero")
-		}
-			
-		guardar	
-	}
-	
-	def void rechazarOferta(){
-		ofertaON.rechazar
-		ObservableUtils.firePropertyChanged(this ,"ofertasRecibidas")
-		ObservableUtils.firePropertyChanged(this ,"ofertasEnviadas")
+
+	def void aceptarOferta() {
+		if (!ofertasRecibidas.contains(ofertaON))
+			throw new UserException("No podás aceptar esa oferta")
+
+		// Ofertante
+		if (ofertaON.dtOfertante.slots < ofertaON.dtOfertante.cantJugadores + 1)
+			throw new UserException("El DT ofertante no tiene suficiente slots")
+
+		if (ofertaON.dtOfertante.plata < ofertaON.monto)
+			throw new UserException("El DT ofertante no tiene esa plata")
+
+		// Receptor
+		if (dtON.slots < dtON.cantJugadores + ofertaON.jugadoresOfrecidos.size)
+			throw new UserException("No tenés suficientes slots")
+
+		ofertaON.aceptar
+
+		ObservableUtils.firePropertyChanged(this, "ofertasRecibidas")
+
 		guardar
 	}
-	
-	def void guardar(){
-		LigaMaster.instance.guardarBase	
+
+	def void rechazarOferta() {
+		ofertaON.rechazar
+
+		ObservableUtils.firePropertyChanged(this, "ofertasRecibidas")
+		ObservableUtils.firePropertyChanged(this, "ofertasEnviadas")
+
+		guardar
+	}
+
+	def void guardar() {
+		LigaMaster.instance.guardarBase
 	}
 }

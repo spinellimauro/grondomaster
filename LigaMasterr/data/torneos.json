@@ -144,12 +144,13 @@
           
         ],
         "amarillas": [
-          
+          198077,
+          198077
         ],
         "rojas": [
-          
+          216460
         ],
-        "terminado": false
+        "terminado": true
       },
       {
         "fecha": 1,
@@ -167,7 +168,7 @@
         "rojas": [
           
         ],
-        "terminado": false
+        "terminado": true
       },
       {
         "fecha": 2,
@@ -185,7 +186,7 @@
         "rojas": [
           
         ],
-        "terminado": false
+        "terminado": true
       },
       {
         "fecha": 2,
@@ -203,7 +204,7 @@
         "rojas": [
           
         ],
-        "terminado": false
+        "terminado": true
       },
       {
         "fecha": 3,

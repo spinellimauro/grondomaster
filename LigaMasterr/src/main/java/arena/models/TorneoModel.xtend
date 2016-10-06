@@ -89,6 +89,10 @@ class TorneoModel {
 
 		guardar
 	}
+	
+	def boolean esMaster() {
+		dtON.equals(LigaMaster.instance.master)
+	}
 
 	def void guardar() {
 		LigaMaster.instance.guardarBase

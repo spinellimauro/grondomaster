@@ -34,7 +34,7 @@ class LigaMaster {
 	}
 
 	def Set<Jugador> getListaTransferibles() {
-		listaJugador.filter[precioVenta > 0].toSet
+		listaDT.map[listaJugador].flatten.filter[precioVenta > 0].toSet
 	}
 
 	def void leerBase() {

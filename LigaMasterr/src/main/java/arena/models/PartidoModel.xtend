@@ -1,29 +1,32 @@
 package arena.models
 
 import java.util.List
+import master.DT
 import master.Jugador
 import master.LigaMaster
 import master.Partido
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
-import master.Torneo
 
 @Observable
 @Accessors
 class PartidoModel {
-	Torneo torneoON
+	DT dtON
 	Partido partidoON
-	Jugador jugadorSeleccionado
+	Jugador jugadorON
 
 	new(TorneoModel model) {
 		partidoON = model.partidoON
-		torneoON = model.torneoON
+		dtON = model.dtON
 	}
 
+	// Listas
 	def List<Jugador> getEquipoLocal() {
 		newArrayList => [
 			addAll(partidoON.dtLocal.listaJugadores.sortBy[nombre])
 			removeAll(suspendidos)
+			removeAll(lesionados)
 		]
 	}
 
@@ -31,47 +34,63 @@ class PartidoModel {
 		newArrayList => [
 			addAll(partidoON.dtVisitante.listaJugadores.sortBy[nombre])
 			removeAll(suspendidos)
+			removeAll(lesionados)
 		]
 	}
 
 	def List<Jugador> getSuspendidos() {
-		(partidoON.dtLocal.listaJugadores + partidoON.dtVisitante.listaJugadores).filter [
-			torneoON.estaSuspendido(it, partidoON.numeroFecha)
-		].toList
+		partidoON.suspendidos
 	}
 
+	def List<Jugador> getLesionados() {
+		partidoON.lesionados
+	}
+
+	// Goles
 	def void addGol() {
-		partidoON.addGol(jugadorSeleccionado)
+		partidoON.addGol(jugadorON)
 		guardar
 	}
 
 	def void removeGol() {
-		partidoON.removeGol(jugadorSeleccionado)
+		partidoON.removeGol(jugadorON)
 		guardar
 	}
 
+	// Amonestaciones
 	def void addAmarilla() {
-		partidoON.addAmarilla(jugadorSeleccionado)
+		partidoON.addAmarilla(jugadorON)
 		guardar
 	}
 
 	def void removeAmarilla() {
-		partidoON.removeAmarilla(jugadorSeleccionado)
+		partidoON.removeAmarilla(jugadorON)
 		guardar
 	}
 
 	def void addRoja() {
-		partidoON.addRoja(jugadorSeleccionado)
+		partidoON.addRoja(jugadorON)
 		guardar
 	}
 
 	def void removeRoja() {
-		partidoON.removeRoja(jugadorSeleccionado)
+		partidoON.removeRoja(jugadorON)
 		guardar
 	}
 
-	def boolean getPartidoActivo() {
-		!partidoON.terminado
+	// Lesion
+	def void incLesion() {
+		jugadorON.incLesion
+		ObservableUtils.firePropertyChanged(this, "lesionados")
+	}
+
+	def void decLesion() {
+		jugadorON.decLesion
+		ObservableUtils.firePropertyChanged(this, "lesionados")
+	}
+
+	def boolean esMaster() {
+		dtON.equals(LigaMaster.instance.master) && !partidoON.terminado
 	}
 
 	def void guardar() {

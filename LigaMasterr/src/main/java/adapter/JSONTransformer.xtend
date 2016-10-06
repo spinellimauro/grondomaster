@@ -53,6 +53,7 @@ final class JSONTransformer {
 			add("precio", jugador.precioVenta)
 			add("noPagadas", jugador.vecesNoPagadas)
 			add("habilitado", jugador.habilitado)
+			add("lesion",jugador.lesion)
 		]
 	}
 

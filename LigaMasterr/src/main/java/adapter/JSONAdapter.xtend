@@ -39,6 +39,7 @@ final class JSONAdapter {
 			precioVenta = jsonJugador.get("precio").asDouble
 			vecesNoPagadas = jsonJugador.get("noPagadas").asInt
 			habilitado = jsonJugador.get("habilitado").asBoolean
+			lesion = jsonJugador.get("lesion").asInt
 		]
 	}
 
