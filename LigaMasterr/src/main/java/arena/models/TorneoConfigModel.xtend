@@ -1,55 +1,66 @@
 package arena.models
 
+import java.util.List
 import master.DT
+import master.LigaMaster
 import master.Torneo
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Observable
-import master.LigaMaster
-import adapter.JSONAdapter
-import java.util.List
 import org.uqbar.commons.model.UserException
+import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 @Accessors
 class TorneoConfigModel {
-	TorneoModel model
 	Torneo torneoON
 	DT dtON
-	DT dtIngresado
-	
+	String textoTorneo = ""
+
 	new(TorneoModel torneoModel) {
-		model = torneoModel
 		torneoON = torneoModel.torneoON
+		textoTorneo = torneoON.nombreTorneo
 	}
 	
-	def List<DT> getListaDT(){
-		LigaMaster.instance.listaDT
+	def void setTextoTorneo( String string ){
+		torneoON.nombreTorneo = string
+		textoTorneo = string
+		
+		guardar
+	}
+	
+	def List<DT> getListaDT() {
+		newArrayList => [
+			addAll(LigaMaster.instance.listaDT.sortBy[nombreDT])
+			removeAll(torneoON.listaParticipantes)
+		]
 	}
 
 	def void addDT() {
-		torneoON.addDT(dt)
-		dtIngresado.torneosDisponibles = dtIngresado.torneosDisponibles - 1
+		if (dtON == null)
+			throw new UserException("Debe seleccionar un DT de la Lista")
+
+		if (torneoON.listaParticipantes.contains(dtON))
+			throw new UserException("El DT ya está en el Torneo")
+
+		torneoON.listaParticipantes.add(dtON)
+		dtON.decTorneos
+		ObservableUtils.firePropertyChanged(this, "listaDT")
+
 		guardar
 	}
 
-	def void getRemoveDT() {
+	def void removeDT() {
+		if (dtON == null)
+			throw new UserException("Debe seleccionar un DT de la Lista")
+
+		dtON.incTorneos
+		torneoON.listaParticipantes.remove(dtON)
+		ObservableUtils.firePropertyChanged(this, "listaDT")
 		
-		if (dtON == null) throw new UserException("Debe seleccionar un jugador de la Lista")
-		
-		torneoON.removeDT(dtON)
-		dtIngresado.torneosDisponibles = dtIngresado.torneosDisponibles + 1
 		guardar
 	}
-	
-	def boolean dtTieneQuePagar(){
-		dt.tieneQuePagar
-	}
-	
-	def getDt(){
-		JSONAdapter.getDT(dtIngresado.nombreDT)
-	}
 
-	def void guardar(){
+	def void guardar() {
 		LigaMaster.instance.guardarBase
 	}
 

@@ -7,9 +7,9 @@ import master.DT
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 
@@ -22,50 +22,51 @@ class TorneoConfigWindow extends Dialog<TorneoConfigModel> {
 	override createMainTemplate(Panel panel) {
 		new LabeledTextBox(panel) => [
 			text = "Nombre: "
-			bindValueToProperty("torneoON.nombreTorneo")
-			width = 150
+			bindValueToProperty("textoTorneo")
+			width = 100
 		]
+
+		val panelHorizontal = new Panel(panel).layout = new HorizontalLayout
+		createParticipantesPanel(new Panel(panelHorizontal))
+		createTransferPanel(new Panel(panelHorizontal))
+		createDTPanel(new Panel(panelHorizontal))
+	}
+
+	def void createDTPanel(Panel panel) {
+		new Label(panel).text = "Disponibles"
+
+		new List(panel) => [
+			bindItemsToProperty("listaDT").adapter = new PropertyAdapter(DT, "nombreDT")
+			bindValueToProperty("dtON")
+			height = 100
+		]
+	}
+
+	def void createTransferPanel(Panel panel) {
+		new Label(panel).text = "\n\n\n"
+		new Button(panel) => [
+			caption = "<="
+			onClick[
+				if (modelObject.dtON.pagaImpuesto)
+					new ImpuestosWindow(this, modelObject).open
+				else
+					modelObject.addDT
+			]
+		]
+
+		new Button(panel) => [
+			caption = "=>"
+			onClick[modelObject.removeDT]
+		]
+	}
+
+	def void createParticipantesPanel(Panel panel) {
+		new Label(panel).text = "Participantes"
 
 		new List(panel) => [
 			bindItemsToProperty("torneoON.listaParticipantes").adapter = new PropertyAdapter(DT, "nombreDT")
 			bindValueToProperty("dtON")
 			height = 100
-		]
-		
-		val panelNuevo = new Panel(panel).layout = new HorizontalLayout
-		
-		new Selector(panelNuevo)=>[	
-			bindItemsToProperty("listaDT").adapter = new PropertyAdapter(DT, "nombreDT")
-			bindValueToProperty("dtIngresado")
-		]
-
-		new Button(panelNuevo) => [
-			caption = "+"
-			onClick[
-				if (modelObject.dtTieneQuePagar){
-					new ImpuestosWindow(this, modelObject).open
-				}else modelObject.addDT
-			]
-			fontSize = 10
-			width = 30
-		]
-		new Button(panelNuevo) => [
-			caption = "-"
-			onClick[|modelObject.removeDT]
-			fontSize = 10
-			width = 30
-		]
-		
-		new Button(panelNuevo) => [
-			caption = "Sortear Fixture"
-			onClick[|modelObject.model.sortearFechas]
-			fontSize = 10
-		]
-		
-		new Button(panelNuevo) => [
-			caption = "Cambiar Nombre"
-			onClick[|modelObject.guardar]
-			fontSize = 10
 		]
 	}
 

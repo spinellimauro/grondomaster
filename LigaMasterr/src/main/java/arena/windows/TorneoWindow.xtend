@@ -36,18 +36,17 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		val panelHorizontal = new Panel(panel).layout = new HorizontalLayout
 		new Label(panelHorizontal).text = "        "
 		new TextBox(panelHorizontal) => [
-			bindValueToProperty("nombreNuevoTorneo")
+			bindValueToProperty("textoTorneo")
 		]
 		new Button(panelHorizontal) => [
 			caption = "Crear"
-			width = 50
-			height = 30
-			onClick[modelObject.crearTorneo()]
+			fontSize = 10
+			onClick[modelObject.addTorneo()]
 		]
 		new Button(panelHorizontal) => [
 			caption = "Eliminar"
-			width = 50
-			height = 30
+			onClick[modelObject.removeTorneo()]
+			fontSize = 10
 		]
 
 		new Button(panel) => [
@@ -64,13 +63,12 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 
 		new Button(panel) => [
 			caption = "Estadisticas"
-			onClick[new TablaWindow(this, modelObject.torneoON).open]
+			onClick[new EstadisticasWindow(this, modelObject.torneoON).open]
 			fontSize = 10
 		]
 	}
 
-	def createFechaPanel(Panel panel) {
-
+	def void createFechaPanel(Panel panel) {
 		new Selector(panel) => [
 			bindItemsToProperty("listaTorneos").adapter = new PropertyAdapter(Torneo, "nombreTorneo")
 			bindValueToProperty("torneoON")
@@ -87,7 +85,7 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 
 		new Table(panel, Partido) => [
 			bindItemsToProperty("fecha")
-			bindValueToProperty("partido")
+			bindValueToProperty("partidoON")
 			numberVisibleRows = 8
 
 			new Column(it) => [
@@ -104,22 +102,25 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 				bindContentsToProperty("dtVisitante.nombreDT")
 				fixedSize = 80
 			]
+
+			new Column(it) => [
+				title = "Terminado"
+				bindContentsToProperty("terminado").transformer = [terminado|if(terminado) "Si" else "No"]
+				fixedSize = 80
+			]
 		]
 
 		val buttonPanel = new Panel(panel).layout = new HorizontalLayout
 		new Button(buttonPanel) => [
 			caption = "Terminar Partido"
-			bindEnabledToProperty("partidoActivo")
 			onClick[|modelObject.terminarPartido]
 		]
-		
+
 		new Button(buttonPanel) => [
 			caption = "Terminar Torneo"
-			bindEnabledToProperty("torneoActivo")
 			onClick[|modelObject.terminarTorneo]
 		]
-		
-		
+
 		new Button(buttonPanel) => [
 			caption = "Ver Partido"
 			onClick[new PartidoWindow(this, modelObject).open]
@@ -144,24 +145,6 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 		]
 
 		new Button(panel) => [
-			caption = "Mercado"
-			onClick[new MercadoWindow(this, modelObject).open]
-			fontSize = 10
-		]
-
-		new Button(panel) => [
-			caption = "Mercado SOFIFA"
-			onClick[new MercadoSofifa(this, modelObject).open]
-			fontSize = 10
-		]
-
-		new Button(panel) => [
-			caption = "Ofertas"
-			onClick[new OfertasWindow(this, modelObject.dtON).open]
-			fontSize = 10
-		]
-
-		new Button(panel) => [
 			caption = "Historial"
 			onClick[new HistorialWindow(this, modelObject.dtON).open]
 			fontSize = 10
@@ -169,23 +152,14 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 
 		new Button(panel) => [
 			caption = "Update"
-			onClick[
-				modelObject.update
-			]
-			fontSize = 10
-		]
-		
-		new Button(panel) => [
-			caption = "Guardar"
-			onClick[
-				modelObject.guardar
-			]
+			onClick[modelObject.update]
 			fontSize = 10
 		]
 
 		new Button(panel) => [
 			caption = "Salir"
 			onClick[
+				modelObject.guardar
 				close
 				new LoginWindow(this).open
 			]

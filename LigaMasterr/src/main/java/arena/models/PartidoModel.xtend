@@ -1,66 +1,80 @@
 package arena.models
 
+import java.util.List
 import master.Jugador
+import master.LigaMaster
 import master.Partido
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import java.util.List
-import master.LigaMaster
+import master.Torneo
 
 @Observable
 @Accessors
 class PartidoModel {
-	String nombreLocal
-	String nombreVisitante
-	List<Jugador> equipoLocal
-	List<Jugador> equipoVisitante
-
-	Partido partido
+	Torneo torneoON
+	Partido partidoON
 	Jugador jugadorSeleccionado
 
 	new(TorneoModel model) {
-		partido = model.partido
-		nombreLocal = partido.dtLocal.nombreDT
-		nombreVisitante = partido.dtVisitante.nombreDT
-		equipoLocal = partido.dtLocal.listaJugadores.filter[!model.torneoON.estaSuspendido(it)].toList
-		equipoVisitante = partido.dtVisitante.listaJugadores.filter[!model.torneoON.estaSuspendido(it)].toList
+		partidoON = model.partidoON
+		torneoON = model.torneoON
+	}
+
+	def List<Jugador> getEquipoLocal() {
+		newArrayList => [
+			addAll(partidoON.dtLocal.listaJugadores.sortBy[nombre])
+			removeAll(suspendidos)
+		]
+	}
+
+	def List<Jugador> getEquipoVisitante() {
+		newArrayList => [
+			addAll(partidoON.dtVisitante.listaJugadores.sortBy[nombre])
+			removeAll(suspendidos)
+		]
+	}
+
+	def List<Jugador> getSuspendidos() {
+		(partidoON.dtLocal.listaJugadores + partidoON.dtVisitante.listaJugadores).filter [
+			torneoON.estaSuspendido(it, partidoON.numeroFecha)
+		].toList
 	}
 
 	def void addGol() {
-		partido.addGol(jugadorSeleccionado)
+		partidoON.addGol(jugadorSeleccionado)
 		guardar
 	}
 
 	def void removeGol() {
-		partido.removeGol(jugadorSeleccionado)
+		partidoON.removeGol(jugadorSeleccionado)
 		guardar
 	}
 
 	def void addAmarilla() {
-		partido.addAmarilla(jugadorSeleccionado)
+		partidoON.addAmarilla(jugadorSeleccionado)
 		guardar
 	}
 
 	def void removeAmarilla() {
-		partido.removeAmarilla(jugadorSeleccionado)
+		partidoON.removeAmarilla(jugadorSeleccionado)
 		guardar
 	}
 
 	def void addRoja() {
-		partido.addRoja(jugadorSeleccionado)
+		partidoON.addRoja(jugadorSeleccionado)
 		guardar
 	}
 
 	def void removeRoja() {
-		partido.removeRoja(jugadorSeleccionado)
+		partidoON.removeRoja(jugadorSeleccionado)
 		guardar
 	}
-	
-	def boolean getPartidoActivo(){
-		!partido.terminado
+
+	def boolean getPartidoActivo() {
+		!partidoON.terminado
 	}
-	
-	def void guardar(){
+
+	def void guardar() {
 		LigaMaster.instance.guardarBase
 	}
 }

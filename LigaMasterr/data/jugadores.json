@@ -1,189 +1,9 @@
 [
   {
-    "id": 208330,
-    "nombre": "A. Januzaj",
-    "nivel": 76,
-    "potencial": 85,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 188545,
-    "nombre": "R. Lewandowski",
-    "nivel": 90,
-    "potencial": 90,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 197853,
-    "nombre": "S. Aurier",
-    "nivel": 83,
-    "potencial": 88,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 215316,
-    "nombre": "G. Rulli",
-    "nivel": 82,
-    "potencial": 89,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 216460,
-    "nombre": "J. Giménez",
-    "nivel": 83,
-    "potencial": 88,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 188545,
-    "nombre": "R. Lewandowski",
-    "nivel": 90,
-    "potencial": 90,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 231240,
-    "nombre": "E. Mor",
-    "nivel": 64,
-    "potencial": 84,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 199503,
-    "nombre": "G. Xhaka",
-    "nivel": 84,
-    "potencial": 87,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 191180,
-    "nombre": "J. Pastore",
-    "nivel": 85,
-    "potencial": 86,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 208333,
-    "nombre": "E. Can",
-    "nivel": 80,
-    "potencial": 86,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 216460,
-    "nombre": "J. Giménez",
-    "nivel": 83,
-    "potencial": 88,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
     "id": 216594,
     "nombre": "N. Fekir",
     "nivel": 81,
     "potencial": 87,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 207441,
-    "nombre": "L. Vietto",
-    "nivel": 79,
-    "potencial": 86,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 229270,
-    "nombre": "M. Lemos",
-    "nivel": 78,
-    "potencial": 86,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 1238,
-    "nombre": "F. Totti",
-    "nivel": 80,
-    "potencial": 80,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 193301,
-    "nombre": "A. Lacazette",
-    "nivel": 85,
-    "potencial": 89,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 215316,
-    "nombre": "G. Rulli",
-    "nivel": 82,
-    "potencial": 89,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 192985,
-    "nombre": "K. De Bruyne",
-    "nivel": 88,
-    "potencial": 91,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 203551,
-    "nombre": "A. Florenzi",
-    "nivel": 82,
-    "potencial": 85,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 197853,
-    "nombre": "S. Aurier",
-    "nivel": 83,
-    "potencial": 88,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 203042,
-    "nombre": "J. Butland",
-    "nivel": 82,
-    "potencial": 89,
     "precio": 0,
     "noPagadas": 0,
     "habilitado": true
@@ -207,64 +27,10 @@
     "habilitado": true
   },
   {
-    "id": 209889,
-    "nombre": "R. Guerreiro",
-    "nivel": 76,
-    "potencial": 82,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 198951,
-    "nombre": "C. Bakambu",
-    "nivel": 81,
-    "potencial": 85,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 205995,
-    "nombre": "J. Willems",
-    "nivel": 79,
-    "potencial": 84,
-    "precio": 12000,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 225199,
-    "nombre": "V. Koziello",
-    "nivel": 79,
-    "potencial": 87,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 183855,
-    "nombre": "A. Ogbonna",
-    "nivel": 80,
-    "potencial": 81,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 202477,
-    "nombre": "Deulofeu",
-    "nivel": 81,
-    "potencial": 88,
-    "precio": 0,
-    "noPagadas": 0,
-    "habilitado": true
-  },
-  {
-    "id": 204529,
-    "nombre": "M. Batshuayi",
-    "nivel": 81,
-    "potencial": 86,
+    "id": 188545,
+    "nombre": "R. Lewandowski",
+    "nivel": 90,
+    "potencial": 90,
     "precio": 0,
     "noPagadas": 0,
     "habilitado": true
@@ -279,6 +45,33 @@
     "habilitado": true
   },
   {
+    "id": 1238,
+    "nombre": "F. Totti",
+    "nivel": 80,
+    "potencial": 80,
+    "precio": 0,
+    "noPagadas": 0,
+    "habilitado": true
+  },
+  {
+    "id": 208330,
+    "nombre": "A. Januzaj",
+    "nivel": 76,
+    "potencial": 85,
+    "precio": 0,
+    "noPagadas": 0,
+    "habilitado": true
+  },
+  {
+    "id": 231240,
+    "nombre": "E. Mor",
+    "nivel": 64,
+    "potencial": 84,
+    "precio": 0,
+    "noPagadas": 0,
+    "habilitado": true
+  },
+  {
     "id": 182521,
     "nombre": "T. Kroos",
     "nivel": 88,
@@ -288,19 +81,28 @@
     "habilitado": true
   },
   {
-    "id": 199422,
-    "nombre": "J. Clasie",
-    "nivel": 78,
-    "potencial": 81,
+    "id": 197853,
+    "nombre": "S. Aurier",
+    "nivel": 83,
+    "potencial": 88,
+    "precio": 0,
+    "noPagadas": 1,
+    "habilitado": false
+  },
+  {
+    "id": 198077,
+    "nombre": "P. Herrmann",
+    "nivel": 81,
+    "potencial": 84,
     "precio": 0,
     "noPagadas": 0,
     "habilitado": true
   },
   {
-    "id": 198141,
-    "nombre": "Bartra",
-    "nivel": 81,
-    "potencial": 84,
+    "id": 216460,
+    "nombre": "J. Giménez",
+    "nivel": 83,
+    "potencial": 88,
     "precio": 0,
     "noPagadas": 0,
     "habilitado": true

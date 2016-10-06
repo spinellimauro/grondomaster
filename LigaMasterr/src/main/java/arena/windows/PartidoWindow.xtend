@@ -24,11 +24,24 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		createPartidoPanel(new Panel(panel))
 		createEquipoPanel(new Panel(panel), "Visitante")
 		createAmonestadosPanel(new Panel(panel))
+		createSuspendidosPanel(new Panel(panel))
+	}
+
+	def createSuspendidosPanel(Panel panel) {
+		new Label(panel) => [
+			text = "Suspendidos"
+			fontSize = 12
+		]
+		new List(panel) => [
+			bindItemsToProperty("suspendidos").adapter = new PropertyAdapter(Jugador, "nombre")
+			height = 215
+			width = 85
+		]
 	}
 
 	def createEquipoPanel(Panel panel, String dt) {
 		new Label(panel) => [
-			bindValueToProperty("nombre" + dt)
+			bindValueToProperty("partidoON.dt" + dt + ".nombreDT")
 			fontSize = 12
 		]
 		new List(panel) => [
@@ -36,14 +49,14 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 			bindValueToProperty("jugadorSeleccionado")
 			height = 215
 			width = 85
-			
+
 		]
 	}
 
 	def createPartidoPanel(Panel panel) {
 		new Label(panel).text = "\n"
 		new Label(panel) => [
-			bindValueToProperty("partido.score")
+			bindValueToProperty("partidoON.score")
 			fontSize = 30
 		]
 
@@ -53,13 +66,13 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 		val golesPanel = new Panel(panel).layout = new HorizontalLayout
 		new List(golesPanel) => [
-			bindItemsToProperty("partido.golesLocal").adapter = new PropertyAdapter(Jugador, "nombre")
+			bindItemsToProperty("partidoON.golesLocal").adapter = new PropertyAdapter(Jugador, "nombre")
 			bindValueToProperty("jugadorSeleccionado")
 			height = 100
 			width = 85
 		]
 		new List(golesPanel) => [
-			bindItemsToProperty("partido.golesVisitante").adapter = new PropertyAdapter(Jugador, "nombre")
+			bindItemsToProperty("partidoON.golesVisitante").adapter = new PropertyAdapter(Jugador, "nombre")
 			bindValueToProperty("jugadorSeleccionado")
 			height = 100
 			width = 85
@@ -85,7 +98,7 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 			fontSize = 10
 		]
 		new List(panel) => [
-			bindItemsToProperty("partido.listaAmarillas").adapter = new PropertyAdapter(Jugador, "nombre")
+			bindItemsToProperty("partidoON.listaAmarillas").adapter = new PropertyAdapter(Jugador, "nombre")
 			bindValueToProperty("jugadorSeleccionado")
 			height = 50
 			width = 85
@@ -111,7 +124,7 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 			fontSize = 10
 		]
 		new List(panel) => [
-			bindItemsToProperty("partido.listaRojas").adapter = new PropertyAdapter(Jugador, "nombre")
+			bindItemsToProperty("partidoON.listaRojas").adapter = new PropertyAdapter(Jugador, "nombre")
 			bindValueToProperty("jugadorSeleccionado")
 			height = 50
 			width = 85

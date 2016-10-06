@@ -17,6 +17,11 @@ class LabeledNumericField extends AbstractLabeledWidget {
 		this
 	}
 
+	def bindEnabledToProperty(String property) {
+		numericField.bindEnabledToProperty(property)
+		this
+	}
+
 	override setWidth(int ancho) {
 		numericField.width = ancho
 		this

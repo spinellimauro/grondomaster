@@ -14,10 +14,10 @@ import java.util.List
 import org.uqbar.commons.utils.Observable
 import org.eclipse.xtend.lib.annotations.Accessors
 
-class TablaWindow extends Dialog<TablaModel> {
+class EstadisticasWindow extends Dialog<EstadisticasModel> {
 
 	new(WindowOwner owner, Torneo model) {
-		super(owner, new TablaModel(model))
+		super(owner, new EstadisticasModel(model))
 		title = "Estadisticas"
 	}
 
@@ -28,61 +28,60 @@ class TablaWindow extends Dialog<TablaModel> {
 		new Label(panelPosiciones) => [
 			text = "Posiciones"
 			fontSize = 12
-			
-			
+
 		]
 		new Table(panelPosiciones, EstadisticaDT) => [
 			bindItemsToProperty("listaPosiciones")
 			numberVisibleRows = 20
-			
+
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombreDT")
 				fixedSize = 85
 			]
-			
+
 			new Column(it) => [
 				title = "PJ"
 				bindContentsToProperty("partJugados")
 				fixedSize = 55
 			]
-			
+
 			new Column(it) => [
 				title = "PG"
 				bindContentsToProperty("partGanados")
 				fixedSize = 55
 			]
-			
+
 			new Column(it) => [
 				title = "PE"
 				bindContentsToProperty("partEmpatados")
 				fixedSize = 55
 			]
-			
+
 			new Column(it) => [
 				title = "PP"
 				bindContentsToProperty("partPerdidos")
 				fixedSize = 55
 			]
-			
+
 			new Column(it) => [
 				title = "GF"
 				bindContentsToProperty("golesFavor")
 				fixedSize = 55
 			]
-			
+
 			new Column(it) => [
 				title = "GC"
 				bindContentsToProperty("golesContra")
 				fixedSize = 55
 			]
-			
+
 			new Column(it) => [
 				title = "Dif Gol"
 				bindContentsToProperty("difGol")
 				fixedSize = 55
 			]
-		
+
 			new Column(it) => [
 				title = "Puntos"
 				bindContentsToProperty("puntos")
@@ -150,14 +149,14 @@ class TablaWindow extends Dialog<TablaModel> {
 
 @Observable
 @Accessors
-class TablaModel {
+class EstadisticasModel {
 	List<EstadisticaDT> listaPosiciones = newArrayList
 	List<EstadisticaDT> listaFairPlay = newArrayList
 	List<EstadisticaJugador> listaGoleadores = newArrayList
 
 	new(Torneo torneo) {
-		torneo.listaPosiciones.forEach [ listaPosiciones.add(new EstadisticaDT(it, torneo)) ]
-		torneo.listaGoleadores.forEach [ listaGoleadores.add(new EstadisticaJugador(it, torneo)) ]
+		torneo.listaPosiciones.forEach[listaPosiciones.add(new EstadisticaDT(it, torneo))]
+		torneo.listaGoleadores.forEach[listaGoleadores.add(new EstadisticaJugador(it, torneo))]
 		listaFairPlay = listaPosiciones.sortBy[puntosFairPlay]
 	}
 }
@@ -165,33 +164,37 @@ class TablaModel {
 @Observable
 @Accessors
 class EstadisticaDT {
-	String nombreDT
-	int puntos
-	int amarillas
-	int rojas
-	int puntosFairPlay
-	int golesFavor
-	int golesContra
-	int difGol
-	int partGanados
-	int partPerdidos
-	int partEmpatados
-	int partJugados
-	
-	new(DT dt, Torneo torneo) {
-		nombreDT = dt.nombreDT
-		puntos = torneo.getPuntos(dt)
-		amarillas = torneo.getAmarillas(dt)
-		rojas = torneo.getRojas(dt)
-		puntosFairPlay = torneo.getPuntosFairPlay(dt)
-		golesFavor = torneo.getGolesFavor(dt)
-		golesContra = torneo.getGolesContra(dt)
-		difGol = torneo.getDiferenciaGol(dt)
-		partGanados = torneo.partGanados(dt)
-		partPerdidos = torneo.partPerdidos(dt)
-		partEmpatados = torneo.partEmpatados(dt)
-		partJugados = partGanados + partPerdidos + partEmpatados
+	Torneo torneo
+	DT dt
+
+	new(DT dtON, Torneo torneoON) {
+		dt = dtON
+		torneo = torneoON
 	}
+
+	def String getNombreDT() { dt.nombreDT }
+
+	def int getPuntos() { torneo.getPuntos(dt) }
+
+	def int getAmarillas() { torneo.getAmarillas(dt) }
+
+	def int getRojas() { torneo.getRojas(dt) }
+
+	def int getPuntosFairPlay() { torneo.getPuntosFairPlay(dt) }
+
+	def int getGolesFavor() { torneo.getGolesFavor(dt) }
+
+	def int getGolesContra() { torneo.getGolesContra(dt) }
+
+	def int getDifGol() { getGolesFavor - getGolesContra }
+
+	def int getPartJugados() { torneo.getPartidosJugados(dt).size }
+
+	def int getPartGanados() { torneo.getPartidosJugados(dt).filter[getPuntos(dt) == 3].size }
+
+	def int getPartEmpatados() { torneo.getPartidosJugados(dt).filter[getPuntos(dt) == 1].size }
+
+	def int getPartPerdidos() { torneo.getPartidosJugados(dt).filter[getPuntos(dt) == 0].size }
 }
 
 @Observable

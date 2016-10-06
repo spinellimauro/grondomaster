@@ -5,27 +5,23 @@ import java.util.Collections
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import org.uqbar.commons.model.UserException
 
 @Observable
 @Accessors
 class Torneo {
-	PremiosTorneos premios = new PremiosTorneos
 	String nombreTorneo = ""
 	List<DT> listaParticipantes = newArrayList
 	List<Partido> listaPartidos = newArrayList
+
+	PremiosTorneos premios = new PremiosTorneos
 	int limiteAmarillas = 3
-	boolean terminadoTorneo = false
-	
+	boolean terminado = false
 
 	def void sortearFechas() {
 		listaPartidos.clear
-		
-		var listaMezclada = newArrayList
-		listaMezclada.addAll(listaParticipantes)
-		Collections.shuffle(listaMezclada)
-		val libre = new DT
+		Collections.shuffle(listaParticipantes)
 
+		val libre = new DT
 		if(listaParticipantes.size % 2 != 0) listaParticipantes.add(libre)
 
 		for (var fecha = 0; fecha < numeroFechas; fecha++) {
@@ -37,27 +33,22 @@ class Torneo {
 
 				val partidoNuevo = new Partido
 				partidoNuevo.numeroFecha = fecha + 1
-				partidoNuevo.dtLocal = listaMezclada.get(local)
-				partidoNuevo.dtVisitante = listaMezclada.get(visitante)
-				if(!partidoNuevo.getJugoPartido(libre)) listaPartidos.add(partidoNuevo)
+				partidoNuevo.dtLocal = listaParticipantes.get(local)
+				partidoNuevo.dtVisitante = listaParticipantes.get(visitante)
 
+				if(!partidoNuevo.getJugoPartido(libre)) addPartido(partidoNuevo)
 			}
 		}
 
 		listaParticipantes.remove(libre)
 	}
-	
+
 	def void addPartido(Partido partido) {
 		partido.torneo = this
 		listaPartidos.add(partido)
 	}
 
-	def int getFechaActual() {
-		val partidosNoTerminados = listaPartidos.filter[!terminado]
-		if(partidosNoTerminados.size > 0) partidosNoTerminados.minBy[numeroFecha].numeroFecha else numeroFechas
-	}
-
-	def Integer getNumeroFechas() {
+	def int getNumeroFechas() {
 		val nroDts = listaParticipantes.size
 		if(nroDts % 2 == 0) nroDts - 1 else nroDts
 	}
@@ -73,9 +64,8 @@ class Torneo {
 	def List<Jugador> getListaTransferibles() {
 		listaJugadores.filter[precioVenta != 0].toList
 	}
-	
-	// Tablas
 
+	// Estadísticas
 	def List<DT> getListaPosiciones() {
 		listaParticipantes.sortBy[getPuntos(it)].reverse
 	}
@@ -87,13 +77,12 @@ class Torneo {
 	def List<DT> getListaFairPlay() {
 		listaParticipantes.sortBy[getPuntosFairPlay(it)]
 	}
-	
+
 	// Estadisticas - DT
-	
 	def int getAmarillas(DT dt) {
 		dt.listaJugadores.fold(0)[acum, jugador|acum + getAmarillas(jugador)]
 	}
-	
+
 	def int getRojas(DT dt) {
 		dt.listaJugadores.fold(0)[acum, jugador|acum + getRojas(jugador)]
 	}
@@ -101,37 +90,24 @@ class Torneo {
 	def int getPuntosFairPlay(DT dt) {
 		getAmarillas(dt) * 4 + getRojas(dt) * 12
 	}
-	
-	def getPartidosTerminados(){
-		listaPartidos.filter[terminado]
-	}
-	
-	def int getGolesFavor(DT dt){
-		partidosTerminados.fold(0)[acum,partido|acum + partido.getGolesFavor(dt)]
-	}
-	
-	def int getGolesContra(DT dt){
-		partidosTerminados.fold(0)[acum,partido|acum + partido.getGolesContra(dt)]
-	}
-	
-	def int partGanados(DT dt){
-		partidosTerminados.filter[partido | partido.getDtGanador == dt].size
-	}
-	
-	def int partPerdidos(DT dt){
-		partidosTerminados.filter[partido | partido.getDtPerdedor == dt].size
+
+	def List<Partido> getPartidosJugados(DT dt) {
+		listaPartidos.filter[it.terminado].filter[getJugoPartido(dt)].toList
 	}
 
-	def int partEmpatados(DT dt){
-		partidosTerminados.filter[partido | partido.partidoEmpatado].filter[p|p.dtLocal == dt || p.dtVisitante == dt].size
+	def int getGolesFavor(DT dt) {
+		getPartidosJugados(dt).fold(0)[acum, partido|acum + partido.getGolesFavor(dt)]
 	}
-	
-	def int getDiferenciaGol(DT dt){
-		getGolesFavor(dt) - getGolesContra(dt)
+
+	def int getGolesContra(DT dt) {
+		getPartidosJugados(dt).fold(0)[acum, partido|acum + partido.getGolesContra(dt)]
 	}
-	
+
+	def int getPuntos(DT dt) {
+		getPartidosJugados(dt).fold(0)[acum, partido|acum + partido.getPuntos(dt)]
+	}
+
 	// Estadisticas - Jugador
-
 	def int getGoles(Jugador jugador) {
 		val listaGoles = listaPartidos.map[golesLocal + golesVisitante].flatten.toList
 		Collections.frequency(listaGoles, jugador)
@@ -147,45 +123,27 @@ class Torneo {
 		Collections.frequency(listaRojas, jugador)
 	}
 
-	def boolean estaSuspendido(Jugador jugador) {
-		val fechaAnterior = getFecha(fechaActual - 1)
+	def boolean estaSuspendido(Jugador jugador, int fecha) {
+		val fechaAnterior = getFecha(fecha - 1)
 
 		fechaAnterior.exists[fueExpulsado(jugador)] ||
 			( fechaAnterior.exists[fueAmonestado(jugador)] && (getAmarillas(jugador) % limiteAmarillas == 0))
-	}
-
-	def int getPuntos(DT dt) {
-		listaPartidos.filter[terminado].filter[getJugoPartido(dt)].fold(0)[acum, partido|acum + partido.getPuntos(dt)]
 	}
 
 	def DT getPropietario(Jugador jugador) {
 		listaParticipantes.findFirst[listaJugadores.contains(jugador)]
 	}
 
-	def void addDT(DT dt) {
-		if (listaParticipantes.contains(dt)){
-			throw new UserException("El DT ya esta en el torneo")
-		}
-		listaParticipantes.add(dt)
-	}
+	def void terminarTorneo() {
+		if (terminado)
+			throw new Exception("El torneo ya terminó")
 
-	def void removeDT(DT dt) {
-		listaParticipantes.remove(dt)
-	}
+		if (listaPartidos.exists[p|!p.terminado])
+			throw new Exception("Hay partidos sin terminar")
 
+		terminado = true
 
-	def terminarTorneo() {
-		var i = 0
-		if (listaPartidos.forall[terminado]) {
-			for (i = 0; i < premios.cantPremios; i++) { 
-				getListaPosiciones.get(i).plata = getListaPosiciones.get(i).plata + premios.getPremio(i+1)
-			}
-			terminadoTorneo = true
-		}
-		else{
-			throw new UserException("No estan terminados todos los partidos")
-		}
-		
-//		grondomaster.guardarBase()
+		for (var int i = 0; i < premios.cantPremios; i++)
+			listaPosiciones.get(i).incPlata(premios.getPremio(i + 1))
 	}
 }

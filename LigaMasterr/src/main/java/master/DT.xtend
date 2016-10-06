@@ -12,21 +12,78 @@ class DT {
 	String nombreDT
 	String nombreEquipo
 	double plata = 0.0
-	int slots = 30
 	Set<Jugador> listaJugadores = newHashSet
 	int torneosDisponibles = 3
+	int slots = 30
 
-	def void venderJugador(Jugador jugador) {
-		incPlata(jugador.precioVenta)
+	def void venderJugador(Jugador jugador, double precio) {
+		if (!listaJugadores.contains(jugador))
+			throw new Exception("Este jugador no es tuyo")
+			
+		incPlata(precio)
 		removeJugador(jugador)
 	}
 
-	def void comprarJugador(Jugador jugador, Double precio) {
+	def void comprarJugador(Jugador jugador, double precio) {
+		if (plata < precio)
+			throw new Exception("No tiene plata suficiente")
+
+		if (cantJugadores == slots)
+			throw new Exception("No hay slots disponibles")
+
 		decPlata(precio)
 		addJugador(jugador)
 		jugador.precioVenta = 0
 	}
+	
+	def int getCantJugadores() {
+		listaJugadores.size
+	}
+	
+	def void addJugador(Jugador jugador){
+		listaJugadores.add(jugador)
+	}
+	
+	def void removeJugador(Jugador jugador){
+		listaJugadores.remove(jugador)
+	}
+	
+	def void comprarSlot() {
+		val precioSlot = Precios.instance.getPrecio("Slot")
 
+		if (plata < precioSlot)
+			throw new Exception("No tiene suficiente plata")
+
+		slots++
+		decPlata(precioSlot)
+	}
+
+	def void incPlata(double monto) {
+		plata += monto
+	}
+
+	def void decPlata(double monto) {
+		plata -= monto
+	}
+	
+	// Impuestos
+	
+	def void incTorneos() {
+		torneosDisponibles++
+	}
+	
+	def void decTorneos() {
+		torneosDisponibles--
+	}
+
+	def boolean getPagaImpuesto() {
+		torneosDisponibles == 0
+	}
+	
+	def List<Jugador> getJugadoresConImpuesto() {
+		listaJugadores.filter[pagaImpuesto].toList
+	}
+	
 	def void pagarImpuesto(List<Jugador> jugadoresAPagar) {
 		jugadoresAPagar.forEach[pagarImpuesto]
 
@@ -35,67 +92,12 @@ class DT {
 		jugadoresNoPagados.removeAll(jugadoresAPagar)
 		jugadoresNoPagados.forEach[noSePago]
 
-		if(torneosDisponibles != 0) torneosDisponibles--
+		if(torneosDisponibles != 0) decTorneos 
 		else torneosDisponibles = 3
-		
 	}
 
 	def void pagarImpuesto(Jugador jugador) {
 		decPlata(jugador.impuesto)
 		jugador.pagar
-	}
-
-	def getJugadoresConImpuesto() {
-		listaJugadores.filter[pagaImpuesto].toList
-	}
-
-	def boolean getTieneSlots() {
-		slots > listaJugadores.size
-	}
-
-	def void comprarSlot() {
-		if(plata >= Precios.instance.getPrecio("Slot")){
-			slots++ 
-			decPlata(Precios.instance.getPrecio("Slot"))
-		}else{
-			throw new Exception() 	
-		}
-	}
-
-	def void incPlata(Double monto) {
-		plata += monto
-	}
-
-	def void decPlata(Double monto) {
-		plata -= monto
-	}
-
-	def void addJugador(Jugador jugador) {
-		listaJugadores.add(jugador)
-	}
-
-	def void removeJugador(Jugador jugador) {
-		listaJugadores.remove(jugador)
-	}
-
-	def restarTorneoDisponible(){
-		torneosDisponibles--
-	}
-	
-	def tieneQuePagar(){
-		torneosDisponibles == 0
-	}
-	
-	def venderJugadorALaMaquina(Jugador jugador) {
-		removeJugador(jugador)
-		plata += (Precios.instance.getPrecio(jugador)/Precios.instance.getPrecio("PrecioMaquina")) // PrecioMaquina (cuarta Parte del valor del jugador)
-	}
-	
-	def Set<Jugador> getListaJugadoresDeshabilitados(){
-		listaJugadores.filter[habilitado == false].toSet
-	}
-	
-	def getCantJugadores(){
-		listaJugadores.size
 	}
 }

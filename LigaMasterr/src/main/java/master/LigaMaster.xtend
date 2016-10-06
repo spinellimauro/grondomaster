@@ -10,7 +10,7 @@ import java.util.List
 @Observable
 @Accessors
 class LigaMaster {
-	static LigaMaster instance
+	static LigaMaster instance = new LigaMaster
 	List<Torneo> listaTorneos
 	List<DT> listaDT
 	List<Jugador> listaJugador
@@ -46,6 +46,16 @@ class LigaMaster {
 		JSONTransformer.guardarBase
 	}
 
+	def void addDT(DT dt) {
+		if (listaDT.exists[nombreDT.equals(dt.nombreDT)])
+			throw new Exception("Ese nombre de DT ya está en uso")
+
+		if (listaDT.exists[nombreDT.equals(dt.nombreDT)])
+			throw new Exception("Ese nombre de Equipo ya está en uso")
+			
+		listaDT.add(dt)
+	}
+
 	def void addTorneo(Torneo torneo) {
 		listaTorneos.add(torneo)
 	}
@@ -55,25 +65,17 @@ class LigaMaster {
 	}
 
 	def static getInstance() {
-		if(instance == null) instance = new LigaMaster
 		instance
 	}
 
 	def getPropietario(Jugador jugador) {
 		val libre = new DT => [nombreDT = "Libre"]
+
 		listaDT.findFirst[listaJugadores.contains(jugador)] ?: libre
 	}
 
-	def crearDT(String dtNuevo, String dtEquipo) {
-		listaDT.add(new DT => [
-			nombreDT = dtNuevo
-			nombreEquipo = dtEquipo
-		])
-		guardarBase
-	}
-
 	def void update() {
-		listaDT.forEach[listaJugadores.forEach[update]]
+		listaDT.map[listaJugadores].flatten.forEach[update]
 	}
 
 	// Cálculo del Historial

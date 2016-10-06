@@ -14,115 +14,125 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.VerticalLayout
 
 class ImpuestosWindow extends Dialog<ImpuestoModel> {
-	new(WindowOwner owner, TorneoConfigModel model  ) {
+	new(WindowOwner owner, TorneoConfigModel model) {
 		super(owner, new ImpuestoModel(model))
 		title = "Equipos"
 	}
+
 	override createMainTemplate(Panel panel) {
 		panel.layout = new HorizontalLayout
+
+		createSinPagarPanel(new Panel(panel))
+		createPagarPanel(new Panel(panel))
+		createAPagarPanel(new Panel(panel))
+		createEstadoPanel(new Panel(panel))
+	}
+
+	def void createSinPagarPanel(Panel panel) {
 		new Label(panel) => [
-			text = "No Pagar"
+			text = "Sin Pagar"
 			fontSize = 12
 		]
-		
+
 		new Table(panel, Jugador) => [
-				bindItemsToProperty("jugadores")
-				bindValueToProperty("jugadorSeleccionado")
-				numberVisibleRows = 8
-	
-				new Column(it) => [
-					title = "Nombre"
-					bindContentsToProperty("nombre")
-					fixedSize = 80
-				]
-				new Column(it) => [
-					title = "Nivel"
-					bindContentsToProperty("nivel")
-					fixedSize = 40
-				]
-				new Column(it) => [
-					title = "Impuesto"
-					bindContentsToProperty("impuesto")
-					fixedSize = 80
-				]
+			bindItemsToProperty("jugadoresSinPagar")
+			bindValueToProperty("jugadorON")
+			numberVisibleRows = 8
+
+			new Column(it) => [
+				title = "Nombre"
+				bindContentsToProperty("nombre")
+				fixedSize = 80
 			]
-		new Button(panel)=>[
-			caption = "Agregar"
-			onClick[modelObject.agregarAPagar()]
+			new Column(it) => [
+				title = "Nivel"
+				bindContentsToProperty("nivel")
+				fixedSize = 40
+			]
+			new Column(it) => [
+				title = "Impuesto"
+				bindContentsToProperty("impuesto")
+				fixedSize = 80
+			]
 		]
-		
-		new Button(panel)=>[
-			caption = "Quitar"
-			onClick[modelObject.removerAPagar()]
-		]
-		
+	}
+
+	def void createAPagarPanel(Panel panel) {
 		new Label(panel) => [
 			text = "A Pagar"
 			fontSize = 12
 		]
+
 		new Table(panel, Jugador) => [
-				bindItemsToProperty("jugadoresAPagar")
-				bindValueToProperty("jugadorSeleccionadoAPagar")
-				numberVisibleRows = 8
-	
-				new Column(it) => [
-					title = "Nombre"
-					bindContentsToProperty("nombre")
-					fixedSize = 80
-				]
-				new Column(it) => [
-					title = "Nivel"
-					bindContentsToProperty("nivel")
-					fixedSize = 40
-				]
-				new Column(it) => [
-					title = "Impuesto"
-					bindContentsToProperty("impuesto")
-					fixedSize = 80
-				]
+			bindItemsToProperty("jugadoresAPagar")
+			bindValueToProperty("jugadorON")
+			numberVisibleRows = 8
+
+			new Column(it) => [
+				title = "Nombre"
+				bindContentsToProperty("nombre")
+				fixedSize = 80
 			]
-			val panel2 = new Panel(panel)
-		panel2.layout = new VerticalLayout
-		
-		new Label(panel2) => [
+			new Column(it) => [
+				title = "Nivel"
+				bindContentsToProperty("nivel")
+				fixedSize = 40
+			]
+			new Column(it) => [
+				title = "Impuesto"
+				bindContentsToProperty("impuesto")
+				fixedSize = 80
+			]
+		]
+	}
+
+	def void createPagarPanel(Panel panel) {
+		new Label(panel).text = "\n\n\n\n"
+		new Button(panel) => [
+			caption = "<="
+			onClick[modelObject.addSinPagar()]
+		]
+
+		new Button(panel) => [
+			caption = "=>"
+			onClick[modelObject.addAPagar()]
+		]
+	}
+
+	def void createEstadoPanel(Panel panel) {
+		val panelPlata = new Panel(panel).layout = new VerticalLayout
+
+		new Label(panelPlata) => [
 			text = "Plata Disponible"
 			fontSize = 12
 		]
-		
-		new Label(panel2) => [
-			bindValueToProperty("dtAgregado.plata")
-			fontSize = 12	
+
+		new Label(panelPlata) => [
+			bindValueToProperty("dtON.plata")
+			fontSize = 12
 		]
-	
-		new Label(panel2) => [
+
+		val panelImpuestos = new Panel(panel).layout = new VerticalLayout
+
+		new Label(panelImpuestos) => [
 			text = "Suma Impuestos"
 			fontSize = 12
 		]
-		
-		new Label(panel2) => [
-			bindValueToProperty("suma")
-			fontSize = 12	
+
+		new Label(panelImpuestos) => [
+			bindValueToProperty("impuestos")
+			fontSize = 12
 		]
-		
-		new Button(panel2)=>[
+
+		new Button(panel) => [
 			caption = "Pagar Impuestos"
 			onClick[
 				modelObject.pagarImpuestos()
 				modelObject.deshabilitar()
-//				modelObject.modelo.addDT  OJO Con este metodo , ya que si usamos esta ventana para que pueda pagar en cualquier momento va a traer problemas
 			]
 			bindEnabledToProperty("habilitado")
 		]
-		
-		new Button(panel2)=>[
-			caption = "Cerrar"
-			onClick[this.close]
-		]
-		
 	}
-	
-	override protected createFormPanel(Panel mainPanel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
+
+	override protected createFormPanel(Panel mainPanel) {}
 }

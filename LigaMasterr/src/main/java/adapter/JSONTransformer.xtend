@@ -20,10 +20,13 @@ final class JSONTransformer {
 	def static void guardarBase() {
 		val jsonTorneos = LigaMaster.instance.listaTorneos.fold(new JsonArray)[array, torneo|array.add(torneo.toJSON)]
 		guardarArchivo(jsonTorneos, "torneos")
-
-		var jugadores = LigaMaster.instance.listaDT.map[listaJugadores].flatten
-
-		val jsonJugadores = jugadores.fold(new JsonArray)[array, jugador|array.add(jugador.toJSON)]
+		
+		val listaJugadores = newHashSet => [
+			addAll(LigaMaster.instance.listaDT.map[listaJugadores].flatten)
+			addAll(LigaMaster.instance.listaJugador)
+		]
+		
+		val jsonJugadores = listaJugadores.fold(new JsonArray)[array, jugador|array.add(jugador.toJSON)]
 		guardarArchivo(jsonJugadores, "jugadores")
 
 		val jsonDts = LigaMaster.instance.listaDT.fold(new JsonArray) [ array, dt |
@@ -78,7 +81,7 @@ final class JSONTransformer {
 		new JsonObject => [
 			add("torneo", torneo.nombreTorneo)
 			add("dts", new JsonArray => [torneo.listaParticipantes.forEach[dt|add(dt.nombreDT)]])
-			add("terminadoTorneo", torneo.terminadoTorneo)
+			add("terminado", torneo.terminado)
 			add("partidos", new JsonArray => [torneo.listaPartidos.forEach[partido|add(partido.toJSON)]])
 			add("limiteAmarillas", torneo.limiteAmarillas)
 		]

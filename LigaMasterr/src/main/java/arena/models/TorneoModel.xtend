@@ -1,110 +1,96 @@
 package arena.models
 
 import java.util.List
+import master.DT
 import master.LigaMaster
 import master.Partido
 import master.Torneo
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.ObservableUtils
-import org.uqbar.commons.utils.Observable
-import master.DT
 import org.uqbar.commons.utils.Dependencies
+import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.UserException
 
 @Observable
 @Accessors
 class TorneoModel {
-
 	DT dtON
-	Integer fechaON = 1
-	Torneo torneoON 
-	String nombreNuevoTorneo
+	int fechaON
+	Torneo torneoON
+	Partido partidoON
 	
-	Partido partido
-	String nombreIngresado
+	String textoTorneo
+
 
 	new(LoginModel loginModel) {
 		dtON = loginModel.dtON
-		torneoON = listaTorneos.get(0)
-//		partido = fecha.get(0)
+		setTorneoON(listaTorneos.get(0))
 	}
-	
-	def List<Torneo> getListaTorneos(){
+
+	def List<Torneo> getListaTorneos() {
 		LigaMaster.instance.listaTorneos
 	}
 
 	def void setTorneoON(Torneo torneo) {
-		fechaON = 1
 		torneoON = torneo
+		fechaON = 1
+		
 		ObservableUtils.firePropertyChanged(this, "fecha")
 		ObservableUtils.firePropertyChanged(this, "listaFechas")
 	}
-	
+
 	@Dependencies("fechaON")
 	def List<Partido> getFecha() {
-		torneoON.getFecha(fechaON)
-		
+		torneoON.getFecha(fechaON) ?: newArrayList
 	}
-	
+
 	def List<Integer> getListaFechas() {
 		(1 .. torneoON.numeroFechas).toList
 	}
-	
-	def void sortearFechas(){
+
+	def void sortearFechas() {
 		torneoON.sortearFechas
-		ObservableUtils.firePropertyChanged(this,"fecha")
-		ObservableUtils.firePropertyChanged(this,"listaFechas")
+
+		ObservableUtils.firePropertyChanged(this, "fecha")
+		ObservableUtils.firePropertyChanged(this, "listaFechas")
+
 		guardar
 	}
 
-	def void borrarTorneo() {
+	def void addTorneo() {
+		LigaMaster.instance.addTorneo(new Torneo => [nombreTorneo = textoTorneo])
+	}
+
+	def void removeTorneo() {
 		LigaMaster.instance.removeTorneo(torneoON)
+
 		guardar
 	}
-	
-	def crearTorneo(){
-		if(LigaMaster.instance.listaTorneos.exists[t|t.nombreTorneo == nombreNuevoTorneo]){
-			throw new UserException("El Torneo con ese nombre ya existe")
-		}
-		
-		LigaMaster.instance.addTorneo(new Torneo=>[nombreTorneo = nombreNuevoTorneo])
-		ObservableUtils.firePropertyChanged(this,"listaTorneos")
-		guardar
-	}
-	
-	def update() {
+
+	def void update() {
 		LigaMaster.instance.update
 		guardar
 	}
-	
+
 	def void terminarPartido() {
-		partido.terminarPartido
-		ObservableUtils.firePropertyChanged(this,"partidoActivo")
+		try
+			partidoON.terminarPartido
+		catch (Exception e)
+			throw new UserException(e.message)
+
 		guardar
 	}
-	
-	@Dependencies("partido")
-	def boolean getPartidoActivo()  {
-		!partido.terminado
+
+	def void terminarTorneo() {
+		try
+			torneoON.terminarTorneo
+		catch (Exception e)
+			throw new UserException(e.message)
+
+		guardar
 	}
-	
-	@Dependencies("torneoON")
-	def boolean getTorneoActivo()  {
-		!torneoON.terminadoTorneo
-	}
-	
-	def guardar(){
+
+	def void guardar() {
 		LigaMaster.instance.guardarBase
 	}
-	
-	def terminarTorneo() {
-		if (torneoON.listaParticipantes.size < 4){throw new UserException("Torneo con pocos jugadores(<4)")}	
-		else
-		{
-			torneoON.terminarTorneo
-			ObservableUtils.firePropertyChanged(this,"torneoActivo")
-			guardar
-		}
-	}
-	
 }

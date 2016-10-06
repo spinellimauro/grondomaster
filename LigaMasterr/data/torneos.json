@@ -2,44 +2,46 @@
   {
     "torneo": "A",
     "dts": [
-      "Mauro",
       "Alejandro",
+      "Falopa",
       "Lean",
-      "Falopa"
+      "Mauro"
     ],
-    "terminadoTorneo": true,
+    "terminado": false,
     "partidos": [
       {
         "fecha": 1,
         "local": "Mauro",
-        "visitante": "Alejandro",
+        "visitante": "Lean",
         "golesLocal": [
-          197853,
-          216460
+          231240,
+          231240
         ],
         "golesVisitante": [
-          191180
+          
         ],
         "amarillas": [
           
         ],
         "rojas": [
-          
+          197853
         ],
         "terminado": true
       },
       {
         "fecha": 1,
-        "local": "Lean",
+        "local": "Alejandro",
         "visitante": "Falopa",
         "golesLocal": [
-          
+          205175,
+          182521
         ],
         "golesVisitante": [
           
         ],
         "amarillas": [
-          
+          216460,
+          216460
         ],
         "rojas": [
           
@@ -48,15 +50,13 @@
       },
       {
         "fecha": 2,
-        "local": "Lean",
-        "visitante": "Alejandro",
+        "local": "Alejandro",
+        "visitante": "Lean",
         "golesLocal": [
           
         ],
         "golesVisitante": [
-          191180,
-          191180,
-          191180
+          
         ],
         "amarillas": [
           
@@ -64,7 +64,7 @@
         "rojas": [
           
         ],
-        "terminado": true
+        "terminado": false
       },
       {
         "fecha": 2,
@@ -82,29 +82,11 @@
         "rojas": [
           
         ],
-        "terminado": true
+        "terminado": false
       },
       {
         "fecha": 3,
         "local": "Falopa",
-        "visitante": "Alejandro",
-        "golesLocal": [
-          
-        ],
-        "golesVisitante": [
-          
-        ],
-        "amarillas": [
-          
-        ],
-        "rojas": [
-          
-        ],
-        "terminado": true
-      },
-      {
-        "fecha": 3,
-        "local": "Mauro",
         "visitante": "Lean",
         "golesLocal": [
           
@@ -118,7 +100,25 @@
         "rojas": [
           
         ],
-        "terminado": true
+        "terminado": false
+      },
+      {
+        "fecha": 3,
+        "local": "Mauro",
+        "visitante": "Alejandro",
+        "golesLocal": [
+          
+        ],
+        "golesVisitante": [
+          
+        ],
+        "amarillas": [
+          
+        ],
+        "rojas": [
+          
+        ],
+        "terminado": false
       }
     ],
     "limiteAmarillas": 3
@@ -126,35 +126,70 @@
   {
     "torneo": "B",
     "dts": [
+      "Falopa",
       "Mauro",
-      "Alejandro",
       "Lean",
-      "Falopa"
+      "Alejandro"
     ],
-    "terminadoTorneo": true,
+    "terminado": false,
     "partidos": [
       {
         "fecha": 1,
-        "local": "Alejandro",
-        "visitante": "Lean",
+        "local": "Falopa",
+        "visitante": "Alejandro",
         "golesLocal": [
-          199503
+          
         ],
         "golesVisitante": [
           
         ],
         "amarillas": [
-          199503,
-          199503
+          
         ],
         "rojas": [
-          191180
+          
         ],
-        "terminado": true
+        "terminado": false
       },
       {
         "fecha": 1,
         "local": "Mauro",
+        "visitante": "Lean",
+        "golesLocal": [
+          
+        ],
+        "golesVisitante": [
+          
+        ],
+        "amarillas": [
+          
+        ],
+        "rojas": [
+          
+        ],
+        "terminado": false
+      },
+      {
+        "fecha": 2,
+        "local": "Mauro",
+        "visitante": "Alejandro",
+        "golesLocal": [
+          
+        ],
+        "golesVisitante": [
+          
+        ],
+        "amarillas": [
+          
+        ],
+        "rojas": [
+          
+        ],
+        "terminado": false
+      },
+      {
+        "fecha": 2,
+        "local": "Lean",
         "visitante": "Falopa",
         "golesLocal": [
           
@@ -168,29 +203,11 @@
         "rojas": [
           
         ],
-        "terminado": true
+        "terminado": false
       },
       {
-        "fecha": 2,
-        "local": "Mauro",
-        "visitante": "Lean",
-        "golesLocal": [
-          
-        ],
-        "golesVisitante": [
-          
-        ],
-        "amarillas": [
-          
-        ],
-        "rojas": [
-          
-        ],
-        "terminado": true
-      },
-      {
-        "fecha": 2,
-        "local": "Falopa",
+        "fecha": 3,
+        "local": "Lean",
         "visitante": "Alejandro",
         "golesLocal": [
           
@@ -204,29 +221,11 @@
         "rojas": [
           
         ],
-        "terminado": true
+        "terminado": false
       },
       {
         "fecha": 3,
         "local": "Falopa",
-        "visitante": "Lean",
-        "golesLocal": [
-          
-        ],
-        "golesVisitante": [
-          
-        ],
-        "amarillas": [
-          
-        ],
-        "rojas": [
-          
-        ],
-        "terminado": true
-      },
-      {
-        "fecha": 3,
-        "local": "Alejandro",
         "visitante": "Mauro",
         "golesLocal": [
           
@@ -240,36 +239,7 @@
         "rojas": [
           
         ],
-        "terminado": true
-      }
-    ],
-    "limiteAmarillas": 3
-  },
-  {
-    "torneo": "C",
-    "dts": [
-      "Mauro",
-      "Alejandro"
-    ],
-    "terminadoTorneo": false,
-    "partidos": [
-      {
-        "fecha": 1,
-        "local": "Mauro",
-        "visitante": "Alejandro",
-        "golesLocal": [
-          
-        ],
-        "golesVisitante": [
-          
-        ],
-        "amarillas": [
-          
-        ],
-        "rojas": [
-          
-        ],
-        "terminado": true
+        "terminado": false
       }
     ],
     "limiteAmarillas": 3

@@ -10,22 +10,18 @@ import datos.Mercado
 class Oferta {
 	DT dtOfertante
 	DT dtReceptor
-	Double monto
+	double monto
+	
 	Jugador jugadorOfertado
 	List<Jugador> jugadoresOfrecidos = newArrayList
 
 	def void aceptar() {
-		dtReceptor.removeJugador(jugadorOfertado)
-		dtReceptor.incPlata(monto)
+		dtOfertante.comprarJugador(jugadorOfertado,monto)
+		dtReceptor.venderJugador(jugadorOfertado,monto)
 
-		dtOfertante.addJugador(jugadorOfertado)
-		dtOfertante.decPlata(monto)
-
-		if (jugadoresOfrecidos.size > 0) {
-			jugadoresOfrecidos.forEach[dtOfertante.removeJugador(it)]
-			jugadoresOfrecidos.forEach[dtReceptor.addJugador(it)]
-		}
-
+		jugadoresOfrecidos.forEach[dtReceptor.comprarJugador(it, 0)]
+		jugadoresOfrecidos.forEach[dtOfertante.venderJugador(it, 0)]
+	
 		Mercado.instance.listaOfertas.removeAll(Mercado.instance.getOfertasRecibidas(jugadorOfertado))
 	}
 

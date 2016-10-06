@@ -11,17 +11,17 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.bindings.PropertyAdapter
 import master.Jugador
 import org.uqbar.arena.widgets.Button
-import arena.models.OfertaModel
+import arena.models.CrearOfertaModel
 
-class OfertaWindow extends SimpleWindow<OfertaModel> {
+class CrearOfertaWindow extends SimpleWindow<CrearOfertaModel> {
 
 	new(WindowOwner parent, EquipoModel model) {
-		super(parent, new OfertaModel(model))
+		super(parent, new CrearOfertaModel(model))
 	}
 
 	override createMainTemplate(Panel panel) {
 		new Label(panel) => [
-			bindValueToProperty("jugadorON.nombre")
+			bindValueToProperty("oferta.jugadorOfertado.nombre")
 			fontSize = 15
 		]
 
@@ -38,15 +38,15 @@ class OfertaWindow extends SimpleWindow<OfertaModel> {
 		val truequePanel = new Panel(panel).layout = new HorizontalLayout
 
 		new List(truequePanel) => [
-			bindItemsToProperty("dtON.listaJugadores").adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorElegido")
+			bindItemsToProperty("oferta.dtOfertante.listaJugadores").adapter = new PropertyAdapter(Jugador, "nombre")
+			bindValueToProperty("jugadorON")
 			width = 85
 			height = 60
 		]
 
 		new List(truequePanel) => [
 			bindItemsToProperty("listaJugadores").adapter = new PropertyAdapter(Jugador, "nombre")
-			bindValueToProperty("jugadorElegido")
+			bindValueToProperty("jugadorON")
 			width = 85
 			height = 60
 		]

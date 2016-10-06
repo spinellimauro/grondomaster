@@ -23,6 +23,7 @@ final class JSONAdapter {
 		LigaMaster.instance.listaTorneos.addAll(jsonTorneos.map[toTorneo])
 
 		val jsonMercado = Json.parse(new FileReader("data/mercado.json")).asArray
+		
 		Mercado.instance.listaOfertas.clear
 		Mercado.instance.listaOfertas.addAll( jsonMercado.map[toOferta])
 	}
@@ -74,9 +75,9 @@ final class JSONAdapter {
 		new Torneo => [
 			nombreTorneo = jsonTorneo.get("torneo").asString
 			limiteAmarillas = jsonTorneo.get("limiteAmarillas").asInt
-			terminadoTorneo = jsonTorneo.get("terminadoTorneo").asBoolean
 			listaParticipantes.addAll( jsonTorneo.get("dts").asArray.map[getDT(asString)])
 			jsonTorneo.get("partidos").asArray.map[toPartido].forEach[ partido | addPartido(partido) ]
+			terminado = jsonTorneo.get("terminado").asBoolean
 		]
 	}
 
