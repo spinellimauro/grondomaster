@@ -4,16 +4,17 @@ import arena.components.LabeledTextBox
 import arena.models.ReglasModel
 import datos.PrecioEvento
 import datos.PrecioNivel
+import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.layout.HorizontalLayout
+import master.DT
 
-class ReglasWindow extends SimpleWindow<ReglasModel> {
-	new(WindowOwner owner) {
-		super(owner, new ReglasModel)
+class ReglasWindow extends Dialog<ReglasModel> {
+	new(WindowOwner owner, DT model) {
+		super(owner, new ReglasModel(model))
 		title = "Reglas"
 	}
 
@@ -39,13 +40,14 @@ class ReglasWindow extends SimpleWindow<ReglasModel> {
 			new Column(it) => [
 				title = "Precio"
 				bindContentsToProperty("precio")
-				fixedSize = 60
+				fixedSize = 65
 			]
 		]
 
 		new LabeledTextBox(panel) => [
 			bindTextToProperty("nivelON.nivel")
 			bindValueToProperty("nivelON.precio")
+			enabled = "esMaster"
 			width = 50
 		]
 	}
@@ -59,22 +61,23 @@ class ReglasWindow extends SimpleWindow<ReglasModel> {
 			new Column(it) => [
 				title = "Evento"
 				bindContentsToProperty("evento")
+				fixedSize = 100
 			]
 
 			new Column(it) => [
 				title = "Precio"
 				bindContentsToProperty("precio")
+				fixedSize = 65
 			]
 		]
 
 		new LabeledTextBox(panel) => [
 			bindTextToProperty("eventoON.evento")
 			bindValueToProperty("eventoON.precio")
+			enabled = "esMaster"
 			width = 50
 		]
 	}
-	
-	override protected addActions(Panel actionsPanel) { }
 	
 	override protected createFormPanel(Panel mainPanel) { }
 }

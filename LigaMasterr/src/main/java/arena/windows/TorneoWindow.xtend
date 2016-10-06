@@ -8,10 +8,7 @@ import master.Torneo
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Selector
-import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
@@ -33,28 +30,40 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 	}
 
 	def void createMenuPanel(Panel panel) {
-		val panelHorizontal = new Panel(panel).layout = new HorizontalLayout
-		new Label(panelHorizontal).text = "        "
-		new TextBox(panelHorizontal) => [
-			bindValueToProperty("textoTorneo")
-		]
-
-		new Button(panelHorizontal) => [
+		new Button(panel) => [
 			caption = "Crear"
 			fontSize = 10
-			onClick[modelObject.addTorneo()]
+			onClick[
+				modelObject.addTorneo()
+				new TorneoConfigWindow(this, modelObject.torneoON).open
+			]
 			bindEnabledToProperty("esMaster")
+			width = 150
 		]
-		new Button(panelHorizontal) => [
+		new Button(panel) => [
 			caption = "Eliminar"
-			onClick[modelObject.removeTorneo()]
+			onClick[modelObject.removeTorneo]
 			fontSize = 10
 			bindEnabledToProperty("esMaster")
 		]
 
 		new Button(panel) => [
-			caption = "Editar Torneo"
-			onClick[new TorneoConfigWindow(this, modelObject).open]
+			caption = "Editar"
+			onClick[new TorneoConfigWindow(this, modelObject.torneoON).open]
+			fontSize = 10
+			bindEnabledToProperty("esMaster")
+		]
+		
+		new Button(panel) => [
+			caption = "Sortear Fixture"
+			onClick[modelObject.sortearFechas]
+			fontSize = 10
+			bindEnabledToProperty("esMaster")
+		]
+		
+		new Button(panel) => [
+			caption = "Terminar Torneo"
+			onClick[|modelObject.terminarTorneo]
 			fontSize = 10
 			bindEnabledToProperty("esMaster")
 		]
@@ -62,15 +71,18 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 	}
 
 	def void createFechaPanel(Panel panel) {
-		new Selector(panel) => [
+		val selectorPanel = new Panel(panel).layout = new HorizontalLayout
+		
+		new LabeledSelector(selectorPanel) => [
+			text = "Torneo: "
+			label.fontSize = 12
 			bindItemsToProperty("listaTorneos").adapter = new PropertyAdapter(Torneo, "nombreTorneo")
 			bindValueToProperty("torneoON")
-			height = 50
-			width = 100
+			width = 80
 		]
 
-		new LabeledSelector(panel) => [
-			text = "\tFecha"
+		new LabeledSelector(selectorPanel) => [
+			text = "Fecha: "
 			label.fontSize = 12
 			bindItemsToProperty("listaFechas")
 			bindValueToProperty("fechaON")
@@ -105,23 +117,17 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 
 		val buttonPanel = new Panel(panel).layout = new HorizontalLayout
 		new Button(buttonPanel) => [
-			caption = "Terminar Partido"
-			onClick[|modelObject.terminarPartido]
-			bindEnabledToProperty("esMaster")
-		]
-
-		new Button(buttonPanel) => [
-			caption = "Terminar Torneo"
-			onClick[|modelObject.terminarTorneo]
-			bindEnabledToProperty("esMaster")
-		]
-
-		new Button(buttonPanel) => [
 			caption = "Ver Partido"
 			onClick[new PartidoWindow(this, modelObject).open]
 			fontSize = 10
 		]
-
+		
+		new Button(buttonPanel) => [
+			caption = "Terminar Partido"
+			onClick[|modelObject.terminarPartido]
+			bindEnabledToProperty("esMaster")
+			fontSize = 10
+		]
 	}
 
 	def void createTorneoPanel(Panel panel) {
@@ -135,7 +141,7 @@ class TorneoWindow extends SimpleWindow<TorneoModel> {
 
 		new Button(panel) => [
 			caption = "Reglas"
-			onClick[new ReglasWindow(this).open]
+			onClick[new ReglasWindow(this,modelObject.dtON).open]
 			fontSize = 10
 		]
 

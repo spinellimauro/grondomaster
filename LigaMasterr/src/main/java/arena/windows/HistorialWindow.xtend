@@ -15,46 +15,47 @@ class HistorialWindow extends Dialog<HistorialModel> {
 
 	new(WindowOwner parent, DT model) {
 		super(parent, new HistorialModel(model))
+		title = "Historial"
 	}
 
 	override createMainTemplate(Panel panel) {
 		new Table(panel, Historial) => [
 			bindItemsToProperty("listaHistoriales")
-			numberVisibleRows = 15
+			numberVisibleRows = 10
 
 			new Column(it) => [
 				title = "vs."
 				bindContentsToProperty("dt")
 				fixedSize = 120
 			]
-		
+
 			new Column(it) => [
-				title = "Jugados"
+				title = "PJ"
 				bindContentsToProperty("jugados")
-				fixedSize = 90
+				fixedSize = 35
 			]
-						
+
 			new Column(it) => [
-				title = "Ganados"
+				title = "PG"
 				bindContentsToProperty("ganados")
-				fixedSize = 90
+				fixedSize = 35
 			]
 
 			new Column(it) => [
-				title = "Empatados"
+				title = "PE"
 				bindContentsToProperty("empatados")
-				fixedSize = 90
+				fixedSize = 35
 			]
 			new Column(it) => [
-				title = "Perdidos"
+				title = "PP"
 				bindContentsToProperty("perdidos")
-				fixedSize = 90
+				fixedSize = 35
 			]
 
 			new Column(it) => [
-				title = "Diferencia"
-				bindContentsToProperty("diferencia")
-				fixedSize = 90
+				title = "DIF"
+				bindContentsToProperty("diferencia").transformer = [int dif|if(dif > 0) "+" + dif else dif.toString]
+				fixedSize = 35
 			]
 		]
 	}

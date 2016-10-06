@@ -24,8 +24,8 @@ abstract class AbstractLabeledWidget extends Panel {
 		this
 	}
 	
-	abstract def Widget createWidget(AbstractLabeledWidget widget)
+	def Widget createWidget(AbstractLabeledWidget widget)
 	
-	abstract def AbstractLabeledWidget bindValueToProperty(String property)
+	def AbstractLabeledWidget bindValueToProperty(String property)
 		
 }

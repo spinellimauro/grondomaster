@@ -16,6 +16,7 @@ class PremiosTorneoWindow extends Dialog<PremiosTorneosModel> {
 
 	new(WindowOwner owner, TorneoModel model) {
 		super(owner, new PremiosTorneosModel(model))
+		title = "Premios"
 	}
 	
 	override createMainTemplate(Panel panel) {
@@ -33,8 +34,8 @@ class PremiosTorneoWindow extends Dialog<PremiosTorneosModel> {
 
 			new Column(it) => [
 				title = "Posicion"
-				bindContentsToProperty("posicion")
-				fixedSize = 40
+				bindContentsToProperty("posicion").transformer = [ int posicion | posicion +"º" ]
+				fixedSize = 60
 			]
 
 			new Column(it) => [
@@ -47,6 +48,7 @@ class PremiosTorneoWindow extends Dialog<PremiosTorneosModel> {
 		new LabeledTextBox(panel) => [
 			bindTextToProperty("posicionON.posicion")
 			bindValueToProperty("posicionON.premio")
+			enabled = "esMaster"
 			width = 50
 		]
 	}
@@ -56,12 +58,12 @@ class PremiosTorneoWindow extends Dialog<PremiosTorneosModel> {
 		new Table(panel, PremioEvento) => [
 			bindItemsToProperty("listaEventos")
 			bindValueToProperty("eventoON")
-			numberVisibleRows = 20
+			numberVisibleRows = 4
 
 			new Column(it) => [
 				title = "Evento"
 				bindContentsToProperty("evento")
-				fixedSize = 100
+				fixedSize = 80
 			]
 
 			new Column(it) => [
@@ -74,6 +76,7 @@ class PremiosTorneoWindow extends Dialog<PremiosTorneosModel> {
 		new LabeledTextBox(panel) => [
 			bindTextToProperty("eventoON.evento")
 			bindValueToProperty("eventoON.premio")
+			enabled = "esMaster"
 			width = 50
 		]
 	}

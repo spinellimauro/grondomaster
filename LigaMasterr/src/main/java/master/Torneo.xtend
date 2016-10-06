@@ -141,6 +141,9 @@ class Torneo {
 		if (listaPartidos.exists[p|!p.terminado])
 			throw new Exception("Hay partidos sin terminar")
 
+		if (premios.cantPremios > listaParticipantes.size)
+			throw new Exception("Faltan " + (premios.cantPremios - listaParticipantes.size) + " DT más")
+
 		terminado = true
 
 		for (var int i = 0; i < premios.cantPremios; i++)

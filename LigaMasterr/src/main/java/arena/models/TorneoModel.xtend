@@ -18,13 +18,10 @@ class TorneoModel {
 	int fechaON
 	Torneo torneoON
 	Partido partidoON
-	
-	String textoTorneo
-
 
 	new(LoginModel loginModel) {
 		dtON = loginModel.dtON
-		setTorneoON(listaTorneos.get(0))
+		setTorneoON(listaTorneos.get(0) ?: new Torneo)
 	}
 
 	def List<Torneo> getListaTorneos() {
@@ -34,7 +31,7 @@ class TorneoModel {
 	def void setTorneoON(Torneo torneo) {
 		torneoON = torneo
 		fechaON = 1
-		
+
 		ObservableUtils.firePropertyChanged(this, "fecha")
 		ObservableUtils.firePropertyChanged(this, "listaFechas")
 	}
@@ -58,17 +55,26 @@ class TorneoModel {
 	}
 
 	def void addTorneo() {
-		LigaMaster.instance.addTorneo(new Torneo => [nombreTorneo = textoTorneo])
+		LigaMaster.instance.addTorneo(new Torneo => [nombreTorneo = "Torneo"])
+		setTorneoON(listaTorneos.last)
+
+		ObservableUtils.firePropertyChanged(this, "listaTorneos")
+
+		guardar
 	}
 
 	def void removeTorneo() {
 		LigaMaster.instance.removeTorneo(torneoON)
+		setTorneoON(listaTorneos.get(0) ?: new Torneo)
+
+		ObservableUtils.firePropertyChanged(this, "listaTorneos")
 
 		guardar
 	}
 
 	def void update() {
 		LigaMaster.instance.update
+
 		guardar
 	}
 
@@ -89,7 +95,7 @@ class TorneoModel {
 
 		guardar
 	}
-	
+
 	def boolean esMaster() {
 		dtON.equals(LigaMaster.instance.master)
 	}

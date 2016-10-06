@@ -16,9 +16,9 @@ class TorneoConfigModel {
 	DT dtON
 	String textoTorneo = ""
 
-	new(TorneoModel torneoModel) {
-		torneoON = torneoModel.torneoON
-		textoTorneo = torneoON.nombreTorneo
+	new(Torneo model) {
+		torneoON = model
+		textoTorneo = model.nombreTorneo
 	}
 	
 	def void setTextoTorneo( String string ){
@@ -42,8 +42,8 @@ class TorneoConfigModel {
 		if (torneoON.listaParticipantes.contains(dtON))
 			throw new UserException("El DT ya está en el Torneo")
 
-		torneoON.listaParticipantes.add(dtON)
 		dtON.decTorneos
+		torneoON.listaParticipantes.add(dtON)
 		ObservableUtils.firePropertyChanged(this, "listaDT")
 
 		guardar

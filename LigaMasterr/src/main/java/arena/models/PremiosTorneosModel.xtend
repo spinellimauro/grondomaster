@@ -6,6 +6,7 @@ import master.Torneo
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import datos.PremioEvento
+import master.LigaMaster
 
 @Observable
 @Accessors
@@ -28,5 +29,9 @@ class PremiosTorneosModel {
 	
 	def getListaEventos(){
 		torneoON.premios.listaEventos
+	}
+	
+	def boolean esMaster(){
+		dtON.equals(LigaMaster.instance.master)
 	}
 }

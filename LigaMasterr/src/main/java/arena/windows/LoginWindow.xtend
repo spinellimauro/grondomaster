@@ -20,8 +20,8 @@ class LoginWindow extends Dialog<LoginModel> {
 
 	override createMainTemplate(Panel panel) {
 		new Label(panel) => [
-			text  = "LOGIN"
-		] 
+			text = "LOGIN"
+		]
 		new Selector(panel) => [
 			bindItemsToProperty("listaDT").adapter = new PropertyAdapter(DT, "nombreDT")
 			bindValueToProperty("dtON")
@@ -35,26 +35,22 @@ class LoginWindow extends Dialog<LoginModel> {
 				new TorneoWindow(this, modelObject).open
 			]
 		]
-		
-		new LabeledTextBox(panel) =>[
+
+		new LabeledTextBox(panel) => [
 			text = "Nombre DT"
 			bindValueToProperty("dtNuevo")
 		]
-		
-		new LabeledTextBox(panel) =>[
+
+		new LabeledTextBox(panel) => [
 			text = "Equipo"
 			bindValueToProperty("dtEquipo")
 		]
-		
+
 		new Button(panel) => [
 			caption = "CrearDT"
-			onClick[
-				modelObject.crearDT
-			]
+//			onClick[	modelObject.crearDT		]
 		]
 	}
-
-	override protected addActions(Panel actionsPanel) {}
 
 	override protected createFormPanel(Panel mainPanel) {}
 

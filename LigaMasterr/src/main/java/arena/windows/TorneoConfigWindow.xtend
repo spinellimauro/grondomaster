@@ -2,8 +2,8 @@ package arena.windows
 
 import arena.components.LabeledTextBox
 import arena.models.TorneoConfigModel
-import arena.models.TorneoModel
 import master.DT
+import master.Torneo
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
@@ -15,7 +15,7 @@ import org.uqbar.arena.windows.WindowOwner
 
 class TorneoConfigWindow extends Dialog<TorneoConfigModel> {
 
-	new(WindowOwner owner, TorneoModel model) {
+	new(WindowOwner owner, Torneo model) {
 		super(owner, new TorneoConfigModel(model))
 	}
 

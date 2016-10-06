@@ -2,7 +2,7 @@
   {
     "nombre": "Mauro",
     "equipo": "Bourdeaux",
-    "plata": 2000,
+    "plata": 5000,
     "slots": 30,
     "jugadores": [
       216594,
@@ -13,12 +13,12 @@
       231240,
       197853
     ],
-    "torneos": 2
+    "torneos": 0
   },
   {
     "nombre": "Alejandro",
     "equipo": "Dortmund",
-    "plata": 177000,
+    "plata": 181000,
     "slots": 31,
     "jugadores": [
       182521,
@@ -32,12 +32,12 @@
   {
     "nombre": "Lean",
     "equipo": "Bayern Munchen",
-    "plata": 41000,
+    "plata": 42000,
     "slots": 30,
     "jugadores": [
       
     ],
-    "torneos": 1
+    "torneos": 2
   },
   {
     "nombre": "Falopa",
@@ -47,16 +47,16 @@
     "jugadores": [
       
     ],
-    "torneos": 1
+    "torneos": 0
   },
   {
     "nombre": "Latta",
     "equipo": "",
-    "plata": 0,
+    "plata": 1000,
     "slots": 30,
     "jugadores": [
       
     ],
-    "torneos": 3
+    "torneos": 0
   }
 ]

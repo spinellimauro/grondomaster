@@ -18,7 +18,7 @@ class EstadisticasWindow extends Dialog<EstadisticasModel> {
 
 	new(WindowOwner owner, Torneo model) {
 		super(owner, new EstadisticasModel(model))
-		title = "Estadisticas"
+		title = "Estadísticas"
 	}
 
 	override protected createMainTemplate(Panel panel) {
@@ -43,43 +43,43 @@ class EstadisticasWindow extends Dialog<EstadisticasModel> {
 			new Column(it) => [
 				title = "PJ"
 				bindContentsToProperty("partJugados")
-				fixedSize = 55
+				fixedSize = 35
 			]
 
 			new Column(it) => [
 				title = "PG"
 				bindContentsToProperty("partGanados")
-				fixedSize = 55
+				fixedSize = 35
 			]
 
 			new Column(it) => [
 				title = "PE"
 				bindContentsToProperty("partEmpatados")
-				fixedSize = 55
+				fixedSize = 35
 			]
 
 			new Column(it) => [
 				title = "PP"
 				bindContentsToProperty("partPerdidos")
-				fixedSize = 55
+				fixedSize = 35
 			]
 
 			new Column(it) => [
 				title = "GF"
 				bindContentsToProperty("golesFavor")
-				fixedSize = 55
+				fixedSize = 35
 			]
 
 			new Column(it) => [
 				title = "GC"
 				bindContentsToProperty("golesContra")
-				fixedSize = 55
+				fixedSize = 35
 			]
 
 			new Column(it) => [
-				title = "Dif Gol"
-				bindContentsToProperty("difGol")
-				fixedSize = 55
+				title = "DIF"
+				bindContentsToProperty("difGol").transformer = [int dif|if(dif > 0) "+" + dif else dif.toString]
+				fixedSize = 35
 			]
 
 			new Column(it) => [
@@ -94,9 +94,11 @@ class EstadisticasWindow extends Dialog<EstadisticasModel> {
 			text = "Goleadores"
 			fontSize = 12
 		]
+		
 		new Table(panelGoleadores, EstadisticaJugador) => [
 			bindItemsToProperty("listaGoleadores")
 			numberVisibleRows = 20
+			
 			new Column(it) => [
 				title = "Nombre"
 				bindContentsToProperty("nombre")
@@ -125,15 +127,15 @@ class EstadisticasWindow extends Dialog<EstadisticasModel> {
 			]
 
 			new Column(it) => [
-				title = "Rojas"
+				title = "R"
 				bindContentsToProperty("rojas")
-				fixedSize = 40
+				fixedSize = 35
 			]
 
 			new Column(it) => [
-				title = "Amarillas"
+				title = "A"
 				bindContentsToProperty("amarillas")
-				fixedSize = 65
+				fixedSize = 35
 			]
 
 			new Column(it) => [
