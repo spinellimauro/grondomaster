@@ -14,6 +14,7 @@ class TransferiblesWindow extends Dialog<TransferiblesModel>{
 	
 	new(WindowOwner owner, DT model) {
 		super(owner, new TransferiblesModel(model))
+		title = "Transferibles"
 	}
 	
 	override createMainTemplate(Panel panel){

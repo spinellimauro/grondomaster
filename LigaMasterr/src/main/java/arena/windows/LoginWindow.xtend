@@ -37,18 +37,18 @@ class LoginWindow extends Dialog<LoginModel> {
 		]
 
 		new LabeledTextBox(panel) => [
-			text = "Nombre DT"
+			text = "Nombre: "
 			bindValueToProperty("dtNuevo")
 		]
 
 		new LabeledTextBox(panel) => [
-			text = "Equipo"
+			text = "Equipo: "
 			bindValueToProperty("dtEquipo")
 		]
 
 		new Button(panel) => [
 			caption = "CrearDT"
-//			onClick[	modelObject.crearDT		]
+			onClick[modelObject.addDT]
 		]
 	}
 

@@ -68,18 +68,14 @@ class Jugador {
 
 	// Comparación
 	override equals(Object obj) {
-		if (obj == null)
-			return false
-		if (!Jugador.isAssignableFrom(obj.class))
-			return false
+		if(obj == null) return false
+		if(!Jugador.isAssignableFrom(obj.class)) return false
 
 		val otroJugador = obj as Jugador
-
 		id == otroJugador.id
 	}
 
 	override hashCode() {
 		id
 	}
-
 }

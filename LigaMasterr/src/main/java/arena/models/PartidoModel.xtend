@@ -88,8 +88,14 @@ class PartidoModel {
 		jugadorON.decLesion
 		ObservableUtils.firePropertyChanged(this, "lesionados")
 	}
-
-	def boolean esMaster() {
+	
+	// Enabled
+	
+	def boolean getLesionesON(){
+		dtON.equals(LigaMaster.instance.master) && partidoON.terminado
+	}
+	
+	def boolean getEsMaster() {
 		dtON.equals(LigaMaster.instance.master) && !partidoON.terminado
 	}
 

@@ -21,7 +21,7 @@ class Torneo {
 		listaPartidos.clear
 		Collections.shuffle(listaParticipantes)
 
-		val libre = new DT
+		val libre = new DT => [ nombreDT = "Libre" ]
 		if(listaParticipantes.size % 2 != 0) listaParticipantes.add(libre)
 
 		for (var fecha = 0; fecha < numeroFechas; fecha++) {

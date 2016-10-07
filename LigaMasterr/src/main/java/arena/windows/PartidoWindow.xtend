@@ -18,6 +18,7 @@ import org.uqbar.arena.widgets.tables.Column
 class PartidoWindow extends SimpleWindow<PartidoModel> {
 	new(WindowOwner parent, TorneoModel model) {
 		super(parent, new PartidoModel(model))
+		title = modelObject.partidoON.dtLocal.nombreDT + " vs. " + modelObject.partidoON.dtVisitante.nombreDT
 	}
 
 	override createMainTemplate(Panel panel) {
@@ -68,16 +69,16 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		new Button(buttonPanel) => [
 			caption = "+"
 			onClick[modelObject.incLesion]
-			bindEnabledToProperty("esMaster")
+			bindEnabledToProperty("lesionesON")
 		]
 		new Button(buttonPanel) => [
 			caption = "-"
 			onClick[|modelObject.decLesion]
-			bindEnabledToProperty("esMaster")
+			bindEnabledToProperty("lesionesON")
 		]
 	}
 
-	def createEquipoPanel(Panel panel, String dt) {
+	def void createEquipoPanel(Panel panel, String dt) {
 		new Label(panel) => [
 			bindValueToProperty("partidoON.dt" + dt + ".nombreDT")
 			fontSize = 12
@@ -91,7 +92,7 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 		]
 	}
 
-	def createPartidoPanel(Panel panel) {
+	def void createPartidoPanel(Panel panel) {
 		new Label(panel).text = "\n"
 		new Label(panel) => [
 			bindValueToProperty("partidoON.score")

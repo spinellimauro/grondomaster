@@ -17,6 +17,7 @@ class CrearOfertaWindow extends SimpleWindow<CrearOfertaModel> {
 
 	new(WindowOwner parent, EquipoModel model) {
 		super(parent, new CrearOfertaModel(model))
+		title = "Nueva Oferta"
 	}
 
 	override createMainTemplate(Panel panel) {

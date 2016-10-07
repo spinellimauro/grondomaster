@@ -101,13 +101,14 @@ class DT {
 
 	// Comparación
 	override equals(Object obj) {
-		if (obj == null)
-			return false
-		if (!DT.isAssignableFrom(obj.class))
-			return false
+		if(obj == null) return false
+		if(!DT.isAssignableFrom(obj.class)) return false
 
 		val otroDT = obj as DT
+		nombreDT.equals(otroDT.nombreDT)
+	}
 
-		nombreDT == otroDT.nombreDT
+	override hashCode() {
+		super.hashCode
 	}
 }

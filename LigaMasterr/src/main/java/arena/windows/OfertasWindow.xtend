@@ -18,6 +18,7 @@ class OfertasWindow extends Dialog<OfertasModel> {
 
 	new(WindowOwner parent, DT model) {
 		super(parent, new OfertasModel(model))
+		title = "Ofertas"
 	}
 
 	override createMainTemplate(Panel panel) {

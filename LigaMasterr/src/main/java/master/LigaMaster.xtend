@@ -3,30 +3,26 @@ package master
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import adapter.JSONAdapter
-import adapter.JSONTransformer
 import java.util.List
+import com.thoughtworks.xstream.XStream
+import java.io.FileReader
+import java.io.PrintWriter
 
 @Observable
 @Accessors
 class LigaMaster {
 	static LigaMaster instance = new LigaMaster
-	List<Torneo> listaTorneos
-	List<DT> listaDT
-	List<Jugador> listaJugador
+	List<Torneo> listaTorneos = newArrayList(new Torneo => [nombreTorneo = "Nuevo Torneo"])
+	List<DT> listaDT = newArrayList
 
-	private new() {
-		initialize
-	}
-
-	def void initialize() {
-		listaTorneos = newArrayList
-		listaDT = newArrayList
-		listaJugador = newArrayList
-	}
+	private new() { }
 
 	def DT getMaster() {
 		new DT => [nombreDT = "Master"]
+	}
+
+	def Set<Jugador> getListaJugador() {
+		listaDT.map[listaJugadores].flatten.toSet
 	}
 
 	def Set<DT> getDTsQuePagan() {
@@ -38,12 +34,15 @@ class LigaMaster {
 	}
 
 	def void leerBase() {
-		initialize
-		JSONAdapter.leerBase
+		try
+			instance = new XStream().fromXML(new FileReader("data.xml")) as LigaMaster
+		catch (Exception e) { }
 	}
 
 	def void guardarBase() {
-		JSONTransformer.guardarBase
+		val printer = new PrintWriter("data.xml")
+		new XStream().toXML(instance, printer)
+		printer.close
 	}
 
 	def void addDT(DT dt) {
@@ -52,7 +51,7 @@ class LigaMaster {
 
 		if (listaDT.exists[nombreDT.equals(dt.nombreDT)])
 			throw new Exception("Ese nombre de Equipo ya está en uso")
-			
+
 		listaDT.add(dt)
 	}
 
@@ -68,7 +67,7 @@ class LigaMaster {
 		instance
 	}
 
-	def getPropietario(Jugador jugador) {
+	def DT getPropietario(Jugador jugador) {
 		val libre = new DT => [nombreDT = "Libre"]
 
 		listaDT.findFirst[listaJugadores.contains(jugador)] ?: libre

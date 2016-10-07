@@ -16,7 +16,7 @@ import org.uqbar.arena.layout.VerticalLayout
 class ImpuestosWindow extends Dialog<ImpuestoModel> {
 	new(WindowOwner owner, TorneoConfigModel model) {
 		super(owner, new ImpuestoModel(model))
-		title = "Equipos"
+		title = "Impuestos"
 	}
 
 	override createMainTemplate(Panel panel) {

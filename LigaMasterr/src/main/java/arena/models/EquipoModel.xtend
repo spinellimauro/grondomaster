@@ -70,6 +70,8 @@ class EquipoModel {
 
 	// Armado de Equipo
 	def void transferIn() {
+		validar
+		
 		jugadorON.propietario.removeJugador(jugadorON)
 		dtON.addJugador(jugadorON)
 		listaMaquina.remove(jugadorON)
@@ -79,6 +81,8 @@ class EquipoModel {
 	}
 
 	def void transferOut() {
+		validar
+		
 		listaMaquina.add(jugadorON)
 		dtON.removeJugador(jugadorON)
 
@@ -97,18 +101,21 @@ class EquipoModel {
 	}
 
 	def void comprarAMaquina() {
+		validar
+		
 		if (!listaMaquina.contains(jugadorON))
-			throw new Exception("Ese jugador no es de la Máquina")
+			throw new UserException("Ese jugador no es de la Máquina")
 
 		if (!jugadorON.propietario.nombreDT.equals("Libre"))
-			throw new Exception("Ese jugador no está Libre")
+			throw new UserException("Ese jugador no está Libre")
 
-		try {
-			val jugadorMaquina = jugadorON
+		val jugadorMaquina = jugadorON
 
+		try
 			dtON.comprarJugador(jugadorMaquina, jugadorMaquina.precioMaquina)
-			listaMaquina.remove(jugadorMaquina)
-		} catch (Exception e)
+		catch (Exception e)
 			throw new UserException(e.message)
+			
+		listaMaquina.remove(jugadorMaquina)
 	}
 }

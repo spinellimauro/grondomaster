@@ -87,7 +87,7 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 
 		new LabeledTextBox(panel) => [
 			text = "Slots: "
-			bindValueToProperty("dtActivo.slots")
+			bindValueToProperty("dtON.slots")
 			enabled = "esMaster"
 		]
 

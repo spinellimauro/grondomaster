@@ -64,6 +64,9 @@ class TorneoModel {
 	}
 
 	def void removeTorneo() {
+		if ( listaTorneos.size < 2 ) 
+			throw new UserException("Debe haber al menos un torneo creado")
+		
 		LigaMaster.instance.removeTorneo(torneoON)
 		setTorneoON(listaTorneos.get(0) ?: new Torneo)
 

@@ -17,6 +17,7 @@ class TorneoConfigWindow extends Dialog<TorneoConfigModel> {
 
 	new(WindowOwner owner, Torneo model) {
 		super(owner, new TorneoConfigModel(model))
+		title = "Configurar Torneo"
 	}
 
 	override createMainTemplate(Panel panel) {

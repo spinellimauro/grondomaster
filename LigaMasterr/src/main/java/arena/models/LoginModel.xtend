@@ -27,7 +27,7 @@ class LoginModel {
 		]
 	}
 
-	def void crearDT() {
+	def void addDT() {
 		var dt = new DT => [
 			nombreDT = dtNuevo
 			nombreEquipo = dtEquipo
