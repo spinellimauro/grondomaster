@@ -14,6 +14,7 @@ class LoginModel {
 	DT dtON
 	String dtNuevo = ""
 	String dtEquipo = ""
+	String dtPassword = ""
 
 	new() {
 		LigaMaster.instance.leerBase
@@ -31,6 +32,7 @@ class LoginModel {
 		var dt = new DT => [
 			nombreDT = dtNuevo
 			nombreEquipo = dtEquipo
+			password = ""
 		]
 
 		try
@@ -40,4 +42,10 @@ class LoginModel {
 
 		ObservableUtils.firePropertyChanged(this, "listaDT")
 	}
+	
+	def boolean validar() {
+		if (!(dtON.password == dtPassword)) throw new UserException("Contraseña Incorrecta")
+		else true
+	}
+	
 }

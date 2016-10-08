@@ -18,7 +18,10 @@ class LigaMaster {
 	private new() { }
 
 	def DT getMaster() {
-		new DT => [nombreDT = "Master"]
+		new DT => [
+			nombreDT = "Master"
+			password = "ARG123"
+		]
 	}
 
 	def Set<Jugador> getListaJugador() {

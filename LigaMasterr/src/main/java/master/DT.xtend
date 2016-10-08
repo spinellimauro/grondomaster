@@ -12,6 +12,7 @@ class DT {
 	String nombreDT
 	String nombreEquipo
 	double plata = 0.0
+	String password
 	Set<Jugador> listaJugadores = newHashSet
 	int torneosDisponibles = 3
 	int slots = 30

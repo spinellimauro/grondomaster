@@ -10,6 +10,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.widgets.PasswordField
 
 class LoginWindow extends Dialog<LoginModel> {
 
@@ -28,11 +29,16 @@ class LoginWindow extends Dialog<LoginModel> {
 			width = 100
 		]
 
+		new PasswordField(panel) => [
+			bindValueToProperty("dtPassword")
+		]
 		new Button(panel) => [
 			caption = "Entrar"
 			onClick[
-				close
-				new TorneoWindow(this, modelObject).open
+				if(modelObject.validar){
+					close
+					new TorneoWindow(this, modelObject).open
+				}
 			]
 		]
 
