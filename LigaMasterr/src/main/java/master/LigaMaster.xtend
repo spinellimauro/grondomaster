@@ -7,6 +7,7 @@ import java.util.List
 import com.thoughtworks.xstream.XStream
 import java.io.FileReader
 import java.io.PrintWriter
+import datos.Mercado
 
 @Observable
 @Accessors
@@ -14,6 +15,7 @@ class LigaMaster {
 	static LigaMaster instance = new LigaMaster
 	List<Torneo> listaTorneos = newArrayList(new Torneo => [nombreTorneo = "Nuevo Torneo"])
 	List<DT> listaDT = newArrayList
+	Mercado mercado = new Mercado
 
 	private new() { }
 

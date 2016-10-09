@@ -10,7 +10,6 @@ import master.Jugador
 @Observable
 @Accessors
 class Mercado {
-	static Mercado instance
 	List<Oferta> listaOfertas = newArrayList
 	
 	def List<Oferta> getOfertasRecibidas(Jugador jugador) {
@@ -23,10 +22,5 @@ class Mercado {
 
 	def List<Oferta> getOfertasEnviadas(DT dt) {
 		listaOfertas.filter[dtOfertante.equals(dt)].toList
-	}
-	
-	def static getInstance(){
-		if( instance == null) instance = new Mercado
-		instance
 	}
 }

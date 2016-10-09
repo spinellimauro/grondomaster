@@ -1,9 +1,8 @@
 package master
 
+import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import java.util.List
-import datos.Mercado
 
 @Observable
 @Accessors
@@ -22,10 +21,10 @@ class Oferta {
 		jugadoresOfrecidos.forEach[dtReceptor.comprarJugador(it, 0)]
 		jugadoresOfrecidos.forEach[dtOfertante.venderJugador(it, 0)]
 	
-		Mercado.instance.listaOfertas.removeAll(Mercado.instance.getOfertasRecibidas(jugadorOfertado))
+		LigaMaster.instance.mercado.listaOfertas.removeAll(LigaMaster.instance.mercado.getOfertasRecibidas(jugadorOfertado))
 	}
 
 	def void rechazar() {
-		Mercado.instance.listaOfertas.remove(this)
+		LigaMaster.instance.mercado.listaOfertas.remove(this)
 	}
 }

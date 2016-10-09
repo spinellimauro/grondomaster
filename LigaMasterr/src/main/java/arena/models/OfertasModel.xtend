@@ -1,14 +1,13 @@
 package arena.models
 
-import datos.Mercado
 import java.util.List
 import master.DT
+import master.LigaMaster
 import master.Oferta
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.model.UserException
-import master.LigaMaster
+import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors
@@ -21,11 +20,11 @@ class OfertasModel {
 	}
 
 	def List<Oferta> getOfertasRecibidas() {
-		Mercado.instance.getOfertasRecibidas(dtON)
+		LigaMaster.instance.mercado.getOfertasRecibidas(dtON)
 	}
 
 	def List<Oferta> getOfertasEnviadas() {
-		Mercado.instance.getOfertasEnviadas(dtON)
+		LigaMaster.instance.mercado.getOfertasEnviadas(dtON)
 	}
 
 	def void aceptarOferta() {

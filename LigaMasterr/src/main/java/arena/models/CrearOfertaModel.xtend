@@ -1,6 +1,5 @@
 package arena.models
 
-import datos.Mercado
 import java.util.Set
 import master.Jugador
 import master.LigaMaster
@@ -36,7 +35,7 @@ class CrearOfertaModel {
 		oferta.monto = montoOfertado
 		oferta.jugadoresOfrecidos.addAll(listaJugadores)
 
-		Mercado.instance.listaOfertas.add(oferta)
+		LigaMaster.instance.mercado.listaOfertas.add(oferta)
 
 		guardar
 	}

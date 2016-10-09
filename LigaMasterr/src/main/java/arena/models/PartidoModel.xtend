@@ -82,11 +82,13 @@ class PartidoModel {
 	def void incLesion() {
 		jugadorON.incLesion
 		ObservableUtils.firePropertyChanged(this, "lesionados")
+		guardar
 	}
 
 	def void decLesion() {
 		jugadorON.decLesion
 		ObservableUtils.firePropertyChanged(this, "lesionados")
+		guardar
 	}
 	
 	// Enabled

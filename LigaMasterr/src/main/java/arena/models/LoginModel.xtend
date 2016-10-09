@@ -41,6 +41,8 @@ class LoginModel {
 			throw new UserException(e.message)
 
 		ObservableUtils.firePropertyChanged(this, "listaDT")
+		
+		LigaMaster.instance.guardarBase
 	}
 	
 	def boolean validar() {

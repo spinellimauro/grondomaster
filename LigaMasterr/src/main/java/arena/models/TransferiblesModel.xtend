@@ -45,5 +45,7 @@ class TransferiblesModel {
 			throw new UserException(e.message)
 
 		ObservableUtils.firePropertyChanged(this, "transferibles")
+		
+		LigaMaster.instance.guardarBase
 	}
 }
