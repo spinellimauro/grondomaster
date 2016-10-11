@@ -55,16 +55,18 @@ class EquipoModel {
 	}
 
 	def void comprarSlot() {
-		try
+		try{
 			dtActivo.comprarSlot
-		catch (Exception e)
+			LigaMaster.instance.guardarBase
+		}catch (Exception e)
 			throw new UserException(e.message)
 	}
 
 	def void venderAMaquina() {
-		try
+		try{
 			dtActivo.venderJugador(jugadorON, jugadorON.precioMaquina / Precios.instance.getPrecio("PrecioMaquina"))
-		catch (Exception e)
+			LigaMaster.instance.guardarBase
+		}catch (Exception e)
 			throw new UserException(e.message)
 	}
 
@@ -75,6 +77,7 @@ class EquipoModel {
 		jugadorON.propietario.removeJugador(jugadorON)
 		dtON.addJugador(jugadorON)
 		listaMaquina.remove(jugadorON)
+		LigaMaster.instance.guardarBase
 
 		ObservableUtils.firePropertyChanged(this, "listaMaquina")
 		ObservableUtils.firePropertyChanged(this, "dtON")
@@ -85,6 +88,7 @@ class EquipoModel {
 		
 		listaMaquina.add(jugadorON)
 		dtON.removeJugador(jugadorON)
+		LigaMaster.instance.guardarBase
 
 		ObservableUtils.firePropertyChanged(this, "listaMaquina")
 		ObservableUtils.firePropertyChanged(this, "dtON")
@@ -111,9 +115,10 @@ class EquipoModel {
 
 		val jugadorMaquina = jugadorON
 
-		try
+		try{
 			dtON.comprarJugador(jugadorMaquina, jugadorMaquina.precioMaquina)
-		catch (Exception e)
+			LigaMaster.instance.guardarBase
+		}catch (Exception e)
 			throw new UserException(e.message)
 			
 		listaMaquina.remove(jugadorMaquina)

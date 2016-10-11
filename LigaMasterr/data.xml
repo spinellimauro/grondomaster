@@ -79,40 +79,6 @@
             <vecesNoPagadas>0</vecesNoPagadas>
           </master.Jugador>
           <master.Jugador>
-            <id>216460</id>
-            <nombre>J. Giménez</nombre>
-            <nivel>83</nivel>
-            <potencial>88</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-        </data>
-      </listaJugadores>
-      <torneosDisponibles>3</torneosDisponibles>
-      <slots>30</slots>
-    </master.DT>
-    <master.DT>
-      <nombreDT>Alejandro</nombreDT>
-      <nombreEquipo>Dortmund</nombreEquipo>
-      <plata>0.0</plata>
-      <password></password>
-      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
-        <owner class="master.DT" reference="../.."/>
-        <fieldName>listaJugadores</fieldName>
-        <data class="set">
-          <master.Jugador>
-            <id>208330</id>
-            <nombre>A. Januzaj</nombre>
-            <nivel>76</nivel>
-            <potencial>85</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-          <master.Jugador>
             <id>198077</id>
             <nombre>P. Herrmann</nombre>
             <nivel>81</nivel>
@@ -127,6 +93,30 @@
       <torneosDisponibles>3</torneosDisponibles>
       <slots>30</slots>
     </master.DT>
+    <master.DT>
+      <nombreDT>Alejandro</nombreDT>
+      <nombreEquipo>Dortmund</nombreEquipo>
+      <plata>11250.0</plata>
+      <password></password>
+      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
+        <owner class="master.DT" reference="../.."/>
+        <fieldName>listaJugadores</fieldName>
+        <data class="set">
+          <master.Jugador>
+            <id>208330</id>
+            <nombre>A. Januzaj</nombre>
+            <nivel>76</nivel>
+            <potencial>85</potencial>
+            <lesion>0</lesion>
+            <habilitado>true</habilitado>
+            <precioVenta>1000.0</precioVenta>
+            <vecesNoPagadas>0</vecesNoPagadas>
+          </master.Jugador>
+        </data>
+      </listaJugadores>
+      <torneosDisponibles>3</torneosDisponibles>
+      <slots>31</slots>
+    </master.DT>
   </listaDT>
   <mercado>
     <listaOfertas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -136,26 +126,13 @@
         <master.Oferta>
           <dtOfertante reference="../../../../../listaDT/master.DT[2]"/>
           <dtReceptor reference="../../../../../listaDT/master.DT"/>
-          <monto>0.0</monto>
-          <jugadorOfertado reference="../../../../../listaDT/master.DT/listaJugadores/data/master.Jugador[2]"/>
+          <monto>1000.0</monto>
+          <jugadorOfertado reference="../../../../../listaDT/master.DT/listaJugadores/data/master.Jugador"/>
           <jugadoresOfrecidos class="org.uqbar.common.transaction.Collection.TransacionalList">
             <owner class="master.Oferta" reference="../.."/>
             <fieldName>jugadoresOfrecidos</fieldName>
             <data class="list">
-              <master.Jugador reference="../../../../../../../listaDT/master.DT[2]/listaJugadores/data/master.Jugador"/>
-            </data>
-          </jugadoresOfrecidos>
-        </master.Oferta>
-        <master.Oferta>
-          <dtOfertante reference="../../../../../listaDT/master.DT[2]"/>
-          <dtReceptor reference="../../../../../listaDT/master.DT"/>
-          <monto>0.0</monto>
-          <jugadorOfertado reference="../../../../../listaDT/master.DT/listaJugadores/data/master.Jugador[2]"/>
-          <jugadoresOfrecidos class="org.uqbar.common.transaction.Collection.TransacionalList">
-            <owner class="master.Oferta" reference="../.."/>
-            <fieldName>jugadoresOfrecidos</fieldName>
-            <data class="list">
-              <master.Jugador reference="../../../../../../../listaDT/master.DT[2]/listaJugadores/data/master.Jugador[2]"/>
+              <master.Jugador reference="../../../../../../../listaDT/master.DT/listaJugadores/data/master.Jugador[2]"/>
             </data>
           </jugadoresOfrecidos>
         </master.Oferta>
