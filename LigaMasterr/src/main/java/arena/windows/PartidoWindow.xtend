@@ -41,7 +41,21 @@ class PartidoWindow extends SimpleWindow<PartidoModel> {
 			height = 65
 			width = 85
 		]
-
+		
+		new Label(panel).text = "Jugadores No pagos"
+		new Table(panel, Jugador) => [
+			bindItemsToProperty("listaJugadoresDeshabilitados")
+			numberVisibleRows = 8
+			
+			
+			new Column(it) => [
+				title = "Nombre"
+				bindContentsToProperty("nombre")
+				fixedSize = 120
+				foreground = Color.red
+			]
+		]
+		
 		new Label(panel) => [
 			text = "Lesionados"
 			fontSize = 10

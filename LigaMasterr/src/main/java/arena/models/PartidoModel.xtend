@@ -45,7 +45,14 @@ class PartidoModel {
 	def List<Jugador> getLesionados() {
 		partidoON.lesionados
 	}
-
+	
+	def List<Jugador> getListaJugadoresDeshabilitados(){
+		newArrayList => [
+			addAll(partidoON.dtVisitante.listaJugadores.filter[habilitado == false])
+			addAll(partidoON.dtLocal.listaJugadores.filter[habilitado == false])
+		]
+	}
+	
 	// Goles
 	def void addGol() {
 		partidoON.addGol(jugadorON)
@@ -91,6 +98,7 @@ class PartidoModel {
 		guardar
 	}
 	
+
 	// Enabled
 	
 	def boolean getLesionesON(){

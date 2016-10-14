@@ -5,6 +5,8 @@ import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import datos.Precios
+import org.uqbar.commons.model.UserException
+import org.uqbar.arena.bindings.PropertyAdapter
 
 @Observable
 @Accessors
@@ -93,6 +95,14 @@ class DT {
 		jugadoresNoPagados.forEach[noSePago]
 
 		if(torneosDisponibles != 0) decTorneos else torneosDisponibles = 3
+		if(jugadoresNoPagados.forall[vecesNoPagadas != 3]){}
+		else{
+			var borrados = jugadoresNoPagados.filter[vecesNoPagadas == 3].toList
+			listaJugadores.removeAll(borrados)
+			var borradosNombres = borrados.map[nombre]
+			LigaMaster.instance.guardarBase
+			throw new UserException("Se han borrado los siguientes jugadores" + borradosNombres)
+		}
 	}
 
 	def void pagarImpuesto(Jugador jugador) {

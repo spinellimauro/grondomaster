@@ -36,6 +36,7 @@ class Jugador {
 		nivel > 82
 	}
 
+
 	// Mercado
 	def double getPrecioMaquina() {
 		Precios.instance.getPrecio(this)
