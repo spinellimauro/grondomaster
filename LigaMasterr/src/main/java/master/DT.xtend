@@ -99,7 +99,11 @@ class DT {
 		decPlata(jugador.impuesto)
 		jugador.pagar
 	}
-
+	
+	def List<Jugador> getListaJugadoresDeshabilitados(){
+		listaJugadores.filter[habilitado == false].toList
+	}
+	
 	// Comparación
 	override equals(Object obj) {
 		if(obj == null) return false

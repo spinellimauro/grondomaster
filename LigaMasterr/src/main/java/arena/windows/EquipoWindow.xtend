@@ -17,6 +17,7 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import java.awt.Color
 
 class EquipoWindow extends SimpleWindow<EquipoModel> {
 	new(WindowOwner owner, TorneoModel model) {
@@ -108,7 +109,20 @@ class EquipoWindow extends SimpleWindow<EquipoModel> {
 			onClick[new TransferiblesWindow(this, modelObject.dtActivo).open]
 			fontSize = 10
 		]
-
+		
+		new Label(panel).text = "Jugadores Deshabilitados"
+		new Table(panel, Jugador) => [
+			bindItemsToProperty("dtON.listaJugadoresDeshabilitados")
+			numberVisibleRows = 8
+			
+			
+			new Column(it) => [
+				title = "Nombre"
+				bindContentsToProperty("nombre")
+				fixedSize = 120
+				foreground = Color.red
+			]
+		]
 	}
 
 	def void createEquipoPanel(Panel panel) {
