@@ -9,22 +9,12 @@
           <master.DT>
             <nombreDT>Mauro</nombreDT>
             <nombreEquipo>Bordeaux</nombreEquipo>
-            <plata>66500.0</plata>
+            <plata>49500.0</plata>
             <password></password>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>
               <data class="set">
-                <master.Jugador>
-                  <id>188545</id>
-                  <nombre>R. Lewandowski</nombre>
-                  <nivel>90</nivel>
-                  <potencial>90</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>false</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>2</vecesNoPagadas>
-                </master.Jugador>
                 <master.Jugador>
                   <id>198077</id>
                   <nombre>P. Herrmann</nombre>
@@ -35,19 +25,9 @@
                   <precioVenta>0.0</precioVenta>
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
-                <master.Jugador>
-                  <id>197853</id>
-                  <nombre>S. Aurier</nombre>
-                  <nivel>83</nivel>
-                  <potencial>88</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>false</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>2</vecesNoPagadas>
-                </master.Jugador>
               </data>
             </listaJugadores>
-            <torneosDisponibles>0</torneosDisponibles>
+            <torneosDisponibles>3</torneosDisponibles>
             <slots>30</slots>
           </master.DT>
           <master.DT>
@@ -560,10 +540,518 @@
       <limiteAmarillas>3</limiteAmarillas>
       <terminado>false</terminado>
     </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list"/>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list">
+          <master.DT reference="../../../../master.Torneo/listaParticipantes/data/master.DT"/>
+        </data>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list">
+          <master.DT reference="../../../../master.Torneo/listaParticipantes/data/master.DT"/>
+        </data>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list"/>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list"/>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list"/>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list"/>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list"/>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list"/>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
   </listaTorneos>
   <listaDT>
     <master.DT reference="../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
     <master.DT reference="../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT[2]"/>
+    <master.DT>
+      <nombreDT>NicoR</nombreDT>
+      <nombreEquipo></nombreEquipo>
+      <plata>0.0</plata>
+      <password></password>
+      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
+        <owner class="master.DT" reference="../.."/>
+        <fieldName>listaJugadores</fieldName>
+        <data class="set">
+          <null/>
+          <master.Jugador>
+            <id>197242</id>
+            <nombre>G. Krychowiak</nombre>
+            <nivel>84</nivel>
+            <potencial>86</potencial>
+            <lesion>0</lesion>
+            <habilitado>true</habilitado>
+            <precioVenta>0.0</precioVenta>
+            <vecesNoPagadas>0</vecesNoPagadas>
+          </master.Jugador>
+          <master.Jugador>
+            <id>207566</id>
+            <nombre>William Carvalho</nombre>
+            <nivel>83</nivel>
+            <potencial>87</potencial>
+            <lesion>0</lesion>
+            <habilitado>true</habilitado>
+            <precioVenta>0.0</precioVenta>
+            <vecesNoPagadas>0</vecesNoPagadas>
+          </master.Jugador>
+        </data>
+      </listaJugadores>
+      <torneosDisponibles>3</torneosDisponibles>
+      <slots>30</slots>
+    </master.DT>
+    <master.DT>
+      <nombreDT>NicoRobi</nombreDT>
+      <nombreEquipo></nombreEquipo>
+      <plata>0.0</plata>
+      <password></password>
+      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
+        <owner class="master.DT" reference="../.."/>
+        <fieldName>listaJugadores</fieldName>
+        <data class="set"/>
+      </listaJugadores>
+      <torneosDisponibles>3</torneosDisponibles>
+      <slots>30</slots>
+    </master.DT>
   </listaDT>
   <mercado>
     <listaOfertas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -574,12 +1062,21 @@
           <dtOfertante reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT[2]"/>
           <dtReceptor reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
           <monto>1000.0</monto>
-          <jugadorOfertado reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador"/>
+          <jugadorOfertado>
+            <id>188545</id>
+            <nombre>R. Lewandowski</nombre>
+            <nivel>90</nivel>
+            <potencial>90</potencial>
+            <lesion>0</lesion>
+            <habilitado>false</habilitado>
+            <precioVenta>0.0</precioVenta>
+            <vecesNoPagadas>3</vecesNoPagadas>
+          </jugadorOfertado>
           <jugadoresOfrecidos class="org.uqbar.common.transaction.Collection.TransacionalList">
             <owner class="master.Oferta" reference="../.."/>
             <fieldName>jugadoresOfrecidos</fieldName>
             <data class="list">
-              <master.Jugador reference="../../../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[2]"/>
+              <master.Jugador reference="../../../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador"/>
             </data>
           </jugadoresOfrecidos>
         </master.Oferta>

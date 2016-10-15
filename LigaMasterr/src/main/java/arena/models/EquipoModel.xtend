@@ -74,6 +74,10 @@ class EquipoModel {
 	def void transferIn() {
 		validar
 		
+		if(dtON.listaJugadores.contains(jugadorON)){
+			throw new UserException("Ya tiene ese jugador")	
+		}
+		
 		jugadorON.propietario.removeJugador(jugadorON)
 		dtON.addJugador(jugadorON)
 		listaMaquina.remove(jugadorON)
