@@ -1,0 +1,47 @@
+
+
+.form-control{
+	background-color:white!important;
+	color:black!important;
+}
+.select{
+	color: #ebebeb;
+}
+
+.active{
+	background-color:#4682B4;
+}
+
+.navbar-collapse{
+		font-size: 15px;
+	
+}
+
+tr{
+	text-align : center;
+	font-size: 16px;
+}
+
+thead{
+	font-size : 20px;
+}
+
+
+.alert-azul{
+	background-color: #4682B4;
+}
+
+h7{
+	font-size: 20px;
+}
+
+.panel-azul{
+	background-color: #4682B4;
+	height: 40px;
+}
+
+.panel-titulo{
+	font-size: 20px;
+	margin-left: 30px;
+}
+
