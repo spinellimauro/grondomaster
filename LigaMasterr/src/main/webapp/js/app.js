@@ -1,6 +1,6 @@
-var app = angular.module('busquedaMasterListApp', ['ui.router']);
+var app = angular.module('grondomasterApp', ['ui.router']);
 
-app.controller('BusquedaMasterController', function(BusquedaMasterService) {
+app.controller('busquedaController', function(BusquedaMasterService) {
     var self = this;
 
     this.getResultados = function() {
@@ -8,6 +8,4 @@ app.controller('BusquedaMasterController', function(BusquedaMasterService) {
             self.resultados = _.map(response.data, Jugador.asJugador);
         });
     }
-
-    self.getResultados();
 });

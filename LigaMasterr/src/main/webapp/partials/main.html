@@ -1,0 +1,32 @@
+<!-- Barra superior -->
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">GrondoMaster</a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="main.inicio">Inicio</a></li>
+            <li><a ui-sref="main.buscar">Buscador</a></li>
+            <li><a ui-sref="main.mercado">Mercado</a></li>
+            <li><a ui-sref="main.equipos">Equipos</a></li>
+            <li><a ui-sref="main.torneos">Torneos</a></li>
+            <li><a ui-sref="login">Salir</a></li>
+    </div>
+</nav>
+<!-- Barra izquierda -->
+<div class="col-lg-2">
+    <div class="list-group">
+        <img class="img-responsive thumbnail" src="http://cdn.sofifa.org/17/teams/59.png" />
+        <span class="list-group-item">Fondos: $3.000.000</span>
+        <span class="list-group-item">Slots</span>
+        <span class="list-group-item">Cant Jugadores</span>
+    </div>
+    <div class="list-group">
+        <a class="list-group-item" href="#navbar">Noticias</a>
+        <a class="list-group-item" href="#buttons">Traspasos</a>
+    </div>
+</div>
+<!-- Vista Dinamica -->
+<div class="col-lg-10">
+    <div ui-view></div>
+</div>
