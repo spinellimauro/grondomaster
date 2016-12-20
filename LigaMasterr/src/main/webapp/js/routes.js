@@ -9,7 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('main', {
         url: "/main",
-        templateUrl: "partials/main.html"
+        templateUrl: "partials/main.html",
+        controller: "mainController as mainCtrl"
     })
 
     .state('main.inicio', {

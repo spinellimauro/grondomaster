@@ -147,6 +147,12 @@ function DT() {
     this.fechasDisponibles = 3;
 }
 
+DT.asDT = function(jsonDT) {
+    var dt = angular.extend(new Jugador(), jsonDT);
+    dt.listaJugadores = _.map(jsonDT.listaJugadores, Jugador.asJugador);
+    return dt;
+}
+
 
 DT.prototype = new DT();
 /*DT.prototype = {

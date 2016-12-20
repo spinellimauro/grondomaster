@@ -3,7 +3,7 @@
     <div class="panel-body">
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder=" ... ">
+                <input type="text" class="form-control" placeholder=" ... " ng-model="busquedaCtrl.query">
                 <span class="input-group-btn">
         <button class="btn btn-primary" type="submit" ng-click="busquedaCtrl.getResultados()">
             Buscar
@@ -18,7 +18,7 @@
     <div class="panel-heading ">
         <h3 class="panel-title ">Jugadores</h3>
     </div>
-    <div class="panel-body ">
+    <div class="panel-body">
         <table class="table table-responsive">
             <thead>
                 <tr>
@@ -27,17 +27,21 @@
                     <th>Nivel</th>
                     <th>Potencial</th>
                     <th>Precio</th>
+                    <th>Propietario</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="jugador in busquedaCtrl.resultados">
                     <td>
-                        <img width="40" height="40" src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" />
+                        <img width="40" height="40" 
+                        ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" 
+                        err-src="http://cdn.sofifa.org/player.png"/>
                     </td>
                     <td>{{jugador.nombre}}</td>
                     <td>{{jugador.nivel}}</td>
                     <td>{{jugador.potencial}}</td>
                     <td>$ {{jugador.precioMaquina}}</td>
+                    <td>{{jugador.propietario}}</td>
                 </tr>
             </tbody>
         </table>

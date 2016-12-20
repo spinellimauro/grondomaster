@@ -1,32 +1,40 @@
 <!-- Barra superior -->
-<nav class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">GrondoMaster</a>
-    </div>
-    <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a ui-sref="main.inicio">Inicio</a></li>
-            <li><a ui-sref="main.buscar">Buscador</a></li>
-            <li><a ui-sref="main.mercado">Mercado</a></li>
-            <li><a ui-sref="main.equipos">Equipos</a></li>
-            <li><a ui-sref="main.torneos">Torneos</a></li>
-            <li><a ui-sref="login">Salir</a></li>
-    </div>
-</nav>
-<!-- Barra izquierda -->
-<div class="col-lg-2">
-    <div class="list-group">
-        <img class="img-responsive thumbnail" src="http://cdn.sofifa.org/17/teams/59.png" />
-        <span class="list-group-item">Fondos: $3.000.000</span>
-        <span class="list-group-item">Slots</span>
-        <span class="list-group-item">Cant Jugadores</span>
-    </div>
-    <div class="list-group">
-        <a class="list-group-item" href="#navbar">Noticias</a>
-        <a class="list-group-item" href="#buttons">Traspasos</a>
-    </div>
+<div class="row">
+    <nav class="navbar navbar-inverse col-lg-12">
+        <div class="navbar-header">
+            <a class="navbar-brand">GrondoMaster</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="main.inicio">Mi Equipo</a></li>
+                <li><a ui-sref="main.buscar">Buscador</a></li>
+                <li><a ui-sref="main.mercado">Mercado</a></li>
+                <li><a ui-sref="main.equipos">Equipos</a></li>
+                <li><a ui-sref="main.torneos">Torneos</a></li>
+                <li><a ui-sref="login">Salir</a></li>
+        </div>
+    </nav>
 </div>
-<!-- Vista Dinamica -->
-<div class="col-lg-10">
-    <div ui-view></div>
+<div class="row">
+    <!-- Barra izquierda -->
+    <div class="col-lg-2 text-center">
+        <div class="list-group">
+            <span class="list-group-item">{{mainCtrl.DT.nombreDT}}</span>
+            <img class="list-group-item" src="http://cdn.sofifa.org/17/teams/22.png" />
+            <span class="list-group-item">{{mainCtrl.DT.nombreEquipo}}</span>
+        </div>
+        <div class="list-group">
+            <span class="list-group-item">Plata: $ {{mainCtrl.DT.plata}}</span>
+            <span class="list-group-item">Nº Slots: {{mainCtrl.DT.slots}}</span>
+            <span class="list-group-item">Nº Jugadores: {{mainCtrl.DT.listaJugadores.length}}</span>
+        </div>
+        <div class="list-group">
+            <a class="list-group-item">Noticias</a>
+            <a class="list-group-item">Traspasos</a>
+        </div>
+    </div>
+    <!-- Vista Dinamica -->
+    <div class="col-lg-10 row">
+        <div ui-view></div>
+    </div>
 </div>
