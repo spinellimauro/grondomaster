@@ -1,12 +1,11 @@
 package master
 
+import datos.Precios
 import java.util.List
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.uqbar.commons.utils.Observable
-import datos.Precios
 import org.uqbar.commons.model.UserException
-import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors

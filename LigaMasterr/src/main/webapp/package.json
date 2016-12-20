@@ -1,7 +1,7 @@
 {
-  "name": "pois-ui-angular",
+  "name": "grondomaster-webapp",
   "version": "1.0.0",
-  "description": "Pois angular",
+  "description": "Grondomaster",
   "scripts": {
     "prestart": "npm install",
     "start": "http-server  -p 8000 -c-1",

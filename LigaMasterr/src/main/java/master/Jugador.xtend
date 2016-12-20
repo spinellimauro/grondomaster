@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.jsoup.Jsoup
 import org.uqbar.commons.utils.Observable
 import datos.Precios
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 @Observable
 @Accessors
@@ -41,7 +42,8 @@ class Jugador {
 	def double getPrecioMaquina() {
 		Precios.instance.getPrecio(this)
 	}
-
+	
+	@JsonIgnore
 	def DT getPropietario() {
 		LigaMaster.instance.getPropietario(this)
 	}

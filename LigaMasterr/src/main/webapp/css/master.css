@@ -1,47 +1,13 @@
-
-
-.form-control{
-	background-color:white!important;
-	color:black!important;
-}
-.select{
-	color: #ebebeb;
+.navbar-collapse {
+    font-size: 18px;
 }
 
-.active{
-	background-color:#4682B4;
+th {
+    text-align: center;
+    font-size: 16px;
 }
 
-.navbar-collapse{
-		font-size: 15px;
-	
+td {
+    text-align: center;
+    font-size: 14px;
 }
-
-tr{
-	text-align : center;
-	font-size: 16px;
-}
-
-thead{
-	font-size : 20px;
-}
-
-
-.alert-azul{
-	background-color: #4682B4;
-}
-
-h7{
-	font-size: 20px;
-}
-
-.panel-azul{
-	background-color: #4682B4;
-	height: 40px;
-}
-
-.panel-titulo{
-	font-size: 20px;
-	margin-left: 30px;
-}
-
