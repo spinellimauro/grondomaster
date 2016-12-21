@@ -3,27 +3,21 @@
         <h3 class="panel-title">Mercado</h3>
     </div>
     <div class="panel-body">
-        <table class="table table-responsive ">
+        <table class="table table-responsive">
             <thead>
                 <tr>
-                    <th>Nº</th>
-                    <th>Nombre</th>
-                    <th>Nivel</th>
-                    <th>Precio</th>
+                    <th class="col-lg-3">Nombre</th>
+                    <th class="col-lg-3">Nivel</th>
+                    <th class="col-lg-3">Potencial</th>
+                    <th class="col-lg-3">Precio de Venta</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Rulli</td>
-                    <td>79</td>
-                    <td>10.000</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Rugani</td>
-                    <td>78</td>
-                    <td>5.000</td>
+                <tr ng-repeat="jugador in buscarCtrl.transferibles">
+                    <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{jugador.nombre}}</td>
+                    <td>{{jugador.nivel}}</td>
+                    <td>{{jugador.potencial}}</td>
+                    <td>$ {{jugador.precioVenta}}</td>
                 </tr>
             </tbody>
         </table>

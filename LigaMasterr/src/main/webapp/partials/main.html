@@ -1,5 +1,5 @@
-<!-- Barra superior -->
 <div class="row">
+    <!-- Barra superior -->
     <nav class="navbar navbar-inverse col-lg-12">
         <div class="navbar-header">
             <a class="navbar-brand">GrondoMaster</a>
@@ -18,23 +18,22 @@
 <div class="row">
     <!-- Barra izquierda -->
     <div class="col-lg-2 text-center">
-        <div class="list-group">
+        <div class="list-group table-of-contents">
             <span class="list-group-item">{{mainCtrl.DT.nombreDT}}</span>
-            <img class="list-group-item" src="http://cdn.sofifa.org/17/teams/22.png" />
             <span class="list-group-item">{{mainCtrl.DT.nombreEquipo}}</span>
         </div>
-        <div class="list-group">
+        <div class="list-group table-of-contents">
             <span class="list-group-item">Plata: $ {{mainCtrl.DT.plata}}</span>
             <span class="list-group-item">Nº Slots: {{mainCtrl.DT.slots}}</span>
             <span class="list-group-item">Nº Jugadores: {{mainCtrl.DT.listaJugadores.length}}</span>
         </div>
-        <div class="list-group">
+        <div class="list-group table-of-contents">
             <a class="list-group-item">Noticias</a>
             <a class="list-group-item">Traspasos</a>
         </div>
     </div>
     <!-- Vista Dinamica -->
-    <div class="col-lg-10 row">
+    <div class="col-lg-10">
         <div ui-view></div>
     </div>
 </div>

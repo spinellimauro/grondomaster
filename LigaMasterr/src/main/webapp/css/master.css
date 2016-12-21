@@ -5,9 +5,16 @@
 th {
     text-align: center;
     font-size: 16px;
+    vertical-align: bottom;
 }
 
 td {
     text-align: center;
     font-size: 14px;
+    vertical-align: bottom;
+}
+
+.vertical-center {
+  margin-top: 15%;
+  margin-bottom: 15%;
 }

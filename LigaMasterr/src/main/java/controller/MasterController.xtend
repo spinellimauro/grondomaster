@@ -13,13 +13,6 @@ import datos.SoFifa
 class MasterController {
 	extension JSONUtils = new JSONUtils
 
-	@Get("/busqueda")
-	def Result jugadores() {
-		val jugadores = LigaMaster.instance.listaJugador
-		response.contentType = ContentType.APPLICATION_JSON
-		ok(jugadores.toJson)
-	}
-	
 	@Get("/busqueda/:nombre")
 	def Result jugadores() {
 		val jugadores = SoFifa.instance.getJugadores(nombre)
@@ -27,7 +20,12 @@ class MasterController {
 		ok(jugadores.toJson)
 	}
 	
-	
+	@Get("/mercado")
+	def Result jugadores() {
+		val jugadores = LigaMaster.instance.listaTransferibles
+		response.contentType = ContentType.APPLICATION_JSON
+		ok(jugadores.toJson)
+	}
 
 	@Get("/dt")
 	def Result getDT() {

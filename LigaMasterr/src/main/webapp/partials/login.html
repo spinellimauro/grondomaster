@@ -1,26 +1,28 @@
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        <h3 class="panel-title">Acceso</h3>
-    </div>
-    <div class="panel-body">
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Usuario</label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" placeholder="Usuario">
+<div class="col-lg-10 col-lg-offset-1">
+    <div class="panel panel-danger vertical-center">
+        <div class="panel-heading">
+            <h3 class="panel-title">Acceso</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Usuario</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" placeholder="Usuario">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Contraseña</label>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" placeholder="Contraseña">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Contraseña</label>
+                    <div class="col-lg-10">
+                        <input type="password" class="form-control" placeholder="Contraseña">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2"> 
-                    <button type="submit" class="btn btn-primary" ui-sref="main">Acceder</button>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary" ng-click="loginCtrl.logIn()">Acceder</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>

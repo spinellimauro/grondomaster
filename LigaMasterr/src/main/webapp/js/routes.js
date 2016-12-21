@@ -1,41 +1,43 @@
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/login");
 
     $stateProvider.state('login', {
-        url: "/",
-        templateUrl: "partials/login.html"
+        url: "/login",
+        templateUrl: "partials/login.html",
+        controller: "loginController as loginCtrl"
     })
 
     .state('main', {
         url: "/main",
         templateUrl: "partials/main.html",
         controller: "mainController as mainCtrl"
-    })
+     })
 
     .state('main.inicio', {
-        url: '',
+        url: '/',
         templateUrl: 'partials/inicio.html'
     })
 
     .state('main.buscar', {
-        url: '',
-        controller: "busquedaController as busquedaCtrl",
-        templateUrl: 'partials/buscador.html'
+        url: '/buscar',
+        controller: "buscarController as buscarCtrl",
+        templateUrl: 'partials/buscar.html'
     })
 
     .state('main.mercado', {
-        url: '',
+        url: '/mercado',
+        controller: "buscarController as buscarCtrl",
         templateUrl: 'partials/mercado.html'
     })
 
     .state('main.equipos', {
-        url: '',
+        url: '/equipos',
         templateUrl: 'partials/equipos.html'
     })
 
     .state('main.torneos', {
-        url: '',
+        url: '/torneos',
         templateUrl: 'partials/torneos.html'
     })
 

@@ -1,7 +1,7 @@
 app.service("JugadorService", function($http) {
 
-    this.getAll = function(callback) {
-        $http.get('/busqueda').then(callback);
+    this.getTransferibles = function(callback) {
+        $http.get('/mercado').then(callback);
     };
 
     this.getSome = function(nombre,callback) {

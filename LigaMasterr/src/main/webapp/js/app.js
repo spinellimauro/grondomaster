@@ -1,6 +1,6 @@
 var app = angular.module('grondomasterApp', ['ui.router']);
 
-app.controller('busquedaController', function(JugadorService) {
+app.controller('buscarController', function(JugadorService) {
     var self = this;
 
     this.getResultados = function() {
@@ -9,6 +9,22 @@ app.controller('busquedaController', function(JugadorService) {
         });
     }
 
+    this.getTransferibles = function() {
+        JugadorService.getTransferibles(function(response) {
+            self.transferibles = _.map(response.data, Jugador.asJugador);
+        });
+    }
+
+    self.getTransferibles();
+
+});
+
+app.controller('loginController', function(DTService,$state) {
+    var self = this;
+
+    this.logIn = function() {
+        $state.go("main.inicio");
+    }
 });
 
 app.controller('mainController', function(DTService) {
