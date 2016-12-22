@@ -1,11 +1,9 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <form class="form-group">
-            <select class="form-control" ng-model="mainCtrl.idTorneo">
-                <option value="" disabled selected>Seleccione torneo ...</option>
-                <option ng-repeat="torneo in mainCtrl.torneos" value="{{$index}}">{{torneo.nombreTorneo}}</option>
-            </select>
-        </form>
+        <select class="form-control" ng-model="mainCtrl.idTorneo">
+            <option value="" disabled selected>Seleccione torneo ...</option>
+            <option ng-repeat="torneo in mainCtrl.torneos" value="{{$index}}">{{torneo.nombreTorneo}}</option>
+        </select>
     </div>
 </div>
 <div class="panel panel-default" ng-show="mainCtrl.idTorneo">

@@ -3,14 +3,11 @@
         <h3 class="panel-title">DTs</h3>
     </div>
     <div class="panel-body">
-        <div class="form-group">
-            <form>
-                <select class="form-control" ng-model="mainCtrl.selected">
-                 <option value="" disabled selected>Seleccione DT ...</option>
-                    <option ng-repeat="dt in mainCtrl.DTs" value="{{$index}}">{{dt.nombreDT}}</option>
-                </select>
-            </form>
-        </div>
+        <select class="form-control" ng-model="mainCtrl.selected">
+            <option value="" disabled selected>Seleccione DT ...</option>
+            <option ng-repeat="dt in mainCtrl.DTs" value="{{$index}}">{{dt.nombreDT}}</option>
+        </select>
+        <hr>
         <table class="table table-responsive">
             <thead>
                 <tr>

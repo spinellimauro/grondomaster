@@ -21,9 +21,13 @@ th {
 td {
     text-align: center;
     font-size: 14px;
+        white-space: nowrap;
+    overflow: hidden;
+    padding: .5rem;
+    height: 4.25rem;
 }
 
 .vertical-center {
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin-top: 50%;
+    margin-bottom: 50%;
 }

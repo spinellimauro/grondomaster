@@ -2,8 +2,14 @@ var app = angular.module('grondomasterApp', ['ui.router']);
 
 app.controller('buscarController', function(JugadorService) {
     var self = this;
+    this.resultados = [];
+    this.transferibles = []
+    this.pageLimit = 5;
 
     this.getResultados = function() {
+        self.resultados = [];
+        self.page = 0;
+
         JugadorService.getSome(self.query, function(response) {
             self.resultados = _.map(response.data, Jugador.asJugador);
         });
@@ -15,8 +21,11 @@ app.controller('buscarController', function(JugadorService) {
         });
     }
 
-    self.getTransferibles();
+    this.nPages = function() {
+        return Math.round(this.resultados.length / this.pageLimit);
+    }
 
+    self.getTransferibles();
 });
 
 app.controller('loginController', function(DTService, $state) {
@@ -53,4 +62,11 @@ app.controller('mainController', function(DTService, TorneoService) {
     self.getDT();
 
     self.getAll();
+});
+
+app.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start;
+        return input.slice(start);
+    }
 });
