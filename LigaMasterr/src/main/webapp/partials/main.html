@@ -1,39 +1,42 @@
 <div class="row">
-    <!-- Barra superior -->
-    <nav class="navbar navbar-inverse col-lg-12">
+    <nav class="navbar navbar-inverse">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topbar">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
             <a class="navbar-brand">GrondoMaster</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="topbar">
             <ul class="nav navbar-nav">
-                <li><a ui-sref="main.inicio">Mi Equipo</a></li>
-                <li><a ui-sref="main.buscar">Buscador</a></li>
+                <li><a ui-sref="main.inicio">Inicio</a></li>
                 <li><a ui-sref="main.mercado">Mercado</a></li>
                 <li><a ui-sref="main.equipos">Equipos</a></li>
                 <li><a ui-sref="main.torneos">Torneos</a></li>
                 <li><a ui-sref="login">Salir</a></li>
+            </ul>
         </div>
     </nav>
 </div>
 <div class="row">
-    <!-- Barra izquierda -->
-    <div class="col-lg-2 text-center">
-        <div class="list-group table-of-contents">
-            <span class="list-group-item">{{mainCtrl.DT.nombreDT}}</span>
-            <span class="list-group-item">{{mainCtrl.DT.nombreEquipo}}</span>
-        </div>
-        <div class="list-group table-of-contents">
-            <span class="list-group-item">Plata: $ {{mainCtrl.DT.plata}}</span>
-            <span class="list-group-item">Nº Slots: {{mainCtrl.DT.slots}}</span>
-            <span class="list-group-item">Nº Jugadores: {{mainCtrl.DT.listaJugadores.length}}</span>
-        </div>
-        <div class="list-group table-of-contents">
-            <a class="list-group-item">Noticias</a>
-            <a class="list-group-item">Traspasos</a>
-        </div>
+    <div class="col-sm-2">
+        <nav class="navbar navbar-default navbar-fixed-side">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+                <a class="navbar-brand">{{mainCtrl.DT.nombreDT}}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="sidebar">
+                <ul class="nav navbar-nav">
+                    <p class="navbar-text">{{mainCtrl.DT.nombreEquipo}}</p>
+                    <p class="navbar-text">Plata: $ {{mainCtrl.DT.plata}}</p>
+                    <p class="navbar-text">Nº Slots: {{mainCtrl.DT.slots}}</p>
+                    <p class="navbar-text">Nº Jugadores: {{mainCtrl.DT.listaJugadores.length}}</p>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <!-- Vista Dinamica -->
-    <div class="col-lg-10">
+    <div class="col-sm-10">
         <div ui-view></div>
     </div>
 </div>

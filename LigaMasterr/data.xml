@@ -5,12 +5,285 @@
       <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
         <owner class="master.Torneo" reference="../.."/>
         <fieldName>listaParticipantes</fieldName>
-        <data class="list"/>
+        <data class="list">
+          <master.DT>
+            <nombreDT>Mauro</nombreDT>
+            <nombreEquipo>Bordeaux</nombreEquipo>
+            <plata>49500.0</plata>
+            <password></password>
+            <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
+              <owner class="master.DT" reference="../.."/>
+              <fieldName>listaJugadores</fieldName>
+              <data class="set">
+                <master.Jugador>
+                  <id>198077</id>
+                  <nombre>P. Herrmann</nombre>
+                  <nivel>81</nivel>
+                  <potencial>84</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+              </data>
+            </listaJugadores>
+            <torneosDisponibles>1</torneosDisponibles>
+            <slots>30</slots>
+          </master.DT>
+          <master.DT>
+            <nombreDT>Alejandro</nombreDT>
+            <nombreEquipo>Dortmund</nombreEquipo>
+            <plata>41000.0</plata>
+            <password></password>
+            <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
+              <owner class="master.DT" reference="../.."/>
+              <fieldName>listaJugadores</fieldName>
+              <data class="set">
+                <master.Jugador>
+                  <id>227920</id>
+                  <nombre>I. Azzaoui</nombre>
+                  <nivel>61</nivel>
+                  <potencial>79</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>193301</id>
+                  <nombre>A. Lacazette</nombre>
+                  <nivel>85</nivel>
+                  <potencial>89</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>208330</id>
+                  <nombre>A. Januzaj</nombre>
+                  <nivel>76</nivel>
+                  <potencial>85</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>5000.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>192985</id>
+                  <nombre>K. De Bruyne</nombre>
+                  <nivel>88</nivel>
+                  <potencial>91</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+              </data>
+            </listaJugadores>
+            <torneosDisponibles>0</torneosDisponibles>
+            <slots>31</slots>
+          </master.DT>
+          <master.DT>
+            <nombreDT>NicoRobi</nombreDT>
+            <nombreEquipo></nombreEquipo>
+            <plata>0.0</plata>
+            <password></password>
+            <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
+              <owner class="master.DT" reference="../.."/>
+              <fieldName>listaJugadores</fieldName>
+              <data class="set">
+                <master.Jugador>
+                  <id>197242</id>
+                  <nombre>G. Krychowiak</nombre>
+                  <nivel>84</nivel>
+                  <potencial>86</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+              </data>
+            </listaJugadores>
+            <torneosDisponibles>2</torneosDisponibles>
+            <slots>30</slots>
+          </master.DT>
+        </data>
       </listaParticipantes>
       <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
         <owner class="master.Torneo" reference="../.."/>
         <fieldName>listaPartidos</fieldName>
-        <data class="list"/>
+        <data class="list">
+          <master.Partido>
+            <numeroFecha>1</numeroFecha>
+            <dtLocal reference="../../../../listaParticipantes/data/master.DT[2]"/>
+            <dtVisitante reference="../../../../listaParticipantes/data/master.DT[3]"/>
+            <terminado>false</terminado>
+            <torneo reference="../../../.."/>
+            <golesLocal class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesLocal</fieldName>
+              <data class="list"/>
+            </golesLocal>
+            <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesVisitante</fieldName>
+              <data class="list"/>
+            </golesVisitante>
+            <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaAmarillas</fieldName>
+              <data class="list"/>
+            </listaAmarillas>
+            <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaRojas</fieldName>
+              <data class="list"/>
+            </listaRojas>
+          </master.Partido>
+          <master.Partido>
+            <numeroFecha>2</numeroFecha>
+            <dtLocal reference="../../../../listaParticipantes/data/master.DT[3]"/>
+            <dtVisitante reference="../../../../listaParticipantes/data/master.DT"/>
+            <terminado>false</terminado>
+            <torneo reference="../../../.."/>
+            <golesLocal class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesLocal</fieldName>
+              <data class="list"/>
+            </golesLocal>
+            <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesVisitante</fieldName>
+              <data class="list"/>
+            </golesVisitante>
+            <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaAmarillas</fieldName>
+              <data class="list"/>
+            </listaAmarillas>
+            <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaRojas</fieldName>
+              <data class="list"/>
+            </listaRojas>
+          </master.Partido>
+          <master.Partido>
+            <numeroFecha>3</numeroFecha>
+            <dtLocal reference="../../../../listaParticipantes/data/master.DT"/>
+            <dtVisitante reference="../../../../listaParticipantes/data/master.DT[2]"/>
+            <terminado>false</terminado>
+            <torneo reference="../../../.."/>
+            <golesLocal class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesLocal</fieldName>
+              <data class="list"/>
+            </golesLocal>
+            <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesVisitante</fieldName>
+              <data class="list"/>
+            </golesVisitante>
+            <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaAmarillas</fieldName>
+              <data class="list"/>
+            </listaAmarillas>
+            <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaRojas</fieldName>
+              <data class="list"/>
+            </listaRojas>
+          </master.Partido>
+        </data>
+      </listaPartidos>
+      <premios>
+        <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaEventos</fieldName>
+          <data class="list">
+            <datos.PremioEvento>
+              <evento>Victoria</evento>
+              <premio>2000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Gol</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+            <datos.PremioEvento>
+              <evento>Empate</evento>
+              <premio>1000.0</premio>
+            </datos.PremioEvento>
+          </data>
+        </listaEventos>
+        <listaPosiciones class="org.uqbar.common.transaction.Collection.TransacionalList">
+          <owner class="datos.PremiosTorneos" reference="../.."/>
+          <fieldName>listaPosiciones</fieldName>
+          <data class="list">
+            <datos.PremioPosicion>
+              <posicion>1</posicion>
+              <premio>40000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>2</posicion>
+              <premio>30000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>3</posicion>
+              <premio>20000.0</premio>
+            </datos.PremioPosicion>
+            <datos.PremioPosicion>
+              <posicion>4</posicion>
+              <premio>10000.0</premio>
+            </datos.PremioPosicion>
+          </data>
+        </listaPosiciones>
+      </premios>
+      <limiteAmarillas>3</limiteAmarillas>
+      <terminado>false</terminado>
+    </master.Torneo>
+    <master.Torneo>
+      <nombreTorneo>Torneo 2</nombreTorneo>
+      <listaParticipantes class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaParticipantes</fieldName>
+        <data class="list">
+          <master.DT reference="../../../../master.Torneo/listaParticipantes/data/master.DT[2]"/>
+          <master.DT reference="../../../../master.Torneo/listaParticipantes/data/master.DT"/>
+        </data>
+      </listaParticipantes>
+      <listaPartidos class="org.uqbar.common.transaction.Collection.TransacionalList">
+        <owner class="master.Torneo" reference="../.."/>
+        <fieldName>listaPartidos</fieldName>
+        <data class="list">
+          <master.Partido>
+            <numeroFecha>1</numeroFecha>
+            <dtLocal reference="../../../../../master.Torneo/listaParticipantes/data/master.DT[2]"/>
+            <dtVisitante reference="../../../../../master.Torneo/listaParticipantes/data/master.DT"/>
+            <terminado>false</terminado>
+            <torneo reference="../../../.."/>
+            <golesLocal class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesLocal</fieldName>
+              <data class="list"/>
+            </golesLocal>
+            <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>golesVisitante</fieldName>
+              <data class="list"/>
+            </golesVisitante>
+            <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaAmarillas</fieldName>
+              <data class="list"/>
+            </listaAmarillas>
+            <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
+              <owner class="master.Partido" reference="../.."/>
+              <fieldName>listaRojas</fieldName>
+              <data class="list"/>
+            </listaRojas>
+          </master.Partido>
+        </data>
       </listaPartidos>
       <premios>
         <listaEventos class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -59,108 +332,9 @@
     </master.Torneo>
   </listaTorneos>
   <listaDT>
-    <master.DT>
-      <nombreDT>Mauro</nombreDT>
-      <nombreEquipo>Bordeaux</nombreEquipo>
-      <plata>49500.0</plata>
-      <password></password>
-      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
-        <owner class="master.DT" reference="../.."/>
-        <fieldName>listaJugadores</fieldName>
-        <data class="set">
-          <master.Jugador>
-            <id>198077</id>
-            <nombre>P. Herrmann</nombre>
-            <nivel>81</nivel>
-            <potencial>84</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-        </data>
-      </listaJugadores>
-      <torneosDisponibles>3</torneosDisponibles>
-      <slots>30</slots>
-    </master.DT>
-    <master.DT>
-      <nombreDT>Alejandro</nombreDT>
-      <nombreEquipo>Dortmund</nombreEquipo>
-      <plata>41000.0</plata>
-      <password></password>
-      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
-        <owner class="master.DT" reference="../.."/>
-        <fieldName>listaJugadores</fieldName>
-        <data class="set">
-          <master.Jugador>
-            <id>227920</id>
-            <nombre>I. Azzaoui</nombre>
-            <nivel>61</nivel>
-            <potencial>79</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-          <master.Jugador>
-            <id>193301</id>
-            <nombre>A. Lacazette</nombre>
-            <nivel>85</nivel>
-            <potencial>89</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-          <master.Jugador>
-            <id>208330</id>
-            <nombre>A. Januzaj</nombre>
-            <nivel>76</nivel>
-            <potencial>85</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>5000.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-          <master.Jugador>
-            <id>192985</id>
-            <nombre>K. De Bruyne</nombre>
-            <nivel>88</nivel>
-            <potencial>91</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-        </data>
-      </listaJugadores>
-      <torneosDisponibles>2</torneosDisponibles>
-      <slots>31</slots>
-    </master.DT>
-    <master.DT>
-      <nombreDT>NicoRobi</nombreDT>
-      <nombreEquipo></nombreEquipo>
-      <plata>0.0</plata>
-      <password></password>
-      <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
-        <owner class="master.DT" reference="../.."/>
-        <fieldName>listaJugadores</fieldName>
-        <data class="set">
-          <master.Jugador>
-            <id>197242</id>
-            <nombre>G. Krychowiak</nombre>
-            <nivel>84</nivel>
-            <potencial>86</potencial>
-            <lesion>0</lesion>
-            <habilitado>true</habilitado>
-            <precioVenta>0.0</precioVenta>
-            <vecesNoPagadas>0</vecesNoPagadas>
-          </master.Jugador>
-        </data>
-      </listaJugadores>
-      <torneosDisponibles>3</torneosDisponibles>
-      <slots>30</slots>
-    </master.DT>
+    <master.DT reference="../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
+    <master.DT reference="../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT[2]"/>
+    <master.DT reference="../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT[3]"/>
   </listaDT>
   <mercado>
     <listaOfertas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -168,8 +342,8 @@
       <fieldName>listaOfertas</fieldName>
       <data class="list">
         <master.Oferta>
-          <dtOfertante reference="../../../../../listaDT/master.DT[2]"/>
-          <dtReceptor reference="../../../../../listaDT/master.DT"/>
+          <dtOfertante reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT[2]"/>
+          <dtReceptor reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
           <monto>1000.0</monto>
           <jugadorOfertado>
             <id>188545</id>
@@ -185,7 +359,7 @@
             <owner class="master.Oferta" reference="../.."/>
             <fieldName>jugadoresOfrecidos</fieldName>
             <data class="list">
-              <master.Jugador reference="../../../../../../../listaDT/master.DT/listaJugadores/data/master.Jugador"/>
+              <master.Jugador reference="../../../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador"/>
             </data>
           </jugadoresOfrecidos>
         </master.Oferta>

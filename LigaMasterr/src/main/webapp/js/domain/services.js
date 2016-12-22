@@ -22,3 +22,11 @@ app.service("DTService", function($http) {
 
 });
 
+app.service("TorneoService", function($http) {
+
+    this.getAll = function(callback) {
+        $http.get('/torneos').then(callback);
+    };
+
+});
+

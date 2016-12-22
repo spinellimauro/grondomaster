@@ -1,0 +1,30 @@
+<form class="form-group">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar jugador ..." ng-model="buscarCtrl.query">
+        <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit" ng-click="buscarCtrl.getResultados()">
+            Buscar
+        </button>
+      </span>
+    </div>
+</form>
+<table class="table table-responsive" ng-show="buscarCtrl.resultados">
+    <thead>
+        <tr>
+            <th class="col-sm-4">Nombre</th>
+            <th class="col-sm-2">Nivel</th>
+            <th class="col-sm-2">Potencial</th>
+            <th class="col-sm-2">Valor</th>
+            <th class="col-sm-2">Propietario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="jugador in buscarCtrl.resultados">
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{jugador.nombre}}</td>
+            <td>{{jugador.nivel}}</td>
+            <td>{{jugador.potencial}}</td>
+            <td>$ {{jugador.precioMaquina}}</td>
+            <td>{{jugador.propietario}}</td>
+        </tr>
+    </tbody>
+</table>

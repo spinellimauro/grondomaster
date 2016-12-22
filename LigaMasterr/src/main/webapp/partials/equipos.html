@@ -1,33 +1,27 @@
-<div class="panel panel-danger">
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">DTs</h3>
     </div>
     <div class="panel-body">
         <div class="form-group">
             <form>
-                <select class="form-control" ng-model="mainCtrl.selected" multiple>
-                    <option ng-repeat="dt in mainCtrl.DTs" ng-value="dt.listaJugadores">{{dt.nombreDT}}</option>
+                <select class="form-control" ng-model="mainCtrl.selected">
+                 <option value="" disabled selected>Seleccione DT ...</option>
+                    <option ng-repeat="dt in mainCtrl.DTs" value="{{$index}}">{{dt.nombreDT}}</option>
                 </select>
             </form>
         </div>
-    </div>
-</div>
-<div class="panel panel-danger" ng-show="mainCtrl.selected">
-    <div class="panel-heading">
-        <h3 class="panel-title">Plantel</h3>
-    </div>
-    <div class="panel-body">
         <table class="table table-responsive">
             <thead>
                 <tr>
-                    <th class="col-lg-3">Nombre</th>
-                    <th class="col-lg-3">Nivel</th>
-                    <th class="col-lg-3">Potencial</th>
-                    <th class="col-lg-3">Precio de Venta</th>
+                    <th class="col-sm-3">Nombre</th>
+                    <th class="col-sm-3">Nivel</th>
+                    <th class="col-sm-3">Potencial</th>
+                    <th class="col-sm-3">Precio</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="jugador in mainCtrl.selected[0]">
+                <tr ng-repeat="jugador in mainCtrl.DTs[mainCtrl.selected].listaJugadores">
                     <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{jugador.nombre}}</td>
                     <td>{{jugador.nivel}}</td>
                     <td>{{jugador.potencial}}</td>

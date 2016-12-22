@@ -1,0 +1,22 @@
+<form class="form-group">
+    <select class="form-control" ng-model="mainCtrl.idFecha">
+        <option value="" disabled selected>Seleccione fecha ...</option>
+        <option ng-repeat="fecha in mainCtrl.torneos[mainCtrl.idTorneo].listaFechas" value="{{fecha}}">Fecha {{fecha}}</option>
+    </select>
+</form>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th class="col-sm-5">Local</th>
+            <th class="col-sm-2"></th>
+            <th class="col-sm-5">Visitante</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="partido in mainCtrl.torneos[mainCtrl.idTorneo].fecha(mainCtrl.idFecha)">
+            <td>{{partido.dtLocal.nombreDT}}</td>
+            <td>{{partido.score}}</td>
+            <td>{{partido.dtVisitante.nombreDT}}</td>
+        </tr>
+    </tbody>
+</table>

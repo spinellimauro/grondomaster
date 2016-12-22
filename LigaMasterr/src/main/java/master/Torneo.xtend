@@ -52,6 +52,10 @@ class Torneo {
 		val nroDts = listaParticipantes.size
 		if(nroDts % 2 == 0) nroDts - 1 else nroDts
 	}
+	
+	def List<Integer> getListaFechas() {
+		(1.. numeroFechas).toList
+	}
 
 	def List<Partido> getFecha(int entero) {
 		listaPartidos.filter[numeroFecha == entero].toList

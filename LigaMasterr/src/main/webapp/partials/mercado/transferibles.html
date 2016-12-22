@@ -1,0 +1,18 @@
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th class="col-sm-3">Nombre</th>
+            <th class="col-sm-3">Nivel</th>
+            <th class="col-sm-3">Potencial</th>
+            <th class="col-sm-3">Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="jugador in buscarCtrl.transferibles">
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{jugador.nombre}}</td>
+            <td>{{jugador.nivel}}</td>
+            <td>{{jugador.potencial}}</td>
+            <td>$ {{jugador.precioVenta}}</td>
+        </tr>
+    </tbody>
+</table>

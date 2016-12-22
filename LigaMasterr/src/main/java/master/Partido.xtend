@@ -5,6 +5,7 @@ import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.ObservableUtils
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 @Observable
 @Accessors
@@ -13,10 +14,15 @@ class Partido {
 	DT dtLocal
 	DT dtVisitante
 	boolean terminado = false
+	@JsonIgnore
 	Torneo torneo
+	@JsonIgnore
 	List<Jugador> golesLocal = newArrayList
+	@JsonIgnore
 	List<Jugador> golesVisitante = newArrayList
+	@JsonIgnore
 	List<Jugador> listaAmarillas = newArrayList
+	@JsonIgnore
 	List<Jugador> listaRojas = newArrayList
 
 	def boolean getJugoPartido(DT dt) {

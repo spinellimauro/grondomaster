@@ -19,7 +19,7 @@ app.controller('buscarController', function(JugadorService) {
 
 });
 
-app.controller('loginController', function(DTService,$state) {
+app.controller('loginController', function(DTService, $state) {
     var self = this;
 
     this.logIn = function() {
@@ -27,7 +27,7 @@ app.controller('loginController', function(DTService,$state) {
     }
 });
 
-app.controller('mainController', function(DTService) {
+app.controller('mainController', function(DTService, TorneoService) {
     var self = this;
 
     this.getDT = function() {
@@ -42,6 +42,15 @@ app.controller('mainController', function(DTService) {
         });
     }
 
+    this.getTorneos = function() {
+        TorneoService.getAll(function(response) {
+            self.torneos = _.map(response.data, Torneo.asTorneo);
+        });
+    }
+
+    self.getTorneos();
+
     self.getDT();
+
     self.getAll();
 });

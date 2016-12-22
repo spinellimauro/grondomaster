@@ -1,0 +1,16 @@
+<div class="panel panel-default ">
+    <div class="panel-heading">
+        <ul class="nav nav-tabs panel-title">
+            <li class="active"><a data-toggle="tab" data-target="#plantel">Plantel</a></li>
+            <li><a data-toggle="tab" data-target="#deshabilitados">Deshabilitados</a></li>
+        </ul>
+    </div>
+    <div class="tab-content panel-body">
+        <div id="plantel" class="tab-pane fade in active">
+            <div ui-view="plantel"></div>
+        </div>
+        <div id="deshabilitados" class="tab-pane fade">
+            <div ui-view="deshabilitados"></div>
+        </div>
+    </div>
+</div>
