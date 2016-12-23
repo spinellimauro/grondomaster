@@ -6,6 +6,7 @@ import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 @Observable
 @Accessors
@@ -38,6 +39,7 @@ class DT {
 		jugador.precioVenta = 0
 	}
 
+	@JsonIgnore
 	def int getCantJugadores() {
 		listaJugadores.size
 	}
@@ -81,6 +83,7 @@ class DT {
 		torneosDisponibles == 0
 	}
 
+	@JsonIgnore
 	def List<Jugador> getJugadoresConImpuesto() {
 		listaJugadores.filter[pagaImpuesto].toList
 	}
@@ -94,8 +97,8 @@ class DT {
 		jugadoresNoPagados.forEach[noSePago]
 
 		if(torneosDisponibles != 0) decTorneos else torneosDisponibles = 3
-		if(jugadoresNoPagados.forall[vecesNoPagadas != 3]){}
-		else{
+		if (jugadoresNoPagados.forall[vecesNoPagadas != 3]) {
+		} else {
 			var borrados = jugadoresNoPagados.filter[vecesNoPagadas == 3].toList
 			listaJugadores.removeAll(borrados)
 			var borradosNombres = borrados.map[nombre]
@@ -108,11 +111,12 @@ class DT {
 		decPlata(jugador.impuesto)
 		jugador.pagar
 	}
-	
-	def List<Jugador> getListaJugadoresDeshabilitados(){
+
+	@JsonIgnore
+	def List<Jugador> getListaJugadoresDeshabilitados() {
 		listaJugadores.filter[habilitado == false].toList
 	}
-	
+
 	// Comparación
 	override equals(Object obj) {
 		if(obj == null) return false

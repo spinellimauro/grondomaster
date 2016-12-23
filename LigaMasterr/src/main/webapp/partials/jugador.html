@@ -1,0 +1,33 @@
+<div id="detalle" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <center>
+                    <img class="img-responsive" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />
+                    <h3>{{jugador.nombre}}</h3>
+                </center>
+            </div>
+            <div class="modal-body">
+                <h4 class="text-center"> 
+                <p>Nivel: {{jugador.nivel}}</p>
+                <p>Potencial: {{jugador.potencial}}</p>
+                <p ng-show="jugador.precioVenta == 0">Valor: $ {{jugador.precioMaquina}}</p>
+                <p ng-show="jugador.precioVenta > 0">Precio: $ {{jugador.precioVenta}}</p>
+                </h4>
+            </div>
+            <div class="modal-footer text-center">
+                <div class="btn-group">
+                   <button type="button" class="btn btn-default"
+                    ng-show="jugador.precioVenta > 0 && jugador.propietario != mainCtrl.DT.nombreDT">Comprar a {{jugador.propietario}}</button>
+                    <button type="button" class="btn btn-default"
+                    ng-show="jugador.propietario == 'Libre'">Comprar a Máquina</button>
+                    <button type="button" class="btn btn-default"
+                    ng-show="jugador.propietario == mainCtrl.DT.nombreDT">Vender a Máquina</button>
+                    <button type="button" class="btn btn-default" 
+                    ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT  ">Ofertar a {{jugador.propietario}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

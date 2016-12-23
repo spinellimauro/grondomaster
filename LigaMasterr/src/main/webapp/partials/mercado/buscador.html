@@ -5,43 +5,8 @@
             <button class="btn btn-primary" type="submit" ng-click="buscarCtrl.getResultados()">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
-            <button class="btn btn-primary" ng-click="buscarCtrl.pageLimit=5;buscarCtrl.page=0">5</button>
-            <button class="btn btn-primary" ng-click="buscarCtrl.pageLimit=10;buscarCtrl.page=0">10</button>
-            <button class="btn btn-primary" ng-click="buscarCtrl.pageLimit=15;buscarCtrl.page=0" ">15</button>
         </div>
     </div>
 </form>
 <hr>
-<table class="table table-responsive ">
-    <thead>
-        <tr>
-            <th class="col-sm-4 ">Nombre</th>
-            <th class="col-sm-2 ">Nivel</th>
-            <th class="col-sm-2 ">Potencial</th>
-            <th class="col-sm-2 ">Valor</th>
-            <th class="col-sm-2 ">Propietario</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr data-ng-repeat="jugador in buscarCtrl.resultados | startFrom: buscarCtrl.page * buscarCtrl.pageLimit | limitTo:buscarCtrl.pageLimit ">
-            <td><img width="40 " height="40 " ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png " err-src="http://cdn.sofifa.org/player.png " />{{jugador.nombre}}</td>
-            <td>{{jugador.nivel}}</td>
-            <td>{{jugador.potencial}}</td>
-            <td>$ {{jugador.precioMaquina}}</td>
-            <td>{{jugador.propietario}}</td>
-        </tr>
-    </tbody>
-</table>
-<div class="text-center " ng-show="buscarCtrl.nPages()> 1">
-                <div class="btn-group">
-                    <button class="btn btn-primary" ng-disabled="buscarCtrl.page == 0" ng-click="buscarCtrl.page = buscarCtrl.page - 1">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </button>
-                    <button class="btn btn-primary">
-                        {{buscarCtrl.page + 1}}/{{buscarCtrl.nPages()}}
-                    </button>
-                    <button class="btn btn-primary" ng-disabled="buscarCtrl.page >= buscarCtrl.nPages() - 1" ng-click="buscarCtrl.page = buscarCtrl.page + 1">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button>
-                </div>
-        </div>
+<div jugadores lista="buscarCtrl.resultados"></div>

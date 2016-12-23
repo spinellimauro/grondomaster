@@ -1,0 +1,42 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="col-sm-6">Nombre</th>
+            <th class="col-sm-1">Nivel</th>
+            <th class="col-sm-1">Potencial</th>
+            <th class="col-sm-2">Valor</th>
+            <th class="col-sm-2">Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr role="button" ng-repeat="jugador in lista | startFrom: listaCtrl.page * listaCtrl.limit | limitTo: listaCtrl.limit" data-ng-click="listaCtrl.select(jugador)" data-toggle="modal" data-target="#detalle">
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{jugador.nombre}}</td>
+            <td>{{jugador.nivel}}</td>
+            <td>{{jugador.potencial}}</td>
+            <td>$ {{jugador.precioMaquina}}</td>
+            <td>$ {{jugador.precioVenta}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="col-xs-3">
+    <div class="btn-group">
+        <button class="btn btn-primary" ng-show="lista.length > 5" ng-click="listaCtrl.setLimit(5)"
+        >5</button>
+        <button class="btn btn-primary" ng-show="lista.length > 10" ng-click="listaCtrl.setLimit(10)"
+        >10</button>
+        <button class="btn btn-primary" ng-show="lista.length > 15" ng-click="listaCtrl.setLimit(15)"
+        >15</button>
+    </div>
+</div>
+<div class="col-xs-4 col-xs-offset-2" ng-show="listaCtrl.nPages() > 1">
+    <div class="btn-group">
+        <button class="btn btn-primary" ng-disabled="listaCtrl.firstPage()" ng-click="listaCtrl.previous()">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </button>
+        <button class="btn btn-primary">{{listaCtrl.page + 1}}/{{listaCtrl.nPages()}}</button>
+        <button class="btn btn-primary" ng-disabled="listaCtrl.lastPage()" ng-click="listaCtrl.next()">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </div>
+</div>
+<div detalle jugador="listaCtrl.jugadorSeleccionado"></div>

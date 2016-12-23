@@ -1,32 +1,50 @@
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider.state('login', {
-        url: "/login",
-        templateUrl: "partials/login.html",
-        controller: "loginController as loginCtrl"
+        url: '/login',
+        templateUrl: 'partials/login.html',
+        controller: 'loginController as loginCtrl'
     })
 
     .state('main', {
-        url: "/main",
-        templateUrl: "partials/main.html",
-        controller: "mainController as mainCtrl"
+        abstract: true,
+        views: {
+            '': {
+                templateUrl: 'partials/main/layout.html',
+                controller: 'mainController as mainCtrl'
+            },
+            'container@main': {
+                template: '<ui-view>'
+            },
+             'topbar@main': {
+                templateUrl: 'partials/main/topbar.html'
+            },
+             'sidebar@main': {
+                templateUrl: 'partials/main/sidebar.html'
+            }
+        }
     })
 
     .state('main.inicio', {
-        url: '/',
+        url: '/inicio',
         views: {
             '': {
                 templateUrl: 'partials/inicio/layout.html'
             },
-            'plantel@main.inicio': {
-                templateUrl: 'partials/inicio/plantel.html'
+            'container@main.inicio': {
+                template: '<ui-view>'
             },
-            'deshabilitados@main.inicio': {
-                templateUrl: 'partials/inicio/deshabilitados.html'
-            }
         }
+    })
+
+    .state('main.inicio.plantel', {
+        templateUrl: 'partials/inicio/plantel.html'
+    })
+
+    .state('main.inicio.deshabilitados', {
+        templateUrl: 'partials/inicio/deshabilitados.html'
     })
 
     .state('main.mercado', {
@@ -34,15 +52,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
         views: {
             '': {
                 templateUrl: 'partials/mercado/layout.html',
-                controller: "buscarController as buscarCtrl"
+                controller: 'buscarController as buscarCtrl'
             },
-            'transferibles@main.mercado': {
-                templateUrl: 'partials/mercado/transferibles.html'
-            },
-            'buscador@main.mercado': {
-                templateUrl: 'partials/mercado/buscador.html'
+            'container@main.mercado': {
+                template: '<ui-view>'
             }
         }
+    })
+
+    .state('main.mercado.transferibles', {
+        templateUrl: 'partials/mercado/transferibles.html'
+    })
+
+    .state('main.mercado.buscador', {
+        templateUrl: 'partials/mercado/buscador.html'
     })
 
     .state('main.equipos', {
@@ -64,6 +87,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
         }
 
-    })
+    });
 
-})
+});
