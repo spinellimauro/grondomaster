@@ -43,6 +43,13 @@ app.controller('mainController', function(DTService, TorneoService) {
         });
     };
 
+    this.getEquipos = function() {
+        this.selected = null;
+        DTService.getEquipos(this.query,function(response) {
+            self.equipos = response.data;
+        });
+    };
+
     this.getTorneos = function() {
         TorneoService.getAll(function(response) {
             self.torneos = _.map(response.data, Torneo.asTorneo);
@@ -63,16 +70,30 @@ app.filter('startFrom', function() {
 
 app.controller('listaController', function($scope) {
     this.page = 0;
-    this.limit = 5;
+    this.limit = 10;
+    this.sortReverse = true;
+    this.sortType = 'nivel';
     
     this.select = function(jugador){
         this.jugadorSeleccionado = jugador;
     };
 
-
     this.setLimit = function(number) {
         this.limit = number;
         this.page = 0;
+    };
+
+    this.setSort = function(sortType){
+        this.sortType = sortType;
+        this.sortReverse = !this.sortReverse;
+    };
+
+    this.checkUp = function(sortType){
+       return this.sortType == sortType && this.sortReverse;
+    };
+
+    this.checkDown = function(sortType){
+       return this.sortType == sortType && !this.sortReverse;
     };
 
     this.next = function() {
@@ -92,6 +113,6 @@ app.controller('listaController', function($scope) {
     };
 
     this.nPages = function() {
-        return Math.round($scope.lista.length / this.limit);
+        return Math.ceil($scope.lista.length / this.limit);
     };
 });

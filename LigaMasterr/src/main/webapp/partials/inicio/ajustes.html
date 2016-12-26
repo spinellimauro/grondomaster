@@ -1,0 +1,16 @@
+<form class="input-group">
+    <input type="text" class="form-control" placeholder="Buscar equipo ..." ng-model="mainCtrl.query">
+    <div class="input-group-btn">
+        <button class="btn btn-primary" type="submit" ng-click="mainCtrl.getEquipos()">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+</form>
+<hr>
+<table class="table table-responsive table-hover" ng-show="mainCtrl.equipos">
+    <tbody>
+        <tr role="button" ng-repeat="equipo in mainCtrl.equipos" ng-click="mainCtrl.DT.id = equipo.id; mainCtrl.DT.nombreEquipo = equipo.nombre">
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{equipo.id}}.png" /> {{equipo.nombre}}</td>
+        </tr>
+    </tbody>
+</table>

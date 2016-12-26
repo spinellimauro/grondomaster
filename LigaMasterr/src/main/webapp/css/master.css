@@ -2,29 +2,22 @@
     font-size: 18px;
 }
 
-.nav>p {
+.nav > p {
     font-size: 16px;
-    position: relative;
-    display: block;
-    padding: 5px 15px;
 }
 
-.navbar-fixed-side .navbar-nav>li>a {
+.navbar-fixed-side .navbar-nav > li > a {
     border-bottom: transparent;
 }
 
 th {
-    text-align: center;
+	text-align: center;
     font-size: 16px;
 }
 
 td {
-    text-align: center;
+	text-align: center;
     font-size: 14px;
-        white-space: nowrap;
-    overflow: hidden;
-    padding: .5rem;
-    height: 4.25rem;
 }
 
 .vertical-center {

@@ -1,0 +1,28 @@
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th class="col-sm-1">#</th>
+            <th class="col-sm-2">DT</th>
+            <th class="col-sm-2">Equipo</th>
+            <th class="col-sm-1">PJ</th>
+            <th class="col-sm-1">G</th>
+            <th class="col-sm-1">E</th>
+            <th class="col-sm-1">P</th>
+            <th class="col-sm-2">Goles</th>
+            <th class="col-sm-1">Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="dt in mainCtrl.torneos[mainCtrl.idTorneo].tablaPosiciones">
+            <td>{{$index+1}}º</td>
+            <td>{{dt.nombre}}</td>
+            <td>{{dt.equipo}}</td>
+            <td>{{dt.pj}}</td>
+            <td>{{dt.g}}</td>
+            <td>{{dt.e}}</td>
+            <td>{{dt.p}}</td>
+            <td>{{dt.goles}}</td>
+            <td>{{dt.pts}}</td>
+        </tr>
+    </tbody>
+</table>

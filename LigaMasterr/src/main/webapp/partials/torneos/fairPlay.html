@@ -1,0 +1,22 @@
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th class="col-sm-1">#</th>
+            <th class="col-sm-3">DT</th>
+            <th class="col-sm-2">Equipo</th>
+            <th class="col-sm-2">Amarillas</th>
+            <th class="col-sm-2">Rojas</th>
+            <th class="col-sm-6">Puntos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="dt in mainCtrl.torneos[mainCtrl.idTorneo].tablaFairPlay">
+            <td>{{$index+1}}º</td>
+            <td>{{dt.nombre}}</td>
+            <td>{{dt.equipo}}</td>
+            <td>{{dt.amarillas}}</td>
+            <td>{{dt.rojas}}</td>
+            <td>{{dt.puntos}}</td>
+        </tr>
+    </tbody>
+</table>

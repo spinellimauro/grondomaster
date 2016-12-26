@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="partido in mainCtrl.torneos[mainCtrl.idTorneo].fecha(mainCtrl.idFecha)">
-            <td>{{partido.dtLocal.nombreDT}}</td>
+            <td>{{partido.dtLocal.nombreEquipo}}({{partido.dtLocal.nombreDT}})</td>
             <td>{{partido.score}}</td>
             <td>{{partido.dtVisitante.nombreDT}}</td>
         </tr>

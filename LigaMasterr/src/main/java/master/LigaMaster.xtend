@@ -79,7 +79,7 @@ class LigaMaster {
 	}
 
 	def void update() {
-		listaDT.map[listaJugadores].flatten.forEach[update]
+		listaJugador.forEach[update]
 	}
 
 	// Cálculo del Historial

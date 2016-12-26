@@ -5,14 +5,15 @@ import java.util.Collections
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 @Observable
 @Accessors
 class Torneo {
 	String nombreTorneo = ""
+	@JsonIgnore
 	List<DT> listaParticipantes = newArrayList
 	List<Partido> listaPartidos = newArrayList
-
 	PremiosTorneos premios = new PremiosTorneos
 	int limiteAmarillas = 3
 	boolean terminado = false
@@ -21,7 +22,7 @@ class Torneo {
 		listaPartidos.clear
 		Collections.shuffle(listaParticipantes)
 
-		val libre = new DT => [ nombreDT = "Libre" ]
+		val libre = new DT => [nombreDT = "Libre"]
 		if(listaParticipantes.size % 2 != 0) listaParticipantes.add(libre)
 
 		for (var fecha = 0; fecha < numeroFechas; fecha++) {
@@ -52,34 +53,46 @@ class Torneo {
 		val nroDts = listaParticipantes.size
 		if(nroDts % 2 == 0) nroDts - 1 else nroDts
 	}
-	
+
 	def List<Integer> getListaFechas() {
-		(1.. numeroFechas).toList
+		(1 .. numeroFechas).toList
 	}
 
 	def List<Partido> getFecha(int entero) {
 		listaPartidos.filter[numeroFecha == entero].toList
 	}
-
+	
+	@JsonIgnore
 	def List<Jugador> getListaJugadores() {
 		listaParticipantes.map[listaJugadores].flatten.toList
 	}
 
-	def List<Jugador> getListaTransferibles() {
-		listaJugadores.filter[precioVenta != 0].toList
-	}
-
 	// Estadísticas
+	@JsonIgnore
 	def List<DT> getListaPosiciones() {
 		listaParticipantes.sortBy[getPuntos(it)].reverse
 	}
 
+	@JsonIgnore
 	def List<Jugador> getListaGoleadores() {
 		listaJugadores.filter[getGoles(it) != 0].sortBy[getGoles(it)].reverse
 	}
 
+	@JsonIgnore
 	def List<DT> getListaFairPlay() {
 		listaParticipantes.sortBy[getPuntosFairPlay(it)]
+	}
+
+	def List<EstadisticaTorneo> getTablaPosiciones() {
+		listaPosiciones.map[new EstadisticaTorneo(it, this)]
+	}
+
+	def List<EstadisticaFairPlay> getTablaFairPlay() {
+		listaFairPlay.map[new EstadisticaFairPlay(it, this)]
+	}
+
+	def List<EstadisticaJugador> getTablaGoleadores() {
+		listaGoleadores.map[new EstadisticaJugador(it, this)]
 	}
 
 	// Estadisticas - DT
@@ -152,5 +165,61 @@ class Torneo {
 
 		for (var int i = 0; i < premios.cantPremios; i++)
 			listaPosiciones.get(i).incPlata(premios.getPremio(i + 1))
+	}
+}
+
+@Observable
+@Accessors
+class EstadisticaTorneo {
+	String nombre
+	String equipo
+	int pj
+	int g
+	int e
+	int p
+	String goles
+	int pts
+
+	new(DT dt, Torneo torneo) {
+		nombre = dt.nombreDT
+		equipo = dt.nombreEquipo
+		pj = torneo.getPartidosJugados(dt).size
+		g = torneo.getPartidosJugados(dt).filter[getPuntos(dt) == 3].size
+		e = torneo.getPartidosJugados(dt).filter[getPuntos(dt) == 1].size
+		p = torneo.getPartidosJugados(dt).filter[getPuntos(dt) == 0].size
+		goles = torneo.getGolesFavor(dt) + ":" + torneo.getGolesContra(dt)
+		pts = torneo.getPuntos(dt)
+	}
+}
+
+@Observable
+@Accessors
+class EstadisticaJugador {
+	int id
+	String nombre
+	int goles
+
+	new(Jugador jugador, Torneo torneo) {
+		id = jugador.id
+		nombre = jugador.nombre
+		goles = torneo.getGoles(jugador)
+	}
+}
+
+@Observable
+@Accessors
+class EstadisticaFairPlay {
+	String nombre
+	String equipo
+	int amarillas
+	int rojas
+	int puntos
+
+	new(DT dt, Torneo torneo) {
+		nombre = dt.nombreDT
+		equipo = dt.nombreEquipo
+		amarillas = torneo.getAmarillas(dt)
+		rojas = torneo.getRojas(dt)
+		puntos = torneo.getPuntosFairPlay(dt)
 	}
 }

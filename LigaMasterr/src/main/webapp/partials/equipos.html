@@ -8,6 +8,6 @@
             <option ng-repeat="dt in mainCtrl.DTs" value="{{$index}}">{{dt.nombreDT}}</option>
         </select>
         <hr>
-        <div jugadores lista="mainCtrl.DTs[mainCtrl.selected].listaJugadores" ng-show="mainCtrl.selected"></div>
+        <div ng-show="mainCtrl.selected" jugadores lista="mainCtrl.DTs[mainCtrl.selected].listaJugadores"></div>
     </div>
 </div>

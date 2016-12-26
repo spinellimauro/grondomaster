@@ -20,6 +20,14 @@ class MasterController {
 		response.characterEncoding = "utf-8"
 		ok(jugadores.toJson)
 	}
+	
+	@Get("/equipos/:nombre")
+	def Result getEquipo() {
+		val equipos = SoFifa.instance.getEquipos(nombre)
+		response.contentType = ContentType.APPLICATION_JSON
+		response.characterEncoding = "utf-8"
+		ok(equipos.toJson)
+	}
 
 	@Get("/mercado")
 	def Result getMercado() {
@@ -39,7 +47,7 @@ class MasterController {
 
 	@Get("/dts")
 	def Result getDTs() {
-		val dts = LigaMaster.instance.listaDT
+		val dts = LigaMaster.instance.listaDT.sortBy[nombreDT]
 		response.contentType = ContentType.APPLICATION_JSON
 		response.characterEncoding = "utf-8"
 		ok(dts.toJson)

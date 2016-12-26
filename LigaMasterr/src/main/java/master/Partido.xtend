@@ -104,10 +104,12 @@ class Partido {
 	}
 
 	// Listas
+	@JsonIgnore
 	def List<Jugador> getSuspendidos() {
 		(dtLocal.listaJugadores + dtVisitante.listaJugadores).filter[torneo.estaSuspendido(it, numeroFecha)].toList
 	}
-
+	
+	@JsonIgnore
 	def List<Jugador> getLesionados() {
 		(dtLocal.listaJugadores + dtVisitante.listaJugadores).filter[estaLesionado].toList
 	}

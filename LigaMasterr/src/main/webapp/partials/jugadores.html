@@ -1,36 +1,67 @@
 <table class="table table-responsive table-hover">
     <thead>
         <tr>
-            <th class="col-sm-6">Nombre</th>
-            <th class="col-sm-1">Nivel</th>
-            <th class="col-sm-1">Potencial</th>
-            <th class="col-sm-2">Valor</th>
-            <th class="col-sm-2">Precio</th>
+            <th class="col-sm-3">
+                <a role="button" ng-click="listaCtrl.setSort('nombre')">
+                Nombre
+                <span ng-show="listaCtrl.checkDown('nombre')" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                <span ng-show="listaCtrl.checkUp('nombre')" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+                </a>
+            </th>
+            <th class="col-sm-1">
+                <a role="button" ng-click="listaCtrl.setSort('nacionalidad')">
+                País
+                <span ng-show="listaCtrl.checkDown('nacionalidad')" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                <span ng-show="listaCtrl.checkUp('nacionalidad')" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+                </a>
+            </th>
+            <th class="col-sm-3">Posiciones</th>
+            <th class="col-sm-1">
+                <a role="button" ng-click="listaCtrl.setSort('nivel')">
+                Nivel
+                <span ng-show="listaCtrl.checkDown('nivel')" class="glyphicon glyphicon-sort-by-order"></span>
+                <span ng-show="listaCtrl.checkUp('nivel')" class="glyphicon glyphicon-sort-by-order-alt"></span>
+                </a>
+            </th>
+            <th class="col-sm-2">
+                <a role="button" ng-click="listaCtrl.setSort('potencial')">
+                Potencial
+                <span ng-show="listaCtrl.checkDown('potencial')" class="glyphicon glyphicon-sort-by-order"></span>
+                <span ng-show="listaCtrl.checkUp('potencial')" class="glyphicon glyphicon-sort-by-order-alt"></span>
+                </a>
+            </th>
+            <th class="col-sm-2">
+                <a role="button" ng-click="listaCtrl.setSort('precioMaquina')">
+                Valor
+                <span ng-show="listaCtrl.checkDown('precioMaquina')" class="glyphicon glyphicon-sort-by-order"></span>
+                <span ng-show="listaCtrl.checkUp('precioMaquina')" class="glyphicon glyphicon-sort-by-order-alt">
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
-        <tr role="button" ng-repeat="jugador in lista | startFrom: listaCtrl.page * listaCtrl.limit | limitTo: listaCtrl.limit" data-ng-click="listaCtrl.select(jugador)" data-toggle="modal" data-target="#detalle">
+        <tr role="button" ng-repeat="jugador in lista  | orderBy:listaCtrl.sortType:listaCtrl.sortReverse | startFrom: listaCtrl.page * listaCtrl.limit | limitTo: listaCtrl.limit" 
+        ng-click="listaCtrl.select(jugador)" data-toggle="modal" data-target="#detalle">
             <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/players/{{jugador.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{jugador.nombre}}</td>
+            <td>{{jugador.nacionalidad}}</td>
+            <td><span ng-repeat="pos in jugador.posiciones">{{pos}} <span></td>
             <td>{{jugador.nivel}}</td>
             <td>{{jugador.potencial}}</td>
             <td>$ {{jugador.precioMaquina}}</td>
-            <td>$ {{jugador.precioVenta}}</td>
         </tr>
     </tbody>
 </table>
 <div class="col-xs-3">
     <div class="btn-group">
-        <button class="btn btn-primary" ng-show="lista.length > 5" ng-click="listaCtrl.setLimit(5)"
-        >5</button>
-        <button class="btn btn-primary" ng-show="lista.length > 10" ng-click="listaCtrl.setLimit(10)"
-        >10</button>
-        <button class="btn btn-primary" ng-show="lista.length > 15" ng-click="listaCtrl.setLimit(15)"
-        >15</button>
+        <button class="btn btn-primary" ng-show="lista.length > 10" ng-click="listaCtrl.setLimit(10)">10</button>
+        <button class="btn btn-primary" ng-show="lista.length > 15" ng-click="listaCtrl.setLimit(15)">15</button>
+        <button class="btn btn-primary" ng-show="lista.length > 20" ng-click="listaCtrl.setLimit(20)">20</button>
     </div>
 </div>
 <div class="col-xs-4 col-xs-offset-2" ng-show="listaCtrl.nPages() > 1">
     <div class="btn-group">
-        <button class="btn btn-primary" ng-disabled="listaCtrl.firstPage()" ng-click="listaCtrl.previous()">
+        <button class="btn btn-primary" ng-disabled="listaCtrl.firstPage()" 
+        ng-click="listaCtrl.previous()">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </button>
         <button class="btn btn-primary">{{listaCtrl.page + 1}}/{{listaCtrl.nPages()}}</button>

@@ -18,10 +18,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             'container@main': {
                 template: '<ui-view>'
             },
-             'topbar@main': {
+            'topbar@main': {
                 templateUrl: 'partials/main/topbar.html'
             },
-             'sidebar@main': {
+            'sidebar@main': {
                 templateUrl: 'partials/main/sidebar.html'
             }
         }
@@ -45,6 +45,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('main.inicio.deshabilitados', {
         templateUrl: 'partials/inicio/deshabilitados.html'
+    })
+
+    .state('main.inicio.ajustes', {
+        templateUrl: 'partials/inicio/ajustes.html'
     })
 
     .state('main.mercado', {
@@ -79,14 +83,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
             '': {
                 templateUrl: 'partials/torneos/layout.html',
             },
-            'partidos@main.torneos': {
-                templateUrl: 'partials/torneos/partidos.html'
-            },
-            'clasificacion@main.torneos': {
-                templateUrl: 'partials/torneos/clasificacion.html'
-            },
+            'container@main.torneos': {
+                template: '<ui-view>'
+            }
         }
 
+    })
+
+    .state('main.torneos.partidos', {
+        templateUrl: 'partials/torneos/partidos.html'
+    })
+
+    .state('main.torneos.posiciones', {
+        templateUrl: 'partials/torneos/posiciones.html'
+    })
+
+    .state('main.torneos.goleadores', {
+        templateUrl: 'partials/torneos/goleadores.html'
+    })
+
+    .state('main.torneos.fairPlay', {
+        templateUrl: 'partials/torneos/fairPlay.html'
     });
 
 });

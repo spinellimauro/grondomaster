@@ -11,11 +11,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 @Observable
 @Accessors
 class DT {
-	String nombreDT
+	int id
 	String nombreEquipo
-	double plata = 0.0
-	String password
 	Set<Jugador> listaJugadores = newHashSet
+	String nombreDT
+	String password
+	double plata = 0.0
 	int torneosDisponibles = 3
 	int slots = 30
 
@@ -114,9 +115,9 @@ class DT {
 
 	@JsonIgnore
 	def List<Jugador> getListaJugadoresDeshabilitados() {
-		listaJugadores.filter[habilitado == false].toList
+		listaJugadores.filter[!habilitado].toList
 	}
-
+	
 	// Comparación
 	override equals(Object obj) {
 		if(obj == null) return false

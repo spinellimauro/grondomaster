@@ -3,41 +3,55 @@ package datos
 import master.Jugador
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
 import org.uqbar.commons.utils.Observable
-import java.util.List
 
 @Observable
 @Accessors
 final class SoFifa {
 	static SoFifa instance = new SoFifa
 
-	private new() {
-	}
+	private new() {}
 
-	def List<Jugador> getJugadores(String string) {
-		val Document document = Jsoup.connect("http://sofifa.com/players?keyword=" + string).userAgent("Mozilla").post
-		val docNombres = document.select("td.nowrap")
-		val docAtributes = document.select("span.label")
+	def getJugadores(String string) {
+		val document = Jsoup.connect("http://sofifa.com/players?keyword=" + string + "&hl=es-ES").userAgent("Mozilla").post
+		val tabla = document.select("tbody > tr")
 
-		var listaJugadores = newArrayList
-		var atributeIndex = 0
-		for (var n = 0; n < docNombres.size; n++) {
+		tabla.map [
 			var jugador = new Jugador
 
-			jugador.id = Integer.parseInt(docNombres.select("a[href]").get(n).attr("abs:href").replace("http://sofifa.com/player/", ""))
-			jugador.nombre = docNombres.get(n).select("a").text
-			jugador.nivel = Integer.parseInt(docAtributes.get(atributeIndex++).text)
-			jugador.potencial = Integer.parseInt(docAtributes.get(atributeIndex++).text)
+			val data = select("td")
+			jugador.nombre = data.get(0).select("a").text
+			jugador.id = Integer::parseInt(data.select("img").attr("id"))
+			jugador.nacionalidad = data.get(1).select("a > span ").attr("title")
+			jugador.posiciones = newArrayList(data.get(3).select("span").map[text])
+			jugador.nivel = Integer::parseInt(data.get(4).text)
+			jugador.potencial = Integer::parseInt(data.get(5).text)
 
-			listaJugadores.add(jugador)
-		}
+			jugador
+		]
+	}
+
+	def getEquipos(String string) {
+		val document = Jsoup.connect("http://sofifa.com/teams?keyword=" + string).userAgent("Mozilla").post
+		val tabla = document.select("tbody > tr > td > a[href*=team]")
 		
-		listaJugadores
-
+		tabla.map[
+			val equipo = new Equipo
+			
+			equipo.id = Integer::parseInt(it.attr("href").replaceAll("[^\\d-]", ""))
+			equipo.nombre = it.text
+			
+			equipo
+		]
 	}
 
 	def static SoFifa getInstance() {
 		instance
 	}
+}
+
+@Accessors
+class Equipo{
+	int id
+	String nombre
 }
