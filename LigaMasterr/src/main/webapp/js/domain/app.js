@@ -29,7 +29,12 @@ app.controller('loginController', function(DTService, $state) {
 
 app.controller('mainController', function(DTService, TorneoService) {
     var self = this;
+    
+    this.venderALaMaquina = function(jugadorID){
+        DTService.venderJugadorALaMaquina(this.DT.nombreDT, jugadorID).then(function(){
 
+        });
+    };
 
     this.getDT = function() {
         DTService.getON(function(response) {

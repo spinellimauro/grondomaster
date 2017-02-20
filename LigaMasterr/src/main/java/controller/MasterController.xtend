@@ -8,6 +8,9 @@ import master.LigaMaster
 import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.api.Result
 import datos.SoFifa
+import org.uqbar.xtrest.api.annotation.Body
+import master.Jugador
+import org.uqbar.xtrest.api.annotation.Put
 
 @Controller
 class MasterController {
@@ -60,6 +63,18 @@ class MasterController {
 		response.characterEncoding = "utf-8"
 		ok(torneos.toJson)
 	}
+	
+	@Put('/plantel/:nombreDT/:jugadorID')
+	def Result actualizar(@Body String body) {
+		
+		
+		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		val jugadorAVender = dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		dt.venderJugador(jugadorAVender,10000)
+		LigaMaster.instance.guardarBase
+		ok(dt.toJson);
+	}
+	
 
 	def static void main(String[] args) {
 		LigaMaster.instance.leerBase
