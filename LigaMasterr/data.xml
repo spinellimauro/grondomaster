@@ -3057,8 +3057,8 @@
             <slots>30</slots>
           </master.DT>
           <master.DT>
-            <id>0</id>
-            <nombreEquipo>Dortmund</nombreEquipo>
+            <id>52</id>
+            <nombreEquipo>Roma</nombreEquipo>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>

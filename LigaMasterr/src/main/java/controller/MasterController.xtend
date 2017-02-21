@@ -116,7 +116,7 @@ class MasterController {
 	
 	@Put('/plantel/escudo/:nombreDT/:equipoID/:equipoNombre')
 	def Result ajustes(@Body String body) {
-	
+
 		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
 		dt.nombreEquipo = equipoNombre
 		dt.id = Integer.parseInt(equipoID)
