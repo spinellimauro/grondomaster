@@ -91,18 +91,6 @@ class MasterController {
 		LigaMaster.instance.guardarBase
 		ok(dtComprador.toJson);
 	}
-	
-//	¿Como creo un jugador que no existe?
-//	@Put('/plantel/:nombreDT/:jugadorID')
-//	def Result comprarMaquina(@Body String body) {
-//		
-//		
-//		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
-//		val jugadorAComprar = dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
-//		dt.venderJugador(jugadorAVender,10000)
-//		LigaMaster.instance.guardarBase
-//		ok(dt.toJson);
-//	}
 
 	@Put('/dts/:nombreDT')
 	def Result comprarSlot(@Body String body) {
@@ -116,8 +104,8 @@ class MasterController {
 	
 	@Put('/sofifa/:nombreDT/:jugadorID/:jugadorNombre')
 	def Result comprarALaMaquina(@Body String body) {
-		
-		
+	
+		jugadorNombre.replaceAll("%20", " ")
 		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
 		val jugadores = SoFifa.instance.getJugadores(jugadorNombre).toSet
 		val jugadorAComprar = jugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
@@ -126,7 +114,17 @@ class MasterController {
 		ok(dt.toJson);
 	}
 	
-
+	@Put('/plantel/escudo/:nombreDT/:equipoID/:equipoNombre')
+	def Result ajustes(@Body String body) {
+	
+		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		dt.nombreEquipo = equipoNombre
+		dt.id = Integer.parseInt(equipoID)
+		LigaMaster.instance.guardarBase
+		ok(dt.toJson);
+	}
+	
+	
 	def static void main(String[] args) {
 		LigaMaster.instance.leerBase
 		XTRest.start(MasterController, 9000)

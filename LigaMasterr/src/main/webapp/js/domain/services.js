@@ -42,6 +42,10 @@ app.service("DTService", function($http) {
     this.comprarALaMaquina = function(nombreDT,jugadorID,jugadorNombre){
         return $http.put('/sofifa/' + nombreDT + '/' + jugadorID + '/' + jugadorNombre ); 
     };
+
+    this.cambioDeEquipo = function(nombreDT,equipoID,equipoNombre){
+        return $http.put('/plantel/escudo/' + nombreDT + '/' + equipoID + '/' + equipoNombre ); 
+    };
 });
 
 app.service("TorneoService", function($http) {

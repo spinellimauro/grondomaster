@@ -3434,6 +3434,20 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
+                  <id>237182</id>
+                  <nombre>Gildo</nombre>
+                  <nacionalidad>Mozambique</nacionalidad>
+                  <posiciones>
+                    <string>ED</string>
+                  </posiciones>
+                  <nivel>64</nivel>
+                  <potencial>73</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>213565</id>
                   <nombre>T. Lemar</nombre>
                   <nacionalidad>Francia</nacionalidad>
@@ -3468,9 +3482,9 @@
             </listaJugadores>
             <nombreDT>Ale</nombreDT>
             <password>Comando223</password>
-            <plata>45250.0</plata>
+            <plata>25250.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
-            <slots>31</slots>
+            <slots>32</slots>
           </master.DT>
           <master.DT>
             <id>0</id>

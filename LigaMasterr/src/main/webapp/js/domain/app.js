@@ -57,6 +57,13 @@ app.controller('mainController', function(DTService, TorneoService) {
         DTService.comprarUnSlot(this.DT.nombreDT).then(function(){
 
         });
+
+    };
+
+    this.cambiarEquipo = function(equipoID,equipoNombre){
+        DTService.cambioDeEquipo(this.DT.nombreDT,equipoID,equipoNombre).then(function(){
+
+        });
     };
 
 

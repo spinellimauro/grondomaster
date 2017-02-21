@@ -9,7 +9,7 @@
 <hr>
 <table class="table table-responsive table-hover" ng-show="mainCtrl.equipos">
     <tbody>
-        <tr role="button" ng-repeat="equipo in mainCtrl.equipos" ng-click="mainCtrl.DT.id = equipo.id; mainCtrl.DT.nombreEquipo = equipo.nombre">
+        <tr role="button" ng-repeat="equipo in mainCtrl.equipos" ng-click="mainCtrl.DT.id = equipo.id; mainCtrl.DT.nombreEquipo = equipo.nombre;mainCtrl.cambiarEquipo(equipo.id,equipo.nombre)">
             <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{equipo.id}}.png" /> {{equipo.nombre}}</td>
         </tr>
     </tbody>

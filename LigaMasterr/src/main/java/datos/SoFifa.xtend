@@ -31,6 +31,8 @@ final class SoFifa {
 		]
 	}
 
+	
+	
 	def getEquipos(String string) {
 		val document = Jsoup.connect("http://sofifa.com/teams?keyword=" + string).userAgent("Mozilla").post
 		val tabla = document.select("tbody > tr > td > a[href*=team]")
