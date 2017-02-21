@@ -30,6 +30,9 @@ app.controller('loginController', function(DTService, $state) {
 app.controller('mainController', function(DTService, TorneoService) {
     var self = this;
     
+
+
+// PUTS
     this.venderALaMaquina = function(jugadorID){
         DTService.venderJugadorALaMaquina(this.DT.nombreDT, jugadorID).then(function(){
 
@@ -41,6 +44,24 @@ app.controller('mainController', function(DTService, TorneoService) {
 
         });
     };
+
+    
+    this.comprarAMaquina = function(jugadorID,jugadorNombre){
+        DTService.comprarALaMaquina(this.DT.nombreDT,jugadorID,jugadorNombre).then(function(){
+
+        });
+    };
+
+
+    this.comprarSlot = function(){
+        DTService.comprarUnSlot(this.DT.nombreDT).then(function(){
+
+        });
+    };
+
+
+
+// GETS
 
     this.getDT = function() {
         DTService.getON(function(response) {
@@ -67,6 +88,7 @@ app.controller('mainController', function(DTService, TorneoService) {
         });
     };
 
+    
     self.getTorneos();
     self.getDT();
     self.getAll();

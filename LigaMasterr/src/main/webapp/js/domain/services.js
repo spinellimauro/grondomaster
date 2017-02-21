@@ -12,6 +12,8 @@ app.service("JugadorService", function($http) {
 
 app.service("DTService", function($http) {
 
+//GETS
+
     this.getON = function(callback) {
         $http.get('/dt').then(callback);
     };
@@ -24,6 +26,7 @@ app.service("DTService", function($http) {
         $http.get('/equipos/' + nombre).then(callback);
     };
 
+// PUTS
     this.venderJugadorALaMaquina = function(nombreDT, jugadorID){
        return $http.put('/plantel/' + nombreDT + '/'+ jugadorID);
     };
@@ -32,6 +35,13 @@ app.service("DTService", function($http) {
        return $http.put('/transferibles/' + nombreDT + '/'+ jugadorID);
     };
 
+    this.comprarUnSlot = function(nombreDT){
+        return $http.put('/dts/' + nombreDT); 
+    };
+
+    this.comprarALaMaquina = function(nombreDT,jugadorID,jugadorNombre){
+        return $http.put('/sofifa/' + nombreDT + '/' + jugadorID + '/' + jugadorNombre ); 
+    };
 });
 
 app.service("TorneoService", function($http) {

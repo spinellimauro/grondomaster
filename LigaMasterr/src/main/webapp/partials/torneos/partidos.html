@@ -13,9 +13,9 @@
     </thead>
     <tbody>
         <tr ng-repeat="partido in mainCtrl.torneos[mainCtrl.idTorneo].fecha(mainCtrl.idFecha)">
-            <td>{{partido.dtLocal.nombreEquipo}}({{partido.dtLocal.nombreDT}})</td>
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{mainCtrl.DT.id}}.png"/>{{partido.dtLocal.nombreEquipo}}({{partido.dtLocal.nombreDT}})</td>
             <td>{{partido.score}}</td>
-            <td>{{partido.dtVisitante.nombreDT}}</td>
+            <td>{{partido.dtVisitante.nombreEquipo}}({{partido.dtVisitante.nombreDT}})<img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{mainCtrl.DT.id}}.png"</td>
         </tr>
     </tbody>
 </table>

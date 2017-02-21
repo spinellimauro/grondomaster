@@ -7,10 +7,10 @@ import org.uqbar.xtrest.api.annotation.Get
 import master.LigaMaster
 import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.api.Result
-import datos.SoFifa
 import org.uqbar.xtrest.api.annotation.Body
 import master.Jugador
 import org.uqbar.xtrest.api.annotation.Put
+import datos.SoFifa
 
 @Controller
 class MasterController {
@@ -82,7 +82,7 @@ class MasterController {
 		val dtComprador = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
 		val dtVendedor = LigaMaster.instance.listaDT.findFirst[dt|dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)] != null]
 		val jugadorAComprar = dtVendedor.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
-		
+		// SOY UN BOLUDO YA HABIA METODOS COMPRAR Y VENDER (DESPUES LO ARREGLO)
 		dtComprador.decPlata(jugadorAComprar.precioVenta)
 		dtVendedor.incPlata(jugadorAComprar.precioVenta)
 		dtComprador.addJugador(jugadorAComprar)
@@ -103,7 +103,28 @@ class MasterController {
 //		LigaMaster.instance.guardarBase
 //		ok(dt.toJson);
 //	}
+
+	@Put('/dts/:nombreDT')
+	def Result comprarSlot(@Body String body) {
+		
+		
+		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		dt.comprarSlot
+		LigaMaster.instance.guardarBase
+		ok(dt.toJson);
+	}
 	
+	@Put('/sofifa/:nombreDT/:jugadorID/:jugadorNombre')
+	def Result comprarALaMaquina(@Body String body) {
+		
+		
+		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		val jugadores = SoFifa.instance.getJugadores(jugadorNombre).toSet
+		val jugadorAComprar = jugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		dt.comprarJugador(jugadorAComprar , jugadorAComprar.precioMaquina)
+		LigaMaster.instance.guardarBase
+		ok(dt.toJson);
+	}
 	
 
 	def static void main(String[] args) {

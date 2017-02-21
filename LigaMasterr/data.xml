@@ -3391,20 +3391,6 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
-                  <id>197242</id>
-                  <nombre>G. Krychowiak</nombre>
-                  <nacionalidad>Polonia</nacionalidad>
-                  <posiciones>
-                    <string>MCD</string>
-                  </posiciones>
-                  <nivel>84</nivel>
-                  <potencial>86</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>false</habilitado>
-                  <precioVenta>85000.0</precioVenta>
-                  <vecesNoPagadas>1</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
                   <id>182521</id>
                   <nombre>T. Kroos</nombre>
                   <nacionalidad>Alemania</nacionalidad>
@@ -3482,7 +3468,7 @@
             </listaJugadores>
             <nombreDT>Ale</nombreDT>
             <password>Comando223</password>
-            <plata>35250.0</plata>
+            <plata>45250.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>31</slots>
           </master.DT>
@@ -3842,7 +3828,7 @@
               <fieldName>golesVisitante</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[22]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[24]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[23]"/>
                 <master.Jugador>
                   <id>193301</id>
                   <nombre>A. Lacazette</nombre>
@@ -3964,7 +3950,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[24]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[23]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
               </data>
@@ -7660,7 +7646,20 @@
             <owner class="master.Oferta" reference="../.."/>
             <fieldName>jugadoresOfrecidos</fieldName>
             <data class="list">
-              <master.Jugador reference="../../../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[23]"/>
+              <master.Jugador>
+                <id>197242</id>
+                <nombre>G. Krychowiak</nombre>
+                <nacionalidad>Polonia</nacionalidad>
+                <posiciones>
+                  <string>MCD</string>
+                </posiciones>
+                <nivel>84</nivel>
+                <potencial>86</potencial>
+                <lesion>0</lesion>
+                <habilitado>false</habilitado>
+                <precioVenta>85000.0</precioVenta>
+                <vecesNoPagadas>1</vecesNoPagadas>
+              </master.Jugador>
               <master.Jugador>
                 <id>193352</id>
                 <nombre>R. Rodríguez</nombre>
