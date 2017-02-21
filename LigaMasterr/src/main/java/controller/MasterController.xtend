@@ -75,6 +75,36 @@ class MasterController {
 		ok(dt.toJson);
 	}
 	
+	@Put('/transferibles/:nombreDT/:jugadorID')
+	def Result actualizarTransferible(@Body String body) {
+		
+		
+		val dtComprador = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		val dtVendedor = LigaMaster.instance.listaDT.findFirst[dt|dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)] != null]
+		val jugadorAComprar = dtVendedor.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		
+		dtComprador.decPlata(jugadorAComprar.precioVenta)
+		dtVendedor.incPlata(jugadorAComprar.precioVenta)
+		dtComprador.addJugador(jugadorAComprar)
+		dtVendedor.removeJugador(jugadorAComprar)
+		
+		LigaMaster.instance.guardarBase
+		ok(dtComprador.toJson);
+	}
+	
+//	¿Como creo un jugador que no existe?
+//	@Put('/plantel/:nombreDT/:jugadorID')
+//	def Result comprarMaquina(@Body String body) {
+//		
+//		
+//		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+//		val jugadorAComprar = dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+//		dt.venderJugador(jugadorAVender,10000)
+//		LigaMaster.instance.guardarBase
+//		ok(dt.toJson);
+//	}
+	
+	
 
 	def static void main(String[] args) {
 		LigaMaster.instance.leerBase

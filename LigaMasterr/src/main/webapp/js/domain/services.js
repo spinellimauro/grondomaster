@@ -28,6 +28,10 @@ app.service("DTService", function($http) {
        return $http.put('/plantel/' + nombreDT + '/'+ jugadorID);
     };
 
+    this.comprarJugador = function(nombreDT, jugadorID){
+       return $http.put('/transferibles/' + nombreDT + '/'+ jugadorID);
+    };
+
 });
 
 app.service("TorneoService", function($http) {

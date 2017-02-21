@@ -787,20 +787,6 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
-                  <id>192789</id>
-                  <nombre>Mario Gaspar</nombre>
-                  <nacionalidad>España</nacionalidad>
-                  <posiciones>
-                    <string>LD</string>
-                  </posiciones>
-                  <nivel>80</nivel>
-                  <potencial>83</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>30000.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
                   <id>203483</id>
                   <nombre>D. Klaassen</nombre>
                   <nacionalidad>Holanda</nacionalidad>
@@ -1129,7 +1115,7 @@
             </listaJugadores>
             <nombreDT>NicoR</nombreDT>
             <password>2028</password>
-            <plata>62000.0</plata>
+            <plata>92000.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>39</slots>
           </master.DT>
@@ -2061,8 +2047,8 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[20]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[19]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -2075,7 +2061,7 @@
               <fieldName>listaAmarillas</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[19]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[18]"/>
               </data>
             </listaAmarillas>
             <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -2094,7 +2080,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[36]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[35]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -2204,10 +2190,10 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[36]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[19]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[35]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[18]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -3078,6 +3064,20 @@
               <fieldName>listaJugadores</fieldName>
               <data class="set">
                 <master.Jugador>
+                  <id>190531</id>
+                  <nombre>E. Mangala</nombre>
+                  <nacionalidad>Francia</nacionalidad>
+                  <posiciones>
+                    <string>DFC</string>
+                  </posiciones>
+                  <nivel>80</nivel>
+                  <potencial>83</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>35000.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>208777</id>
                   <nombre>Óliver Torres</nombre>
                   <nacionalidad>España</nacionalidad>
@@ -3197,22 +3197,6 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
-                  <id>203551</id>
-                  <nombre>A. Florenzi</nombre>
-                  <nacionalidad>Italia</nacionalidad>
-                  <posiciones>
-                    <string>LD</string>
-                    <string>ED</string>
-                    <string>MC</string>
-                  </posiciones>
-                  <nivel>82</nivel>
-                  <potencial>85</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
                   <id>190813</id>
                   <nombre>S. El Shaarawy</nombre>
                   <nacionalidad>Italia</nacionalidad>
@@ -3313,6 +3297,22 @@
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
                   <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>176944</id>
+                  <nombre>M. Fellaini</nombre>
+                  <nacionalidad>Bélgica</nacionalidad>
+                  <posiciones>
+                    <string>MC</string>
+                    <string>MCO</string>
+                    <string>MCD</string>
+                  </posiciones>
+                  <nivel>78</nivel>
+                  <potencial>78</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>10000.0</precioVenta>
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
@@ -3482,7 +3482,7 @@
             </listaJugadores>
             <nombreDT>Ale</nombreDT>
             <password>Comando223</password>
-            <plata>100250.0</plata>
+            <plata>35250.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>31</slots>
           </master.DT>
@@ -3493,20 +3493,6 @@
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>
               <data class="set">
-                <master.Jugador>
-                  <id>190531</id>
-                  <nombre>E. Mangala</nombre>
-                  <nacionalidad>Francia</nacionalidad>
-                  <posiciones>
-                    <string>DFC</string>
-                  </posiciones>
-                  <nivel>80</nivel>
-                  <potencial>83</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>35000.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
                 <master.Jugador>
                   <id>208128</id>
                   <nombre>H. Çalhanoğlu</nombre>
@@ -3701,22 +3687,6 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
-                  <id>176944</id>
-                  <nombre>M. Fellaini</nombre>
-                  <nacionalidad>Bélgica</nacionalidad>
-                  <posiciones>
-                    <string>MC</string>
-                    <string>MCO</string>
-                    <string>MCD</string>
-                  </posiciones>
-                  <nivel>78</nivel>
-                  <potencial>78</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>10000.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
                   <id>211408</id>
                   <nombre>K. Linetty</nombre>
                   <nacionalidad>Polonia</nacionalidad>
@@ -3812,7 +3782,7 @@
             </listaJugadores>
             <nombreDT>Juli</nombreDT>
             <password>puto123</password>
-            <plata>6500.0</plata>
+            <plata>51500.0</plata>
             <torneosDisponibles>2</torneosDisponibles>
             <slots>30</slots>
           </master.DT>
@@ -3837,7 +3807,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[17]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[15]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -3871,8 +3841,8 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[21]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[23]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[22]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[24]"/>
                 <master.Jugador>
                   <id>193301</id>
                   <nombre>A. Lacazette</nombre>
@@ -3933,7 +3903,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[2]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -3959,7 +3929,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[6]"/>
                 <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[14]"/>
               </data>
             </golesLocal>
@@ -3994,7 +3964,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[23]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[24]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
               </data>
@@ -4253,7 +4223,7 @@
               <fieldName>golesVisitante</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[21]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[22]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -4322,8 +4292,8 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[19]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[18]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -5739,8 +5709,8 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[20]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[2]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[18]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -5811,7 +5781,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[12]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[4]/listaJugadores/data/master.Jugador[11]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -6080,8 +6050,8 @@
               <fieldName>golesLocal</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[6]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[6]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -6457,12 +6427,12 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[36]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[36]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[21]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[26]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[35]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[35]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[20]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[25]"/>
                 <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[2]"/>
               </data>
             </golesLocal>
@@ -7690,7 +7660,7 @@
             <owner class="master.Oferta" reference="../.."/>
             <fieldName>jugadoresOfrecidos</fieldName>
             <data class="list">
-              <master.Jugador reference="../../../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[22]"/>
+              <master.Jugador reference="../../../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[23]"/>
               <master.Jugador>
                 <id>193352</id>
                 <nombre>R. Rodríguez</nombre>

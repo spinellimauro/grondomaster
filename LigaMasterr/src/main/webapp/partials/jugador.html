@@ -18,14 +18,20 @@
             </div>
             <div class="modal-footer text-center">
                 <div class="btn-group">
+                   
                    <button type="button" class="btn btn-default"
+                    ng-click="mainCtrl.comprarAOtroDT(jugador.id)" 
                     ng-show="jugador.precioVenta > 0 && jugador.propietario != mainCtrl.DT.nombreDT">Comprar a {{jugador.propietario}}</button>
+                    
                     <button type="button" class="btn btn-default"
-                    ng-show="jugador.propietario == 'Libre'">Comprar a Máquina</button>
+                     ng-click="mainCtrl.comprarAOtroDT(jugador.id)"ng-show="jugador.propietario == 'Libre'">Comprar a Máquina {{jugador.valor}}</button>
+                    
                     <button type="button" class="btn btn-default"
                     ng-click="mainCtrl.venderALaMaquina(jugador.id)" ng-show="jugador.propietario == mainCtrl.DT.nombreDT">Vender a Máquina</button>
+                    
                     <button type="button" class="btn btn-default" 
                     ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT  ">Ofertar a {{jugador.propietario}}</button>
+
                 </div>
             </div>
         </div>

@@ -36,6 +36,12 @@ app.controller('mainController', function(DTService, TorneoService) {
         });
     };
 
+    this.comprarAOtroDT = function(jugadorID){
+        DTService.comprarJugador(this.DT.nombreDT, jugadorID).then(function(){
+
+        });
+    };
+
     this.getDT = function() {
         DTService.getON(function(response) {
             self.DT = DT.asDT(response.data);
