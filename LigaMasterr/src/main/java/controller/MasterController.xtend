@@ -104,10 +104,10 @@ class MasterController {
 	
 	@Put('/sofifa/:nombreDT/:jugadorID/:jugadorNombre')
 	def Result comprarALaMaquina(@Body String body) {
-	
-		jugadorNombre.replaceAll("%20", " ")
+		
+		val jugador = jugadorNombre.replace(" ", "+")
 		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
-		val jugadores = SoFifa.instance.getJugadores(jugadorNombre).toSet
+		val jugadores = SoFifa.instance.getJugadores(jugador)
 		val jugadorAComprar = jugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
 		dt.comprarJugador(jugadorAComprar , jugadorAComprar.precioMaquina)
 		LigaMaster.instance.guardarBase

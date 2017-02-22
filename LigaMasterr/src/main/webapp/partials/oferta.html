@@ -1,4 +1,4 @@
-<div id="detalle" class="modal fade" role="dialog">
+<div id="detalleOferta" class="modal fade" role="dialog">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,8 +10,8 @@
             </div>
             <div class="modal-body">
                 <h4 class="text-center"> 
-                <p>Nivel: {{jugador.nivel}}</p>
-                <p>Potencial: {{jugador.potencial}}</p>
+        
+        
                 <p ng-show="jugador.precioVenta == 0">Valor: $ {{jugador.precioMaquina}}</p>
                 <p ng-show="jugador.precioVenta > 0">Precio: $ {{jugador.precioVenta}}</p>
                 </h4>
@@ -31,7 +31,8 @@
                     ng-click="mainCtrl.venderALaMaquina(jugador.id)" ng-show="jugador.propietario == mainCtrl.DT.nombreDT">Vender a Máquina ({{(jugador.precioMaquina)/4}})</button>
                     
                     <button type="button" class="btn btn-default" 
-                    ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT">Ofertar a {{jugador.propietario}}</button>
+                    ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT  "
+                    ng-click="listaCtrl.select(jugador)" data-toggle="modal" data-target="#detalleOferta">Ofertar a {{jugador.propietario}}</button>
 
                 </div>
             </div>
