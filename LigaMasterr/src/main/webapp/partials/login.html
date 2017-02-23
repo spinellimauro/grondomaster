@@ -4,7 +4,8 @@
             <div class="panel-body">
                 <form class="form-horizontal">
                     <div class="input-group col-xs-12">
-                        <input type="text" class="form-control" ng-model="loginCtrl.nombre"placeholder="Usuario">
+                        <input type="text" class="form-control" placeholder="Usuario"
+                        ng-model="loginCtrl.nombre">
                     </div>
                     <br>
                     <div class="input-group col-xs-12">
@@ -15,6 +16,10 @@
                     <div class="input-group col-xs-4 col-xs-offset-4">
                         <button type="submit" class="btn btn-primary btn-block" ng-click="loginCtrl.iniciarSesion()">Entrar</button>
                     </div>
+                    <div>
+                            <label ng-show = "loginCtrl.mensaje"> {{loginCtrl.mensaje}}</label>
+                    </div>
+
                 </form>
             </div>
         </div>

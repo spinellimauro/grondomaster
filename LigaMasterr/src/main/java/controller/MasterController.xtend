@@ -1,16 +1,15 @@
 package controller
 
-import org.uqbar.xtrest.api.XTRest
-import org.uqbar.xtrest.api.annotation.Controller
-import org.uqbar.xtrest.json.JSONUtils
-import org.uqbar.xtrest.api.annotation.Get
-import master.LigaMaster
-import org.uqbar.xtrest.http.ContentType
-import org.uqbar.xtrest.api.Result
-import org.uqbar.xtrest.api.annotation.Body
-import master.Jugador
-import org.uqbar.xtrest.api.annotation.Put
 import datos.SoFifa
+import master.LigaMaster
+import org.uqbar.xtrest.api.Result
+import org.uqbar.xtrest.api.XTRest
+import org.uqbar.xtrest.api.annotation.Body
+import org.uqbar.xtrest.api.annotation.Controller
+import org.uqbar.xtrest.api.annotation.Get
+import org.uqbar.xtrest.api.annotation.Put
+import org.uqbar.xtrest.http.ContentType
+import org.uqbar.xtrest.json.JSONUtils
 
 @Controller
 class MasterController {
@@ -124,10 +123,10 @@ class MasterController {
 		ok(dt.toJson);
 	}
 	
-	@Get("/usuarios/:nombre/:pwd")
+	@Get("/usuarios/:nombreDT/:password")
 	def Result usuarios(){
 		val usuarios = LigaMaster.instance.listaDT
-		val usuario = usuarios.findFirst[u | u.nombreDT.toLowerCase.equals(nombre.toLowerCase) && u.password.equals(pwd)]
+		val usuario = usuarios.findFirst[u | u.getNombreDT.toLowerCase.equals(nombreDT.toLowerCase) && u.getPassword.equals(password)]
 		//TODO: Tirar excepción si no lo encuentra.
 		ok(usuario.toJson)
 	}

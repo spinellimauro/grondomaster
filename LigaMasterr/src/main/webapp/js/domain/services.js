@@ -52,6 +52,13 @@ app.service("DTService", function($http) {
     this.cambioDeEquipo = function(nombreDT,equipoID,equipoNombre){
         return $http.put('/plantel/escudo/' + nombreDT + '/' + equipoID + '/' + equipoNombre ); 
     };
+
+ // toDT
+    this.usuarioActivo;
+    
+    this.toDT = function (jsonUsuario){
+        this.usuarioActivo = new DT().asDT(jsonUsuario);
+    };  
 });
 
 app.service("TorneoService", function($http) {

@@ -20,32 +20,31 @@ app.controller('buscarController', function(JugadorService) {
 });
 
 app.controller('loginController', function(DTService, $state) {
-    var self = this;
+    
     this.nombre = "";
     this.password = "";
-    
+    this.mensaje = "";
     this.iniciarSesion = function(){
         var self = this;
         DTService.nombreDT = this.nombre;
         DTService.password = this.password;
-          try {
+         
+        
             DTService.getUsuario(function (response) {
-              if(response.data != "null"){
-                $state.go('main.inicio.plantel');
-              }else{
-                self.mensaje =  "El usuario y contraseña no coinciden.";
-              }
+                if(response.data != "null"){
+                    DTService.toDT(response.data);
+                    $state.go('main.inicio.plantel');
+                }else{
+                    self.mensaje =  "El usuario y contraseña no coinciden.";
+                }
             });    
-          } catch (error) {
-            self.mensaje = error;
-          }
-    };
+    };  
   
 
 
-    this.logIn = function() {
+   /* this.logIn = function() {
         $state.go("main.inicio.plantel");
-    };
+    }; */
 });
 
 app.controller('mainController', function(DTService, TorneoService) {
