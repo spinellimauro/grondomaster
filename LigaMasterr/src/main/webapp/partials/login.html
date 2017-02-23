@@ -4,15 +4,16 @@
             <div class="panel-body">
                 <form class="form-horizontal">
                     <div class="input-group col-xs-12">
-                        <input type="text" class="form-control" placeholder="Usuario">
+                        <input type="text" class="form-control" ng-model="loginCtrl.nombre"placeholder="Usuario">
                     </div>
                     <br>
                     <div class="input-group col-xs-12">
-                        <input type="password" class="form-control" placeholder="Contraseña">
+                        <input type="password" class="form-control
+                        " ng-model="loginCtrl.password" placeholder="Contraseña">
                     </div>
                     <br>
                     <div class="input-group col-xs-4 col-xs-offset-4">
-                        <button type="submit" class="btn btn-primary btn-block" ng-click="loginCtrl.logIn()">Entrar</button>
+                        <button type="submit" class="btn btn-primary btn-block" ng-click="loginCtrl.iniciarSesion()">Entrar</button>
                     </div>
                 </form>
             </div>

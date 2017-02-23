@@ -124,7 +124,13 @@ class MasterController {
 		ok(dt.toJson);
 	}
 	
-	
+	@Get("/usuarios/:nombre/:pwd")
+	def Result usuarios(){
+		val usuarios = LigaMaster.instance.listaDT
+		val usuario = usuarios.findFirst[u | u.nombreDT.toLowerCase.equals(nombre.toLowerCase) && u.password.equals(pwd)]
+		//TODO: Tirar excepción si no lo encuentra.
+		ok(usuario.toJson)
+	}
 	def static void main(String[] args) {
 		LigaMaster.instance.leerBase
 		XTRest.start(MasterController, 9000)

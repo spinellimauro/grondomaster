@@ -11,7 +11,8 @@ app.service("JugadorService", function($http) {
 });
 
 app.service("DTService", function($http) {
-
+    this.nombreDT;
+    this.password;
 //GETS
 
     this.getON = function(callback) {
@@ -25,6 +26,11 @@ app.service("DTService", function($http) {
     this.getEquipos = function(nombre, callback) {
         $http.get('/equipos/' + nombre).then(callback);
     };
+
+     this.getUsuario = function (callback){
+         $http.get('/usuarios/'+this.nombreDT+'/'+this.password)
+        .then(callback);
+      };
 
 // PUTS
     this.venderJugadorALaMaquina = function(nombreDT, jugadorID){
