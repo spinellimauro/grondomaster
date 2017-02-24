@@ -7,8 +7,8 @@
         <fieldName>listaParticipantes</fieldName>
         <data class="list">
           <master.DT>
-            <id>0</id>
-            <nombreEquipo>Bordeaux</nombreEquipo>
+            <id>52</id>
+            <nombreEquipo>Roma</nombreEquipo>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>
@@ -4905,8 +4905,8 @@
         <fieldName>listaParticipantes</fieldName>
         <data class="list">
           <master.DT>
-            <id>0</id>
-            <nombreEquipo>Bayern Munchen</nombreEquipo>
+            <id>111974</id>
+            <nombreEquipo>Sassuolo</nombreEquipo>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>

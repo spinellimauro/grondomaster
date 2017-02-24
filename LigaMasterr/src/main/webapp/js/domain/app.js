@@ -49,7 +49,7 @@ app.controller('loginController', function(DTService, $state) {
 
 app.controller('mainController', function(DTService, TorneoService) {
     var self = this;
-    
+    this.DT = DTService.usuarioActivo;
 
 
 // PUTS
@@ -67,7 +67,8 @@ app.controller('mainController', function(DTService, TorneoService) {
 
     
     this.comprarAMaquina = function(jugadorID,jugadorNombre){
-        DTService.comprarALaMaquina(this.DT.nombreDT,jugadorID,jugadorNombre).then(function(){
+        var jugadorNombreMod = jugadorNombre.replace(" ", "+");
+        DTService.comprarALaMaquina(this.DT.nombreDT,jugadorID,jugadorNombreMod).then(function(){
 
         });
     };

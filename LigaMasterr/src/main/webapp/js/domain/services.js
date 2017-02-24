@@ -16,7 +16,7 @@ app.service("DTService", function($http) {
 //GETS
 
     this.getON = function(callback) {
-        $http.get('/dt').then(callback);
+        $http.get('/dt/' + this.nombreDT).then(callback);
     };
 
     this.getAll = function(callback) {
@@ -57,8 +57,8 @@ app.service("DTService", function($http) {
     this.usuarioActivo;
     
     this.toDT = function (jsonUsuario){
-        this.usuarioActivo = new DT().asDT(jsonUsuario);
-    };  
+        this.usuarioActivo = DT.asDT(jsonUsuario);
+    };
 });
 
 app.service("TorneoService", function($http) {

@@ -39,9 +39,9 @@ class MasterController {
 		ok(jugadores.toJson)
 	}
 
-	@Get("/dt")
+	@Get("/dt/:nombreDT")
 	def Result getDT() {
-		val dt = LigaMaster.instance.listaDT.get(1)
+		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
 		response.contentType = ContentType.APPLICATION_JSON
 		response.characterEncoding = "utf-8"
 		ok(dt.toJson)
@@ -104,9 +104,8 @@ class MasterController {
 	@Put('/sofifa/:nombreDT/:jugadorID/:jugadorNombre')
 	def Result comprarALaMaquina(@Body String body) {
 		
-		val jugador = jugadorNombre.replace(" ", "+")
 		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
-		val jugadores = SoFifa.instance.getJugadores(jugador)
+		val jugadores = SoFifa.instance.getJugadores(jugadorNombre).toList
 		val jugadorAComprar = jugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
 		dt.comprarJugador(jugadorAComprar , jugadorAComprar.precioMaquina)
 		LigaMaster.instance.guardarBase
