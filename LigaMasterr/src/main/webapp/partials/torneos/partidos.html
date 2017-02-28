@@ -12,10 +12,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="partido in mainCtrl.torneos[mainCtrl.idTorneo].fecha(mainCtrl.idFecha)">
-            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{mainCtrl.DT.id}}.png"/>{{partido.dtLocal.nombreEquipo}}({{partido.dtLocal.nombreDT}})</td>
+        <tr role="button" ng-repeat="partido in mainCtrl.torneos[mainCtrl.idTorneo].fecha(mainCtrl.idFecha)"
+        data-toggle="modal" data-target="#partidoDetalle">
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{partido.dtLocal.id}}.png"/>{{partido.dtLocal.nombreEquipo}}({{partido.dtLocal.nombreDT}})</td>
             <td>{{partido.score}}</td>
-            <td>{{partido.dtVisitante.nombreEquipo}}({{partido.dtVisitante.nombreDT}})<img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{mainCtrl.DT.id}}.png"</td>
+            <td>{{partido.dtVisitante.nombreEquipo}}({{partido.dtVisitante.nombreDT}})<img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{partido.dtVisitante.id}}.png"</td>
         </tr>
     </tbody>
 </table>

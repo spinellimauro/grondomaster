@@ -7,8 +7,8 @@
         <fieldName>listaParticipantes</fieldName>
         <data class="list">
           <master.DT>
-            <id>52</id>
-            <nombreEquipo>Roma</nombreEquipo>
+            <id>189</id>
+            <nombreEquipo>Bologna</nombreEquipo>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>
@@ -554,13 +554,13 @@
             </listaJugadores>
             <nombreDT>Mauro</nombreDT>
             <password>ARGarg12</password>
-            <plata>89000.0</plata>
+            <plata>79000.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
-            <slots>37</slots>
+            <slots>38</slots>
           </master.DT>
           <master.DT>
-            <id>0</id>
-            <nombreEquipo>Rotherham</nombreEquipo>
+            <id>1880</id>
+            <nombreEquipo>Guadalajara</nombreEquipo>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>
@@ -1525,14 +1525,14 @@
               </data>
             </listaJugadores>
             <nombreDT>Abi</nombreDT>
-            <password></password>
+            <password> </password>
             <plata>49500.0</plata>
             <torneosDisponibles>2</torneosDisponibles>
             <slots>30</slots>
           </master.DT>
           <master.DT>
-            <id>0</id>
-            <nombreEquipo>Valencia</nombreEquipo>
+            <id>1909</id>
+            <nombreEquipo>Vitesse</nombreEquipo>
             <listaJugadores class="org.uqbar.common.transaction.Collection.TransactionalSet">
               <owner class="master.DT" reference="../.."/>
               <fieldName>listaJugadores</fieldName>
@@ -1986,7 +1986,7 @@
               </data>
             </listaJugadores>
             <nombreDT>Latta</nombreDT>
-            <password></password>
+            <password>a</password>
             <plata>62500.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>32</slots>
