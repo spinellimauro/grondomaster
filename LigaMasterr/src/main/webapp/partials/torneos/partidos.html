@@ -13,10 +13,11 @@
     </thead>
     <tbody>
         <tr role="button" ng-repeat="partido in mainCtrl.torneos[mainCtrl.idTorneo].fecha(mainCtrl.idFecha)"
-        data-toggle="modal" data-target="#partidoDetalle">
+        ng-click="listaCtrl.select(partido)" data-toggle="modal" data-target="#detallePartido">
             <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{partido.dtLocal.id}}.png"/>{{partido.dtLocal.nombreEquipo}}({{partido.dtLocal.nombreDT}})</td>
             <td>{{partido.score}}</td>
             <td>{{partido.dtVisitante.nombreEquipo}}({{partido.dtVisitante.nombreDT}})<img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{partido.dtVisitante.id}}.png"</td>
         </tr>
     </tbody>
 </table>
+<div detallePartido partido="listaCtrl.jugadorSeleccionado"></div>

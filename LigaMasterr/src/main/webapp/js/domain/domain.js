@@ -13,7 +13,13 @@ function DT() {
         this.deshabilitados = _.filter(this.listaJugadores, function(jugador) {
             return !jugador.habilitado;
         });
+
     };
+
+    this.agregarJugador = function(jugador) {
+        this.plantel.put(jugador);
+    };
+
 }
 
 DT.asDT = function(jsonDT) {

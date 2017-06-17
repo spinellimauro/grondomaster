@@ -16,7 +16,7 @@
         <tr ng-repeat="dt in mainCtrl.torneos[mainCtrl.idTorneo].tablaPosiciones">
             <td>{{$index+1}}º</td>
             <td>{{dt.nombre}}</td>
-            <td>{{dt.equipo}}</td>
+            <td><img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{dt.id}}.png"/> {{dt.equipo}}</td>
             <td>{{dt.pj}}</td>
             <td>{{dt.g}}</td>
             <td>{{dt.e}}</td>

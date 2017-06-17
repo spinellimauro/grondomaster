@@ -13,7 +13,7 @@ final class SoFifa {
 	private new() {}
 
 	def getJugadores(String string) {
-		val document = Jsoup.connect("http://sofifa.com/players?keyword=" + string + "&hl=es-ES").userAgent("Mozilla").post
+		val document = Jsoup.connect("http://sofifa.com/players?keyword=" + string + "&layout=2017desktop").userAgent("Mozilla").post
 		val tabla = document.select("tbody > tr")
 
 		tabla.map [
@@ -23,9 +23,9 @@ final class SoFifa {
 			jugador.nombre = data.get(0).select("a").text
 			jugador.id = Integer::parseInt(data.select("img").attr("id"))
 			jugador.nacionalidad = data.get(1).select("a > span ").attr("title")
-			jugador.posiciones = newArrayList(data.get(3).select("span").map[text])
-			jugador.nivel = Integer::parseInt(data.get(4).text)
-			jugador.potencial = Integer::parseInt(data.get(5).text)
+			jugador.posiciones = newArrayList(data.get(2).select("span").map[text])
+			jugador.nivel = Integer::parseInt(data.get(6).text)
+			jugador.potencial = Integer::parseInt(data.get(7).text)
 
 			jugador
 		]

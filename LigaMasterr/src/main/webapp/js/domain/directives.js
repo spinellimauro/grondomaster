@@ -29,3 +29,13 @@ app.directive('detalle', function() {
         }
     };
 });
+
+app.directive('detallePartido', function() {
+    return {
+        templateUrl: 'partials/torneos/partido.html',
+        controller: 'mainController as mainCtrl',
+        scope: {
+            partido: '='
+        }
+    };
+});

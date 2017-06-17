@@ -1,6 +1,7 @@
 package controller
 
 import datos.SoFifa
+import datos.Transferencia
 import master.LigaMaster
 import org.uqbar.xtrest.api.Result
 import org.uqbar.xtrest.api.XTRest
@@ -76,8 +77,8 @@ class MasterController {
 	
 	@Put('/transferibles/:nombreDT/:jugadorID')
 	def Result actualizarTransferible(@Body String body) {
-		
-		
+	
+		 
 		val dtComprador = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
 		val dtVendedor = LigaMaster.instance.listaDT.findFirst[dt|dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)] != null]
 		val jugadorAComprar = dtVendedor.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
@@ -86,6 +87,17 @@ class MasterController {
 		dtVendedor.incPlata(jugadorAComprar.precioVenta)
 		dtComprador.addJugador(jugadorAComprar)
 		dtVendedor.removeJugador(jugadorAComprar)
+		
+		
+//		val transferencia = new Transferencia =>[
+//				dtCompra = dtComprador.nombreDT
+//				dtVende = dtVendedor.nombreDT
+//				monto = jugadorAComprar.precioVenta
+//				jugadorComprado = jugadorAComprar.nombre
+//		]
+////		
+//////		NO ANDA NOSE PORQUE
+//		LigaMaster.instance.mercado.agregarTransferencia(transferencia)
 		
 		LigaMaster.instance.guardarBase
 		ok(dtComprador.toJson);

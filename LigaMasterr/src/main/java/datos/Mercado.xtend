@@ -11,7 +11,7 @@ import master.Jugador
 @Accessors
 class Mercado {
 	List<Oferta> listaOfertas = newArrayList
-	
+	List<Transferencia> listaTraspasos = newArrayList
 	def List<Oferta> getOfertasRecibidas(Jugador jugador) {
 		listaOfertas.filter[jugadorOfertado.equals(jugador)].toList
 	}
@@ -23,4 +23,24 @@ class Mercado {
 	def List<Oferta> getOfertasEnviadas(DT dt) {
 		listaOfertas.filter[dtOfertante.equals(dt)].toList
 	}
+	
+	def void agregarTransferencia(String comprador, String vendedor , double _monto , String _jugadorComprado){
+		listaTraspasos.add(
+			new Transferencia =>[
+				dtCompra = comprador
+				dtVende = vendedor
+				monto = _monto
+				jugadorComprado = _jugadorComprado
+			]
+		)
+	}
+}
+
+@Observable
+@Accessors
+class Transferencia {
+	String dtCompra
+	String dtVende
+	double monto
+	String jugadorComprado
 }
