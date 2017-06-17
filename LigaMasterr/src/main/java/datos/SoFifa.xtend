@@ -13,7 +13,7 @@ final class SoFifa {
 	private new() {}
 
 	def getJugadores(String string) {
-		val document = Jsoup.connect("http://sofifa.com/players?keyword=" + string + "&layout=2017desktop").userAgent("Mozilla").post
+		val document = Jsoup.connect("http://sofifa.com/players?keyword=" + string + "&layout=2017desktop&hl=es-ES").userAgent("Mozilla").post
 		val tabla = document.select("tbody > tr")
 
 		tabla.map [

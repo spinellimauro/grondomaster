@@ -5520,6 +5520,21 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
+                  <id>213516</id>
+                  <nombre>Ricardo Horta</nombre>
+                  <nacionalidad>Portugal</nacionalidad>
+                  <posiciones>
+                    <string>MI</string>
+                    <string>MD</string>
+                  </posiciones>
+                  <nivel>76</nivel>
+                  <potencial>84</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>201939</id>
                   <nombre>C. Piccini</nombre>
                   <nacionalidad>Italia</nacionalidad>
@@ -5725,7 +5740,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>listaAmarillas</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[10]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[11]"/>
                 <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[8]"/>
               </data>
             </listaAmarillas>
@@ -6512,7 +6527,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>listaRojas</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo[6]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[10]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[6]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[11]"/>
               </data>
             </listaRojas>
           </master.Partido>
