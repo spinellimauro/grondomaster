@@ -47,7 +47,7 @@ app.controller('loginController', function(DTService, $state) {
     }; */
 });
 
-app.controller('mainController', function(DTService,JugadorService, TorneoService) {
+app.controller('mainController', function(DTService,JugadorService, TorneoService,$state) {
     var self = this;
     this.DT = DTService.usuarioActivo;
 
