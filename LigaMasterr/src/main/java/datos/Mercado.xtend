@@ -24,15 +24,8 @@ class Mercado {
 		listaOfertas.filter[dtOfertante.equals(dt)].toList
 	}
 	
-	def void agregarTransferencia(String comprador, String vendedor , double _monto , String _jugadorComprado){
-		listaTraspasos.add(
-			new Transferencia =>[
-				dtCompra = comprador
-				dtVende = vendedor
-				monto = _monto
-				jugadorComprado = _jugadorComprado
-			]
-		)
+	def void agregarTransferencia(Transferencia transferencia){
+		listaTraspasos.add(transferencia)
 	}
 }
 

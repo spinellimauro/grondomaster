@@ -1,0 +1,12 @@
+<form>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar jugador ..." ng-model="buscarCtrl.query">
+        <div class="input-group-btn">
+            <button class="btn btn-primary" type="submit" ng-click="buscarCtrl.getResultados()">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+    </div>
+</form>
+<hr>
+<div jugadores lista="buscarCtrl.resultados"></div>

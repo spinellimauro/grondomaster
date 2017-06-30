@@ -24,7 +24,7 @@
                     ng-show="jugador.precioVenta > 0 && jugador.propietario != mainCtrl.DT.nombreDT">Comprar a {{jugador.propietario}}</button>
                     
                     <button type="button" class="btn btn-default"
-                    ng-click="mainCtrl.comprarAMaquina(jugador.id,jugador.nombre)"   
+                    ng-click="mainCtrl.comprarAMaquina(jugador.id)"   
                     ng-show="jugador.propietario == 'Libre'">Comprar a Máquina </button>
                     
                     <button type="button" class="btn btn-default"
@@ -32,7 +32,7 @@
                     
                     <button type="button" class="btn btn-default" 
                     ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT"
-                    ng-click="listaCtrl.select(jugador)" data-toggle="modal" href="#oferta">Ofertar a {{jugador.propietario}}</button>
+                    ng-click="mainCtrl.ofertar(jugador)">Ofertar a {{jugador.propietario}}</button>
 
                 </div>
             </div>

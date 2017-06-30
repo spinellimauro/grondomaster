@@ -47,10 +47,9 @@ app.controller('loginController', function(DTService, $state) {
     }; */
 });
 
-app.controller('mainController', function(DTService, TorneoService) {
+app.controller('mainController', function(DTService,JugadorService, TorneoService) {
     var self = this;
     this.DT = DTService.usuarioActivo;
-
 
 // PUTS
     this.venderALaMaquina = function(jugadorID){
@@ -66,9 +65,8 @@ app.controller('mainController', function(DTService, TorneoService) {
     };
 
     
-    this.comprarAMaquina = function(jugadorID,jugadorNombre){
-        var jugadorNombreMod = jugadorNombre.replace(" ", "+");
-        DTService.comprarALaMaquina(this.DT.nombreDT,jugadorID,jugadorNombreMod).then(function(){
+    this.comprarAMaquina = function(jugadorID){
+        DTService.comprarALaMaquina(this.DT.nombreDT,JugadorService.nombreJugador,jugadorID).then(function(){
 
         });
     };
@@ -87,6 +85,11 @@ app.controller('mainController', function(DTService, TorneoService) {
         });
     };
 
+// Ofertar
+    
+    this.ofertar = function(){
+        $state.go('main.mercado.ofertar');
+    };
 
 
 // GETS

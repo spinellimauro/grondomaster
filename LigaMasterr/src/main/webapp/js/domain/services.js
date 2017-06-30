@@ -1,11 +1,12 @@
 app.service("JugadorService", function($http) {
-
+    this.nombreJugador;
     this.getTransferibles = function(callback) {
         $http.get('/mercado').then(callback);
     };
 
     this.getSome = function(nombre, callback) {
         $http.get('/busqueda/' + nombre).then(callback);
+        this.nombreJugador = nombre;
     };
     
 });
@@ -45,8 +46,8 @@ app.service("DTService", function($http) {
         return $http.put('/dts/' + nombreDT); 
     };
 
-    this.comprarALaMaquina = function(nombreDT,jugadorID,jugadorNombre){
-        return $http.put('/sofifa/' + nombreDT + '/' + jugadorID + '/' + jugadorNombre ); 
+    this.comprarALaMaquina = function(nombreDT,nombreJugador, jugadorID){
+        return $http.put('/sofifa/' + nombreDT + '/' + nombreJugador + '/' + jugadorID); 
     };
 
     this.cambioDeEquipo = function(nombreDT,equipoID,equipoNombre){

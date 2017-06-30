@@ -11,6 +11,9 @@ import org.uqbar.xtrest.api.annotation.Get
 import org.uqbar.xtrest.api.annotation.Put
 import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.json.JSONUtils
+import java.util.List
+import master.Jugador
+import datos.Precios
 
 @Controller
 class MasterController {
@@ -82,22 +85,28 @@ class MasterController {
 		val dtComprador = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
 		val dtVendedor = LigaMaster.instance.listaDT.findFirst[dt|dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)] != null]
 		val jugadorAComprar = dtVendedor.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		
+		
+				
+		val transferencia = new Transferencia =>[
+				dtCompra = dtComprador.nombreDT
+				dtVende = dtVendedor.nombreDT
+				monto = jugadorAComprar.precioVenta
+				jugadorComprado = jugadorAComprar.nombre
+		]
+//		
+////		NO ANDA NOSE PORQUE
+		LigaMaster.instance.mercado.agregarTransferencia(transferencia)
+		
+		
+		
 		// SOY UN BOLUDO YA HABIA METODOS COMPRAR Y VENDER (DESPUES LO ARREGLO)
 		dtComprador.decPlata(jugadorAComprar.precioVenta)
 		dtVendedor.incPlata(jugadorAComprar.precioVenta)
 		dtComprador.addJugador(jugadorAComprar)
 		dtVendedor.removeJugador(jugadorAComprar)
 		
-		
-//		val transferencia = new Transferencia =>[
-//				dtCompra = dtComprador.nombreDT
-//				dtVende = dtVendedor.nombreDT
-//				monto = jugadorAComprar.precioVenta
-//				jugadorComprado = jugadorAComprar.nombre
-//		]
-////		
-//////		NO ANDA NOSE PORQUE
-//		LigaMaster.instance.mercado.agregarTransferencia(transferencia)
+
 		
 		LigaMaster.instance.guardarBase
 		ok(dtComprador.toJson);
@@ -113,13 +122,16 @@ class MasterController {
 		ok(dt.toJson);
 	}
 	
-	@Put('/sofifa/:nombreDT/:jugadorID/:jugadorNombre')
-	def Result comprarALaMaquina(@Body String body) {
+	@Put('/sofifa/:nombreDT/:nombreJugador/:jugadorID')
+	def Result comprarALaMaquina(@Body String body) {	
+		
 		
 		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
-		val jugadores = SoFifa.instance.getJugadores(jugadorNombre).toList
-		val jugadorAComprar = jugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
-		dt.comprarJugador(jugadorAComprar , jugadorAComprar.precioMaquina)
+		val listaJugadores = SoFifa.instance.getJugadores(nombreJugador).toList
+		val jugadorAComprar = listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		
+		dt.comprarJugador(jugadorAComprar , Precios.instance.getPrecio(jugadorAComprar))
+		
 		LigaMaster.instance.guardarBase
 		ok(dt.toJson);
 	}

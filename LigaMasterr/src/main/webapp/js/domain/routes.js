@@ -72,6 +72,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'partials/mercado/buscador.html'
     })
 
+    .state('main.mercado.ofertar', {
+        templateUrl: 'partials/mercado/ofertar.html'
+    })
+
     .state('main.equipos', {
         url: '/equipos',
         templateUrl: 'partials/equipos.html'

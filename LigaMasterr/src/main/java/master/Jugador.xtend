@@ -27,30 +27,33 @@ class Jugador {
 	int vecesNoPagadas = 0
 
 	// Impuestos
+	
 	def double getImpuesto() {
 		Precios.instance.getPrecio(this) * (Precios.instance.getPrecio("Impuesto") / 100)
 	}
-
+	
 	def void noSePago() {
 		vecesNoPagadas++
 		habilitado = false
 	}
-
+	
 	def void pagar() {
 		vecesNoPagadas = 0
 		habilitado = true
 	}
-
+	
 	def boolean getPagaImpuesto() {
 		nivel > 82
 	}
 
 	// Mercado
+	
+	@JsonProperty("precioMaquina")
 	def double getPrecioMaquina() {
 		Precios.instance.getPrecio(this)
 	}
 	
-	@JsonIgnore
+	
 	def DT getPropietario() {
 		LigaMaster.instance.getPropietario(this)
 	}
@@ -74,6 +77,7 @@ class Jugador {
 	}
 
 	// Lesion
+
 	def boolean estaLesionado() {
 		lesion > 0
 	}
@@ -87,6 +91,7 @@ class Jugador {
 	}
 
 	// Comparación
+	
 	override equals(Object obj) {
 		if(obj == null) return false
 		if(!Jugador.isAssignableFrom(obj.class)) return false
@@ -94,7 +99,6 @@ class Jugador {
 		val otroJugador = obj as Jugador
 		id == otroJugador.id
 	}
-
 	override hashCode() {
 		id
 	}

@@ -331,6 +331,20 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
+                  <id>223071</id>
+                  <nombre>F. Pellegrino</nombre>
+                  <nacionalidad>Argentina</nacionalidad>
+                  <posiciones>
+                    <string>POR</string>
+                  </posiciones>
+                  <nivel>70</nivel>
+                  <potencial>70</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>197853</id>
                   <nombre>S. Aurier</nombre>
                   <nacionalidad>Costa de Marfil</nacionalidad>
@@ -429,22 +443,6 @@
                   </posiciones>
                   <nivel>78</nivel>
                   <potencial>83</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>202477</id>
-                  <nombre>Deulofeu</nombre>
-                  <nacionalidad>España</nacionalidad>
-                  <posiciones>
-                    <string>MD</string>
-                    <string>ED</string>
-                    <string>DC</string>
-                  </posiciones>
-                  <nivel>81</nivel>
-                  <potencial>88</potencial>
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
                   <precioVenta>0.0</precioVenta>
@@ -3110,6 +3108,34 @@
               <fieldName>listaJugadores</fieldName>
               <data class="set">
                 <master.Jugador>
+                  <id>192227</id>
+                  <nombre>S. Mustafi</nombre>
+                  <nacionalidad>Alemania</nacionalidad>
+                  <posiciones>
+                    <string>DFC</string>
+                  </posiciones>
+                  <nivel>83</nivel>
+                  <potencial>88</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>false</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>1</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>205995</id>
+                  <nombre>J. Willems</nombre>
+                  <nacionalidad>Holanda</nacionalidad>
+                  <posiciones>
+                    <string>LI</string>
+                  </posiciones>
+                  <nivel>77</nivel>
+                  <potencial>82</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>208777</id>
                   <nombre>Óliver Torres</nombre>
                   <nacionalidad>España</nacionalidad>
@@ -3133,6 +3159,21 @@
                     <string>EI</string>
                   </posiciones>
                   <nivel>80</nivel>
+                  <potencial>86</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>225199</id>
+                  <nombre>V. Koziello</nombre>
+                  <nacionalidad>Francia</nacionalidad>
+                  <posiciones>
+                    <string>MC</string>
+                    <string>MCD</string>
+                  </posiciones>
+                  <nivel>78</nivel>
                   <potencial>86</potencial>
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
@@ -3169,6 +3210,20 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
+                  <id>205966</id>
+                  <nombre>A. Younes</nombre>
+                  <nacionalidad>Alemania</nacionalidad>
+                  <posiciones>
+                    <string>EI</string>
+                  </posiciones>
+                  <nivel>78</nivel>
+                  <potencial>81</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>231443</id>
                   <nombre>O. Dembélé</nombre>
                   <nacionalidad>Francia</nacionalidad>
@@ -3193,123 +3248,6 @@
                   </posiciones>
                   <nivel>77</nivel>
                   <potencial>85</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>227796</id>
-                  <nombre>C. Pulisic</nombre>
-                  <nacionalidad>EE.UU.</nacionalidad>
-                  <posiciones>
-                    <string>MD</string>
-                    <string>MI</string>
-                  </posiciones>
-                  <nivel>74</nivel>
-                  <potencial>87</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>209620</id>
-                  <nombre>A. Baba</nombre>
-                  <nacionalidad>Ghana</nacionalidad>
-                  <posiciones>
-                    <string>LI</string>
-                    <string>MI</string>
-                  </posiciones>
-                  <nivel>78</nivel>
-                  <potencial>85</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>190813</id>
-                  <nombre>S. El Shaarawy</nombre>
-                  <nacionalidad>Italia</nacionalidad>
-                  <posiciones>
-                    <string>EI</string>
-                  </posiciones>
-                  <nivel>81</nivel>
-                  <potencial>86</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>212188</id>
-                  <nombre>T. Werner</nombre>
-                  <nacionalidad>Alemania</nacionalidad>
-                  <posiciones>
-                    <string>DC</string>
-                  </posiciones>
-                  <nivel>76</nivel>
-                  <potencial>85</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>192227</id>
-                  <nombre>S. Mustafi</nombre>
-                  <nacionalidad>Alemania</nacionalidad>
-                  <posiciones>
-                    <string>DFC</string>
-                  </posiciones>
-                  <nivel>83</nivel>
-                  <potencial>88</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>false</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>1</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>198951</id>
-                  <nombre>C. Bakambu</nombre>
-                  <nacionalidad>R.D. del Congo</nacionalidad>
-                  <posiciones>
-                    <string>DC</string>
-                    <string>MI</string>
-                    <string>MD</string>
-                  </posiciones>
-                  <nivel>81</nivel>
-                  <potencial>85</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>205995</id>
-                  <nombre>J. Willems</nombre>
-                  <nacionalidad>Holanda</nacionalidad>
-                  <posiciones>
-                    <string>LI</string>
-                  </posiciones>
-                  <nivel>77</nivel>
-                  <potencial>82</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
-                  <id>225199</id>
-                  <nombre>V. Koziello</nombre>
-                  <nacionalidad>Francia</nacionalidad>
-                  <posiciones>
-                    <string>MC</string>
-                    <string>MCD</string>
-                  </posiciones>
-                  <nivel>78</nivel>
-                  <potencial>86</potencial>
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
                   <precioVenta>0.0</precioVenta>
@@ -3341,6 +3279,36 @@
                   </posiciones>
                   <nivel>80</nivel>
                   <potencial>87</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>227796</id>
+                  <nombre>C. Pulisic</nombre>
+                  <nacionalidad>EE.UU.</nacionalidad>
+                  <posiciones>
+                    <string>MD</string>
+                    <string>MI</string>
+                  </posiciones>
+                  <nivel>74</nivel>
+                  <potencial>87</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
+                  <id>209620</id>
+                  <nombre>A. Baba</nombre>
+                  <nacionalidad>Ghana</nacionalidad>
+                  <posiciones>
+                    <string>LI</string>
+                    <string>MI</string>
+                  </posiciones>
+                  <nivel>78</nivel>
+                  <potencial>85</potencial>
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
                   <precioVenta>0.0</precioVenta>
@@ -3464,15 +3432,14 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
-                  <id>202556</id>
-                  <nombre>M. Depay</nombre>
-                  <nacionalidad>Holanda</nacionalidad>
+                  <id>212188</id>
+                  <nombre>T. Werner</nombre>
+                  <nacionalidad>Alemania</nacionalidad>
                   <posiciones>
-                    <string>MI</string>
-                    <string>EI</string>
+                    <string>DC</string>
                   </posiciones>
-                  <nivel>80</nivel>
-                  <potencial>87</potencial>
+                  <nivel>76</nivel>
+                  <potencial>85</potencial>
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
                   <precioVenta>0.0</precioVenta>
@@ -3482,7 +3449,7 @@
             </listaJugadores>
             <nombreDT>Ale</nombreDT>
             <password>Comando223</password>
-            <plata>70250.0</plata>
+            <plata>35250.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>33</slots>
           </master.DT>
@@ -3841,8 +3808,8 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[19]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[20]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[17]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[18]"/>
                 <master.Jugador>
                   <id>193301</id>
                   <nombre>A. Lacazette</nombre>
@@ -3857,8 +3824,8 @@
                   <precioVenta>0.0</precioVenta>
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[14]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[13]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[2]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -3929,8 +3896,23 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[12]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[9]"/>
+                <master.Jugador>
+                  <id>198951</id>
+                  <nombre>C. Bakambu</nombre>
+                  <nacionalidad>R.D. del Congo</nacionalidad>
+                  <posiciones>
+                    <string>DC</string>
+                    <string>MI</string>
+                    <string>MD</string>
+                  </posiciones>
+                  <nivel>81</nivel>
+                  <potencial>85</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -3964,7 +3946,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[20]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[18]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
               </data>
@@ -4223,14 +4205,14 @@
               <fieldName>golesVisitante</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[19]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[17]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
               <owner class="master.Partido" reference="../.."/>
               <fieldName>listaAmarillas</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[26]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[27]"/>
                 <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[38]"/>
               </data>
             </listaAmarillas>
@@ -4238,7 +4220,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>listaRojas</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[24]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[25]"/>
               </data>
             </listaRojas>
           </master.Partido>
@@ -4285,7 +4267,7 @@
               <fieldName>golesLocal</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[12]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[4]/golesLocal/data/master.Jugador[2]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -4378,7 +4360,22 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>listaAmarillas</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[29]"/>
+                <master.Jugador>
+                  <id>202477</id>
+                  <nombre>Deulofeu</nombre>
+                  <nacionalidad>España</nacionalidad>
+                  <posiciones>
+                    <string>MD</string>
+                    <string>ED</string>
+                    <string>DC</string>
+                  </posiciones>
+                  <nivel>81</nivel>
+                  <potencial>88</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>0.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
               </data>
             </listaAmarillas>
             <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -6065,8 +6062,8 @@
               <fieldName>golesLocal</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[5]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[9]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[9]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
