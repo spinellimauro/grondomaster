@@ -30,7 +30,8 @@
                     <button type="button" class="btn btn-default"
                     ng-click="mainCtrl.venderALaMaquina(jugador.id)" ng-show="jugador.propietario == mainCtrl.DT.nombreDT">Vender a Máquina ({{(jugador.precioMaquina)/4}})</button>
                     
-                    <button type="button" class="btn btn-default" 
+                    <button type="button" class="btn btn-default"
+                    data-dismiss="modal" 
                     ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT"
                     ng-click="mainCtrl.ofertar(jugador)">Ofertar a {{jugador.propietario}}</button>
 

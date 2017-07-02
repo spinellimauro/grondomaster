@@ -1,0 +1,18 @@
+<form >
+   <tbody>
+            <tr ng-show="mainCtrl.length == 0">
+                <td colspan="4">Todavía no hay ofertas.</td>
+            </tr>
+            <tr ng-repeat="ofertas in mainCtrl.listaOfertas">
+                <td>{{oferta.dtOfertante}}</td>
+                <td>{{oferta.jugadorOfertado}}</td>
+                <td>{{oferta.monto}}<td>
+            </tr>
+        </tbody>
+</form>
+<hr>
+<div class="panel-body">
+        <p>Jugadores Propios</p>
+        <hr>
+        <div jugadores lista="mainCtrl.DT.plantel"></div>
+</div>

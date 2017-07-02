@@ -50,7 +50,7 @@ app.controller('loginController', function(DTService, $state) {
 app.controller('mainController', function(DTService,JugadorService, TorneoService,$state) {
     var self = this;
     this.DT = DTService.usuarioActivo;
-
+    this.monto = "";
 // PUTS
     this.venderALaMaquina = function(jugadorID){
         DTService.venderJugadorALaMaquina(this.DT.nombreDT, jugadorID).then(function(){
@@ -87,8 +87,10 @@ app.controller('mainController', function(DTService,JugadorService, TorneoServic
 
 // Ofertar
     
-    this.ofertar = function(){
+    this.ofertar = function(jugadorSeleccionado){
+        this.jugador = jugadorSeleccionado;
         $state.go('main.mercado.ofertar');
+
     };
 
 
