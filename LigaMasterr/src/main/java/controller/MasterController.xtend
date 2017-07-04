@@ -1,5 +1,6 @@
 package controller
 
+import datos.Precios
 import datos.SoFifa
 import datos.Transferencia
 import master.LigaMaster
@@ -11,9 +12,6 @@ import org.uqbar.xtrest.api.annotation.Get
 import org.uqbar.xtrest.api.annotation.Put
 import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.json.JSONUtils
-import java.util.List
-import master.Jugador
-import datos.Precios
 
 @Controller
 class MasterController {

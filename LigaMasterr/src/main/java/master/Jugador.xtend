@@ -1,6 +1,5 @@
 package master
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import datos.Precios
 import java.util.List
