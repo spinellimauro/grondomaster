@@ -15,6 +15,9 @@ app.service("DTService", function($http) {
     this.nombreDT;
     this.password;
 //GETS
+    this.seleccionarJugador = function(jugador){
+        this.jugadorSeleccionado = jugador;
+    };
 
     this.getON = function(callback) {
         $http.get('/dt/' + this.nombreDT).then(callback);

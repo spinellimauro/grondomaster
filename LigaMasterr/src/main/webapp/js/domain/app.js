@@ -51,6 +51,7 @@ app.controller('mainController', function(DTService,JugadorService, TorneoServic
     var self = this;
     this.DT = DTService.usuarioActivo;
     this.monto = 0;
+    
 // PUTS
     this.venderALaMaquina = function(jugadorID){
         DTService.venderJugadorALaMaquina(this.DT.nombreDT, jugadorID).then(function(){
@@ -87,10 +88,9 @@ app.controller('mainController', function(DTService,JugadorService, TorneoServic
 
 // Ofertar
     
-    this.ofertar = function(jugadorSeleccionado){
-        this.jugador = jugadorSeleccionado;
+    this.ofertar = function(){
+        this.jugador = DTService.jugadorSeleccionado;
         $state.go('main.ofertar');
-
     };
 
 
@@ -134,7 +134,7 @@ app.filter('startFrom', function() {
     };
 });
 
-app.controller('listaController', function($scope) {
+app.controller('listaController', function($scope,DTService) {
     this.page = 0;
     this.limit = 10;
     this.sortReverse = true;
@@ -142,6 +142,7 @@ app.controller('listaController', function($scope) {
     
     this.select = function(jugador){
         this.jugadorSeleccionado = jugador;
+        DTService.seleccionarJugador(jugador);
     };
 
     this.setLimit = function(number) {

@@ -73,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('main.ofertar', {
-        templateUrl: 'partials/mercado/ofertar.html'
+        templateUrl: 'partials/ofertar.html'
     })
 
     .state('main.equipos', {

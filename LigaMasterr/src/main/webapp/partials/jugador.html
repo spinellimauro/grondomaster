@@ -33,7 +33,7 @@
                     <button type="button" class="btn btn-default"
                     data-dismiss="modal"
                     ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT"
-                    ng-click="mainCtrl.ofertar(jugador)">Ofertar a {{jugador.propietario}}</button>
+                    ng-click="listaCtrl.select(jugador);mainCtrl.ofertar()">Ofertar a {{jugador.propietario}}</button>
 
                 </div>
             </div>
