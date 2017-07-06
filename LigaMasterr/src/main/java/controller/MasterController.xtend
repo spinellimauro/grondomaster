@@ -12,6 +12,8 @@ import org.uqbar.xtrest.api.annotation.Get
 import org.uqbar.xtrest.api.annotation.Put
 import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.json.JSONUtils
+import master.Oferta
+import datos.Mercado
 
 @Controller
 class MasterController {
@@ -109,7 +111,29 @@ class MasterController {
 		LigaMaster.instance.guardarBase
 		ok(dtComprador.toJson);
 	}
-
+	
+	@Put('/ofertas/:nombreDT/:jugadorID/:montoID')
+	def Result realizarOferta(@Body String body) {
+	
+		 
+		val _dtOfertante = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		val _dtReceptor = LigaMaster.instance.listaDT.findFirst[dt|dt.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)] != null]
+		val jugadorAOfertar = _dtReceptor.listaJugadores.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		
+		val oferta = new Oferta =>[
+			dtOfertante = _dtOfertante
+			dtReceptor = _dtReceptor
+			monto = Double.parseDouble(montoID)
+			jugadorOfertado = jugadorAOfertar
+			jugadoresOfrecidos = null
+		]
+		
+		LigaMaster.instance.mercado.listaOfertas.add(oferta)
+	
+		LigaMaster.instance.guardarBase
+		ok(_dtOfertante.toJson);
+	}
+	
 	@Put('/dts/:nombreDT')
 	def Result comprarSlot(@Body String body) {
 		

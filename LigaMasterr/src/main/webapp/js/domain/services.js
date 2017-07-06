@@ -57,6 +57,11 @@ app.service("DTService", function($http) {
         return $http.put('/plantel/escudo/' + nombreDT + '/' + equipoID + '/' + equipoNombre ); 
     };
 
+    this.confirmarOferta = function(nombreDT, jugadorID,monto){
+       return $http.put('/ofertas/' + nombreDT + '/'+ jugadorID + '/'+ monto);
+    };
+
+
  // toDT
     this.usuarioActivo;
     

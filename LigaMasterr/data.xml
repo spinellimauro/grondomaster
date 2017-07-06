@@ -7767,6 +7767,12 @@
             </data>
           </jugadoresOfrecidos>
         </master.Oferta>
+        <master.Oferta>
+          <dtOfertante reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
+          <dtReceptor reference="../../../../../listaTorneos/master.Torneo[12]/listaParticipantes/data/master.DT[2]"/>
+          <monto>15000.0</monto>
+          <jugadorOfertado reference="../../../../../listaTorneos/master.Torneo[12]/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[5]"/>
+        </master.Oferta>
       </data>
     </listaOfertas>
   </mercado>

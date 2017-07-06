@@ -73,7 +73,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('main.ofertar', {
-        templateUrl: 'partials/ofertar.html'
+        templateUrl: 'partials/ofertar.html',
+        controller: 'mainController as mainCtrl'
     })
 
     .state('main.equipos', {
