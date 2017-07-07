@@ -47,6 +47,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'partials/inicio/deshabilitados.html'
     })
 
+    .state('main.inicio.ofertasRecibidas', {
+        templateUrl: 'partials/inicio/ofertasRecibidas.html'
+    })
+
     .state('main.inicio.ajustes', {
         templateUrl: 'partials/inicio/ajustes.html'
     })

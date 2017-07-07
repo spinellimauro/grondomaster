@@ -7773,6 +7773,18 @@
           <monto>15000.0</monto>
           <jugadorOfertado reference="../../../../../listaTorneos/master.Torneo[12]/listaParticipantes/data/master.DT[2]/listaJugadores/data/master.Jugador[5]"/>
         </master.Oferta>
+        <master.Oferta>
+          <dtOfertante reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
+          <dtReceptor reference="../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]"/>
+          <monto>12000.0</monto>
+          <jugadorOfertado reference="../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador"/>
+        </master.Oferta>
+        <master.Oferta>
+          <dtOfertante reference="../../../../../listaTorneos/master.Torneo/listaParticipantes/data/master.DT"/>
+          <dtReceptor reference="../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]"/>
+          <monto>100.0</monto>
+          <jugadorOfertado reference="../../../../../listaTorneos/master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[9]"/>
+        </master.Oferta>
       </data>
     </listaOfertas>
   </mercado>

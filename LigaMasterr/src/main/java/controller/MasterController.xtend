@@ -67,6 +67,16 @@ class MasterController {
 		ok(torneos.toJson)
 	}
 	
+	@Get("/ofertas/recibidas/:nombreDT")
+	def Result getOfertas() {
+		val dt = LigaMaster.instance.listaDT.findFirst[dt|dt.getNombreDT == nombreDT]
+		val ofertas = LigaMaster.instance.mercado.getOfertasRecibidas(dt) 
+		
+		response.contentType = ContentType.APPLICATION_JSON
+		response.characterEncoding = "utf-8"
+		ok(ofertas.toJson)
+	}
+	
 	@Put('/plantel/:nombreDT/:jugadorID')
 	def Result actualizar(@Body String body) {
 		
@@ -133,6 +143,9 @@ class MasterController {
 		LigaMaster.instance.guardarBase
 		ok(_dtOfertante.toJson);
 	}
+	
+	
+	
 	
 	@Put('/dts/:nombreDT')
 	def Result comprarSlot(@Body String body) {

@@ -126,7 +126,13 @@ app.controller('mainController', function(DTService,JugadorService, TorneoServic
         });
     };
 
-    
+    this.getListaOfertas = function() {
+        DTService.getOfertas(function(response) {
+            self.listaOfertas = _.map(response.data, Oferta.asOferta);
+        });
+    };
+
+    self.getListaOfertas();
     self.getTorneos();
     self.getDT();
     self.getAll();
@@ -148,6 +154,10 @@ app.controller('listaController', function($scope,DTService) {
     this.select = function(jugador){
         this.jugadorSeleccionado = jugador;
         DTService.seleccionarJugador(jugador);
+    };
+
+    this.selectPartido = function(partido){
+        this.partidoSeleccionado = partido;
     };
 
     this.setLimit = function(number) {

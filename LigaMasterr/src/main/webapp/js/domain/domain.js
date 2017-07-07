@@ -49,3 +49,13 @@ Torneo.asTorneo = function(jsonTorneo) {
     torneo.listaPartidos = _.map(jsonTorneo.listaPartidos, Partido.asPartido);
     return torneo;
 };
+
+
+function Oferta() {}
+
+Partido.asOferta = function(jsonPartido) {
+    var oferta = angular.extend(new Oferta(), jsonOferta);
+    oferta.jugadoresOfrecidos = [];
+    return oferta;
+
+};
