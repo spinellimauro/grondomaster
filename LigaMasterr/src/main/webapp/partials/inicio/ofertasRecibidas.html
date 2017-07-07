@@ -1,0 +1,34 @@
+<table class="table table-responsive table-hover">
+   <tbody>
+            <tr>
+                <th class="col-sm-3">DT Ofertante</th>
+                <th class="col-sm-3">Jugador</th>
+                <th class="col-sm-3">Monto</th>
+            </tr>
+            <tr ng-repeat="oferta in mainCtrl.listaOfertas">
+                
+                <td>
+                <img width="40" height="40" ng-src="http://cdn.sofifa.org/17/teams/{{oferta.dtOfertante.id}}.png"/>
+                {{oferta.dtOfertante.nombreDT}}
+                </td>
+                
+                <td>
+
+                <img width="40" height="40" ng-src="http://
+                cdn.sofifa.org/17/players/{{oferta.jugadorOfertado.id}}.png" err-src="http://cdn.sofifa.org/player.png" />{{oferta.jugadorOfertado.nombre}}
+
+                </td>
+                
+                <td>{{oferta.monto}}<td>
+                <button class="btn btn-success" ng-click="buscarCtrl.getResultados()">
+                <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <td>
+                
+                <button class="btn btn-danger" ng-click="buscarCtrl.getResultados()">
+                <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <td>
+            </tr>
+        </tbody>
+</table>
