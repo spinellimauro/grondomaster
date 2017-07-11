@@ -2,7 +2,6 @@ package controller
 
 import datos.Precios
 import datos.SoFifa
-import datos.Transferencia
 import master.LigaMaster
 import org.uqbar.xtrest.api.Result
 import org.uqbar.xtrest.api.XTRest
@@ -14,6 +13,7 @@ import org.uqbar.xtrest.http.ContentType
 import org.uqbar.xtrest.json.JSONUtils
 import master.Oferta
 import datos.Mercado
+import master.Transferencia
 
 @Controller
 class MasterController {
@@ -86,6 +86,16 @@ class MasterController {
 		dt.venderJugador(jugadorAVender,10000)
 		LigaMaster.instance.guardarBase
 		ok(dt.toJson);
+	}
+	
+	@Put('/transferibles/jugador/:jugadorID/:monto')
+	def Result ponerTransferible(@Body String body) {
+		
+		
+		val jugadorATrasnferir = LigaMaster.instance.listaJugador.findFirst[j|j.id == Integer.parseInt(jugadorID)]
+		jugadorATrasnferir.precioVenta = Integer.parseInt(monto)
+		LigaMaster.instance.guardarBase
+		ok(jugadorATrasnferir.toJson);
 	}
 	
 	@Put('/transferibles/:nombreDT/:jugadorID')

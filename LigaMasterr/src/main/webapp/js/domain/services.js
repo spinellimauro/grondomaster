@@ -66,6 +66,9 @@ app.service("DTService", function($http) {
        return $http.put('/ofertas/' + nombreDT + '/'+ jugadorID + '/'+ monto);
     };
 
+    this.transferible = function(jugadorID,monto){
+       return $http.put('/transferibles/jugador/' + jugadorID + '/'+ monto);
+    };
 
  // toDT
     this.usuarioActivo;

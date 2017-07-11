@@ -17,8 +17,9 @@
                 </h4>
             </div>
             <div class="modal-footer text-center">
-                <div class="btn-group">
-                   
+
+                    
+
                    <button type="button" class="btn btn-default"
                     ng-click="mainCtrl.comprarAOtroDT(jugador.id)" 
                     ng-show="jugador.precioVenta > 0 && jugador.propietario != mainCtrl.DT.nombreDT">Comprar a {{jugador.propietario}}</button>
@@ -26,7 +27,23 @@
                     <button type="button" class="btn btn-default"
                     ng-click="mainCtrl.comprarAMaquina(jugador.id)"   
                     ng-show="jugador.propietario == 'Libre'">Comprar a Máquina </button>
-                    
+                        
+                    <form>
+                        <div class="btn-group col-sm-5" ng-show="jugador.propietario == mainCtrl.DT.nombreDT">
+                           
+                           <input type="text" class="form-control" placeholder="Precio transferible" ng-model="mainCtrl.precioTransferible">
+
+                            <div class="input-group-btn">   
+                                <button class="btn btn-primary" ng-click="mainCtrl.ponerTransferible(jugador.id)"
+                                ng-show="jugador.propietario == mainCtrl.DT.nombreDT">
+                                   Poner En Venta
+
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+
                     <button type="button" class="btn btn-default"
                     ng-click="mainCtrl.venderALaMaquina(jugador.id)" ng-show="jugador.propietario == mainCtrl.DT.nombreDT">Vender a Máquina ({{(jugador.precioMaquina)/4}})</button>
                     
@@ -35,6 +52,7 @@
                     ng-show="jugador.propietario != 'Libre' && jugador.propietario != mainCtrl.DT.nombreDT"
                     ng-click="listaCtrl.select(jugador);mainCtrl.ofertar()">Ofertar a {{jugador.propietario}}</button>
 
+                  
                 </div>
             </div>
         </div>

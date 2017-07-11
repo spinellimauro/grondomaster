@@ -70,7 +70,16 @@ class DT {
 	def void decPlata(double monto) {
 		plata -= monto
 	}
-
+	
+	def void prestarPlata(DT otro, double monto ){
+		if(plata >= monto){
+			otro.plata += monto
+			plata -= monto
+		}
+		else{
+		throw new Exception("No tenés suficiente plata")
+		}
+	}
 	// Impuestos
 	def void incTorneos() {
 		torneosDisponibles++

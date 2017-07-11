@@ -6,6 +6,7 @@ import master.DT
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import master.Jugador
+import master.Transferencia
 
 @Observable
 @Accessors
@@ -29,11 +30,3 @@ class Mercado {
 	}
 }
 
-@Observable
-@Accessors
-class Transferencia {
-	String dtCompra
-	String dtVende
-	double monto
-	String jugadorComprado
-}

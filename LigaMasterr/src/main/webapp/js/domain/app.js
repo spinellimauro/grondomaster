@@ -52,6 +52,7 @@ app.controller('mainController', function(DTService,JugadorService, TorneoServic
     this.DT = DTService.usuarioActivo;
     this.monto = 0;
     this.jugador = DTService.jugadorSeleccionado;
+    this.precioTransferible = 0;
 // PUTS
     this.venderALaMaquina = function(jugadorID){
         DTService.venderJugadorALaMaquina(this.DT.nombreDT, jugadorID).then(function(){
@@ -86,6 +87,12 @@ app.controller('mainController', function(DTService,JugadorService, TorneoServic
         });
     };
 
+
+    this.ponerTransferible = function(jugadorID){
+        DTService.transferible(jugadorID,this.precioTransferible).then(function(){
+
+        });
+    };
 // Ofertar
     this.realizarOferta = function(){
         DTService.confirmarOferta(this.DT.nombreDT,this.jugador.id,this.monto).then(function(){

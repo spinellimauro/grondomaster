@@ -477,22 +477,6 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
-                  <id>176944</id>
-                  <nombre>M. Fellaini</nombre>
-                  <nacionalidad>Bélgica</nacionalidad>
-                  <posiciones>
-                    <string>MC</string>
-                    <string>MCO</string>
-                    <string>MCD</string>
-                  </posiciones>
-                  <nivel>78</nivel>
-                  <potencial>78</potencial>
-                  <lesion>0</lesion>
-                  <habilitado>true</habilitado>
-                  <precioVenta>10000.0</precioVenta>
-                  <vecesNoPagadas>0</vecesNoPagadas>
-                </master.Jugador>
-                <master.Jugador>
                   <id>210935</id>
                   <nombre>D. Berardi</nombre>
                   <nacionalidad>Italia</nacionalidad>
@@ -532,7 +516,7 @@
                   <potencial>90</potencial>
                   <lesion>0</lesion>
                   <habilitado>true</habilitado>
-                  <precioVenta>0.0</precioVenta>
+                  <precioVenta>15000.0</precioVenta>
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
@@ -582,7 +566,7 @@
             </listaJugadores>
             <nombreDT>Mauro</nombreDT>
             <password>ARGarg12</password>
-            <plata>34000.0</plata>
+            <plata>44000.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>38</slots>
           </master.DT>
@@ -2035,7 +2019,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[38]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[37]"/>
               </data>
             </golesLocal>
             <golesVisitante class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -2144,7 +2128,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[35]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[34]"/>
                 <master.Jugador reference="../../../../master.Partido/listaAmarillas/data/master.Jugador"/>
               </data>
             </golesVisitante>
@@ -2235,7 +2219,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>listaRojas</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[38]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[37]"/>
               </data>
             </listaRojas>
           </master.Partido>
@@ -3240,6 +3224,22 @@
                   <vecesNoPagadas>0</vecesNoPagadas>
                 </master.Jugador>
                 <master.Jugador>
+                  <id>176944</id>
+                  <nombre>M. Fellaini</nombre>
+                  <nacionalidad>Bélgica</nacionalidad>
+                  <posiciones>
+                    <string>MC</string>
+                    <string>MCO</string>
+                    <string>MCD</string>
+                  </posiciones>
+                  <nivel>78</nivel>
+                  <potencial>78</potencial>
+                  <lesion>0</lesion>
+                  <habilitado>true</habilitado>
+                  <precioVenta>10000.0</precioVenta>
+                  <vecesNoPagadas>0</vecesNoPagadas>
+                </master.Jugador>
+                <master.Jugador>
                   <id>229270</id>
                   <nombre>M. Lemos</nombre>
                   <nacionalidad>Uruguay</nacionalidad>
@@ -3449,7 +3449,7 @@
             </listaJugadores>
             <nombreDT>Ale</nombreDT>
             <password>Comando223</password>
-            <plata>35250.0</plata>
+            <plata>25250.0</plata>
             <torneosDisponibles>1</torneosDisponibles>
             <slots>33</slots>
           </master.DT>
@@ -3808,8 +3808,8 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesVisitante</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[17]"/>
                 <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[18]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[19]"/>
                 <master.Jugador>
                   <id>193301</id>
                   <nombre>A. Lacazette</nombre>
@@ -3946,7 +3946,7 @@
               <owner class="master.Partido" reference="../.."/>
               <fieldName>golesLocal</fieldName>
               <data class="list">
-                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[18]"/>
+                <master.Jugador reference="../../../../../../listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[19]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
                 <master.Jugador reference="../../../../master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
               </data>
@@ -4205,7 +4205,7 @@
               <fieldName>golesVisitante</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo[2]/listaPartidos/data/master.Partido[2]/golesVisitante/data/master.Jugador[3]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[17]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo[2]/listaParticipantes/data/master.DT[3]/listaJugadores/data/master.Jugador[18]"/>
               </data>
             </golesVisitante>
             <listaAmarillas class="org.uqbar.common.transaction.Collection.TransacionalList">
@@ -4213,7 +4213,7 @@
               <fieldName>listaAmarillas</fieldName>
               <data class="list">
                 <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[27]"/>
-                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[38]"/>
+                <master.Jugador reference="../../../../../../../master.Torneo/listaParticipantes/data/master.DT/listaJugadores/data/master.Jugador[37]"/>
               </data>
             </listaAmarillas>
             <listaRojas class="org.uqbar.common.transaction.Collection.TransacionalList">
