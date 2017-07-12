@@ -1,9 +1,11 @@
 <div class="navbar navbar-default navbar-fixed-side">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar">
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
+            
         </button>
-        <a class="navbar-brand">{{mainCtrl.DT.nombreDT}}</a>
+        <a class="navbar-brand">
+        <span class="glyphicon glyphicon-user"></span>
+         {{mainCtrl.DT.nombreDT}}</a>
     </div>
     <center>
         <div class="collapse navbar-collapse" id="sidebar">
@@ -16,7 +18,8 @@
                 <p class="navbar-text">Nº Jugadores: {{mainCtrl.DT.listaJugadores.length}}</p>
                 <button type="button" class="btn btn-primary"
                     ng-click="mainCtrl.comprarSlot()" 
-                    >Comprar Slot</button>
+                    >
+                    <span class="glyphicon glyphicon-plus-sign"></span> Comprar Slot</button>
             </ul>
         </div>
     </center>

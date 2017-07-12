@@ -3,17 +3,24 @@
         <div class="panel-title">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.plantel">Plantel</a>
+                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.plantel">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                     Plantel</a>
                 </li>
                 <li>
-                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.deshabilitados">Deshabilitados</a>
+                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.deshabilitados">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                     Deshabilitados</a>
                 </li>
                 <li>
-                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.ofertasRecibidas">Ofertas({{mainCtrl.listaOfertas.length}})</a>
+                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.ofertasRecibidas"><span class="glyphicon glyphicon-refresh"></span>
+                     Ofertas({{mainCtrl.listaOfertas.length}})</a>
                 </li>
 
                    <li>
-                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.ajustes">Ajustes</a>
+                    <a data-toggle="tab" data-target="#tab" ui-sref="main.inicio.ajustes">
+                    <span class="glyphicon glyphicon-cog"></span>
+                     Ajustes</a>
                 </li>
             </ul>
         </div>
